@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rupai's World · Mini Calculator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Pacifico&display=swap');
+    :root { --ink:#43256e; --pink:#ff74ad; --pink2:#ffb5d2; --purple:#9563db; --panel:#fbe8ff; --line:#d586ed; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; color:var(--ink); font-family:"Baloo 2", system-ui, sans-serif; background:radial-gradient(circle at 18% 18%,#fff5a9 0 2px,transparent 3px),radial-gradient(circle at 83% 12%,#fff 0 2px,transparent 3px),linear-gradient(145deg,#d7b4ff,#ffc7e4 48%,#a9eff0); background-size:90px 90px,120px 120px,auto; padding:22px; }
+    .calculator { width:min(100%,490px); overflow:hidden; border:7px solid #64308d; border-radius:22px; box-shadow:0 0 0 4px #fa9ad4,0 16px 0 #69369a,0 30px 54px #65327766; background:radial-gradient(circle at 10% 30%,#fff5aa 0 2px,transparent 3px),linear-gradient(150deg,#b870e4,#ffd2ec 52%,#ad69df); position:relative; }
+    .calculator:before { content:"✦  ·  ✧  ·  ✦  ·  ✧  ·  ✦"; position:absolute; top:7px; left:0; width:100%; text-align:center; color:#fff3a9; letter-spacing:11px; font-size:16px; pointer-events:none; }
+    header { min-height:91px; padding:15px 13px 5px; display:grid; grid-template-columns:60px 1fr 60px; align-items:center; text-align:center; }
+    .title { font-family:Pacifico,cursive; font-size:31px; color:#7135a4; text-shadow:2px 2px #fff0fa,3px 3px #ff7fb6; line-height:1.15; }
+    .subtitle { font-size:13px; color:#a3437e; font-weight:700; }
+    .round-btn { border:3px solid #f9d3ff; color:white; background:linear-gradient(145deg,#d88ded,#7443c6); border-radius:18px; min-height:53px; box-shadow:0 5px 0 #61308f,inset 0 3px #ffffffa8; font:700 12px "Baloo 2"; cursor:pointer; }
+    .round-btn:hover { filter:brightness(1.07); transform:translateY(-1px); }
+    .display { margin:0 12px 11px; min-height:183px; padding:17px 18px; border:4px solid #7d45ae; border-radius:22px; background:linear-gradient(90deg,#f4d5ff 0%,#f7d5ec 53%,#ffd9e8 100%),url('mini-and-bunny.png') left bottom / auto 183px no-repeat; box-shadow:inset 0 0 0 3px #fef0ff, inset 0 -9px 17px #8c48b755; display:flex; flex-direction:column; justify-content:space-between; text-align:right; }
+    .expression { font-size:22px; min-height:30px; color:#6d3da4; font-weight:700; overflow-wrap:anywhere; }
+    .result { font-size:59px; line-height:1; font-weight:800; color:#4b2377; overflow-x:auto; scrollbar-width:none; text-shadow:1px 2px #fff5ff; }
+    .hint { text-align:right; color:#773f9e; font-weight:800; font-size:13px; }
+    .keys { padding:0 12px 13px; display:grid; grid-template-columns:repeat(5,1fr); gap:7px; }
+    button.key { min-height:54px; border:3px solid #ffe9fa; border-radius:15px; color:#42215e; background:linear-gradient(145deg,#fffdf9,#ffc8db); box-shadow:0 5px 0 #c66a9a, inset 0 3px #fff; font:800 25px "Baloo 2"; cursor:pointer; transition:transform .12s,filter .12s; }
+    button.key:hover { filter:brightness(1.04); transform:translateY(-2px); }
+    button.key:active { transform:translateY(3px); box-shadow:0 2px 0 #d97eab; }
+    .small { font-size:18px!important; }
+    .pink { background:linear-gradient(145deg,#ffb0ce,#ff5f9d)!important; color:white!important; box-shadow:0 5px 0 #bd487a!important; }
+    .purple { background:linear-gradient(145deg,#c49aff,#7c48cb)!important; color:white!important; box-shadow:0 5px 0 #5d329c!important; }
+    .gold { background:linear-gradient(145deg,#ffe790,#ffad43)!important; box-shadow:0 5px 0 #d98235!important; }
+    .mint { background:linear-gradient(145deg,#bbf3d3,#65cda7)!important; box-shadow:0 5px 0 #4aa986!important; }
+    .equals { grid-column:span 2; font-size:38px!important; }
+    .footer { margin:0 12px 12px; border:3px solid #e592d8; border-radius:13px; background:linear-gradient(90deg,#ffc5e2,#fff0ac,#ffc5e2); box-shadow:inset 0 2px #fff; text-align:center; font-weight:800; padding:4px 10px; color:#743b9f; font-size:14px; }
+    .character { display:none; }
+    .dark { --ink:#f8eaff; --panel:#4b2967; background:radial-gradient(circle at 20% 12%,#fff3a6 0 2px,transparent 3px),linear-gradient(145deg,#1d1744,#542a70 55%,#284965); }
+    .dark .calculator { background:linear-gradient(145deg,#5b3477,#8d4f8b); border-color:#ef9ddd; }
+    .dark .display { background:linear-gradient(115deg,#382a62,#6e4267); }
+    .dark .result { color:#fff3ff; }.dark .expression,.dark .hint { color:#f5bce4; }
+    @media(max-width:430px){ body{padding:9px}.calculator{border-radius:23px}.title{font-size:27px}header{grid-template-columns:55px 1fr 55px}.keys{gap:6px;padding:0 10px 13px}.display{margin:0 10px 9px}.footer{margin:0 10px 10px}button.key{min-height:52px;font-size:22px}.small{font-size:16px!important}.character{display:none} }
+    /* Exact visual reference mode: the supplied Rupai's World calculator artwork is used unchanged. */
+    body { background:#fff; }
+    .calculator { width:min(100%,478px); height:auto; aspect-ratio:478 / 638; border:0; border-radius:0; box-shadow:0 15px 35px #52307042; background:url('rupais-world-exact-calculator.png') center / 100% 100% no-repeat; }
+    .calculator:before, .calculator header, .calculator .footer, .calculator .character { display:none; }
+    .calculator .display { position:absolute; display:flex; inset:95px 14px auto; height:181px; min-height:0; margin:0; padding:18px 22px; border:0; border-radius:0; background:none; box-shadow:none; z-index:2; pointer-events:none; }
+    .calculator .display .expression { min-height:20px; color:#43256e; font-size:21px; text-shadow:1px 1px #fff; }
+    .calculator .display .result { color:#43256e; font-size:55px; text-shadow:1px 2px #fff; }
+    .calculator .display .hint { display:none; }
+    .calculator .keys { position:absolute; inset:0; display:block; padding:0; opacity:1; z-index:3; }
+    .calculator .keys .key { position:absolute; display:block; min-height:0; margin:0; padding:0; border:0; opacity:0; pointer-events:auto; box-shadow:none; }
+    .calculator .keys .key:nth-child(1){left:17px;top:294px;width:72px;height:48px}.calculator .keys .key:nth-child(2){left:97px;top:294px;width:72px;height:48px}.calculator .keys .key:nth-child(3){left:177px;top:294px;width:72px;height:48px}.calculator .keys .key:nth-child(4){left:257px;top:294px;width:72px;height:48px}.calculator .keys .key:nth-child(5){left:399px;top:294px;width:63px;height:48px}
+    .calculator .keys .key:nth-child(6){left:17px;top:348px;width:72px;height:49px}.calculator .keys .key:nth-child(7){left:97px;top:348px;width:72px;height:49px}.calculator .keys .key:nth-child(8){left:177px;top:348px;width:72px;height:49px}.calculator .keys .key:nth-child(9){left:257px;top:348px;width:72px;height:49px}.calculator .keys .key:nth-child(10){left:347px;top:348px;width:115px;height:49px}
+    .calculator .keys .key:nth-child(11){left:17px;top:403px;width:77px;height:49px}.calculator .keys .key:nth-child(12){left:99px;top:403px;width:77px;height:49px}.calculator .keys .key:nth-child(13){left:181px;top:403px;width:78px;height:49px}.calculator .keys .key:nth-child(14){left:264px;top:403px;width:78px;height:49px}.calculator .keys .key:nth-child(15){left:347px;top:403px;width:115px;height:49px}
+    .calculator .keys .key:nth-child(16){left:17px;top:458px;width:77px;height:49px}.calculator .keys .key:nth-child(17){left:99px;top:458px;width:77px;height:49px}.calculator .keys .key:nth-child(18){left:181px;top:458px;width:78px;height:49px}.calculator .keys .key:nth-child(19){left:264px;top:458px;width:78px;height:49px}.calculator .keys .key:nth-child(20){left:347px;top:458px;width:115px;height:49px}
+    .calculator .keys .key:nth-child(21){left:17px;top:513px;width:77px;height:49px}.calculator .keys .key:nth-child(22){left:99px;top:513px;width:77px;height:49px}.calculator .keys .key:nth-child(23){left:181px;top:513px;width:78px;height:49px}.calculator .keys .key:nth-child(24){left:99px;top:566px;width:77px;height:49px}.calculator .keys .key:nth-child(25){left:181px;top:566px;width:78px;height:49px}.calculator .keys .key:nth-child(26){left:264px;top:566px;width:78px;height:49px}.calculator .keys .key:nth-child(27){left:347px;top:513px;width:115px;height:102px}
+    body.dark .calculator { filter:brightness(.72) saturate(.85) hue-rotate(12deg); }
+    .mini-life { position:absolute; left:42px; top:104px; width:190px; height:178px; z-index:4; pointer-events:none; animation:miniBreathe 3.4s ease-in-out infinite; }
+    .mini-life i { position:absolute; top:58px; width:25px; height:5px; border-radius:50%; background:#4b2075; opacity:0; transform:scaleY(0); animation:blink 4.8s infinite; }
+    .mini-life i:first-child { left:79px; }.mini-life i:nth-child(2){ left:120px; animation-delay:.06s; }
+    .mini-life b { position:absolute; right:2px; top:14px; color:#fff6a9; font-size:25px; text-shadow:0 0 8px #a449df; animation:twinkle 1.5s ease-in-out infinite; }
+    .mini-life em { position:absolute; left:125px; top:6px; padding:3px 8px; border:2px solid #fff3ff; border-radius:13px; color:#7834a4; background:#ffd5edeb; box-shadow:0 2px 0 #b660bb; font:800 13px "Baloo 2"; font-style:normal; opacity:0; transform:translateY(6px) scale(.8); transition:.2s; white-space:nowrap; }
+    .mini-life.cheer em { opacity:1; transform:translateY(0) scale(1); }
+    .mini-life.cheer { animation:miniCheer .48s ease-in-out 2; }
+    .key-pop { position:absolute; z-index:4; width:73px; height:48px; border-radius:16px; pointer-events:none; opacity:0; background:linear-gradient(#ffffff77,#ffb6dc44); border:2px solid #fff; box-shadow:0 5px 0 #a3448588,0 0 14px #fff8; }
+    .key-pop.on { animation:keyPress .34s ease-out; }
+    @keyframes blink { 0%,44%,47%,100%{opacity:0;transform:scaleY(0)}45%,46%{opacity:.78;transform:scaleY(1)} }
+    @keyframes twinkle { 50%{transform:scale(1.35) rotate(20deg);opacity:.55} }
+    @keyframes miniBreathe { 50%{transform:translateY(-2px)} }
+    @keyframes miniCheer { 50%{transform:translateY(-7px) rotate(-1deg)} }
+    @keyframes keyPress { 0%{opacity:0;transform:translateY(-3px) scale(1.06)}35%{opacity:1;transform:translateY(3px) scale(.96)}100%{opacity:0;transform:translateY(0) scale(1)} }
+    @media(max-width:430px){.calculator{border-radius:0}.calculator .display{inset:14.9% 3% auto;height:28.3%}.calculator .keys .key{transform:scale(calc(100vw / 478));transform-origin:top left}}
+  </style>
+</head>
+<body>
+  <main class="calculator" aria-label="Rupai's World mini calculator">
+    <header><button class="round-btn" id="menu">⌂<br>Menu</button><div><div class="title">Rupai's World</div><div class="subtitle">♥ Har din — ek choti kadam — ♥</div></div><button class="round-btn" id="theme">☾<br>Theme</button></header>
+    <section class="display" aria-live="polite"><div class="expression" id="expression"></div><div class="result" id="result">0</div><div class="hint" id="hint">✨ Ready for magic maths!</div></section>
+    <div class="mini-life" aria-hidden="true"><i></i><i></i><b>✦</b><em id="miniMood">Yay!</em></div><div class="key-pop" id="keyPop" aria-hidden="true"></div>
+    <section class="keys" id="keys">
+      <button class="key pink small" data-action="mc">MC</button><button class="key purple small" data-action="mr">MR</button><button class="key mint small" data-action="mplus">M+</button><button class="key mint small" data-action="mminus">M−</button><button class="key pink small" data-action="clear">AC</button>
+      <button class="key small" data-action="square">x²</button><button class="key small" data-action="cube">x³</button><button class="key gold" data-action="percent">%</button><button class="key mint" data-action="sqrt">√</button><button class="key pink small" data-action="recip">1/x</button>
+      <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key gold" data-value="9">9</button><button class="key purple" data-value="/">÷</button><button class="key pink" data-value="*">×</button>
+      <button class="key mint" data-value="4">4</button><button class="key pink" data-value="5">5</button><button class="key gold" data-value="6">6</button><button class="key purple" data-value="-">−</button><button class="key pink" data-value="+">+</button>
+      <button class="key pink" data-value="1">1</button><button class="key purple" data-value="2">2</button><button class="key mint" data-value="3">3</button><button class="key small" data-action="sign">+/−</button><button class="key gold" data-value="0">0</button>
+      <button class="key mint" data-value=".">.</button><button class="key pink equals" data-action="equals">=</button>
+    </section>
+    <div class="character" aria-hidden="true">👧🏻🐰</div><div class="footer" id="footer">🌟 Keep going, Rupai! You are amazing! 🌟</div>
+  </main>
+  <script>
+    const result=document.querySelector('#result'), expression=document.querySelector('#expression'), hint=document.querySelector('#hint');
+    let input='0', formula='', memory=0, fresh=false;
+    const pretty=s=>s.replaceAll('*','×').replaceAll('/','÷').replaceAll('-','−');
+    const show=()=>{
+      const typedExpression=formula ? formula+(fresh?'':input) : '';
+      let preview=input;
+      if(formula && !fresh){ try{ preview=String(calc(formula+input)); }catch{ preview=input; } }
+      result.textContent=(input==='0'&&!formula)?'':preview;
+      expression.textContent=typedExpression ? pretty(typedExpression) : '';
+    };
+    show();
+    function number(v){if(fresh){input='0';fresh=false} if(v==='.'&&input.includes('.'))return; input=input==='0'&&v!=='.'?v:input+v;show()}
+    function op(v){
+      if(input==='Error') return;
+      // A second operator replaces the first one; otherwise finish the pending calculation first.
+      if(formula && fresh){ formula=formula.slice(0,-1)+v; show(); return; }
+      if(formula){ try{ input=String(calc(formula+input)); }catch{ input='Error'; formula=''; show(); return; } }
+      formula=input+v;
+      input='0';
+      fresh=true;
+      show();
+    }
+    function calc(s){if(!/^[0-9.+*/\- ]+$/.test(s))throw Error();const n=Function('return ('+s+')')();if(!Number.isFinite(n))throw Error();return Math.round((n+Number.EPSILON)*1e12)/1e12}
+    function unary(fn,label){try{input=String(fn(Number(input)));formula='';fresh=true;hint.textContent='✨ '+label;show()}catch{input='Error';fresh=true;show()}}
+    document.querySelector('#keys').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const v=b.dataset.value,a=b.dataset.action;if(v!==undefined){/[+*/-]/.test(v)?op(v):number(v);return} if(a==='clear'){input='0';formula='';fresh=false;hint.textContent='✨ Fresh start!';show()} if(a==='back'){if(!fresh)input=input.length>1?input.slice(0,-1):'0';show()} if(a==='equals'){try{const full=formula+input; input=String(calc(full));expression.textContent=pretty(full)+' =';formula='';fresh=true;hint.textContent='🎉 Brilliant, Rupai!';show()}catch{input='Error';formula='';fresh=true;hint.textContent='Try a different calculation ✨';show()}} if(a==='square')unary(x=>x*x,'Squared it!'); if(a==='cube')unary(x=>x*x*x,'Cubed it!'); if(a==='sqrt')unary(x=>x<0?NaN:Math.sqrt(x),'Square-root magic!'); if(a==='recip')unary(x=>x===0?NaN:1/x,'Reciprocal ready!'); if(a==='percent')unary(x=>x/100,'Percent ready!'); if(a==='sign')unary(x=>-x,'Sign changed!'); if(a==='mc'){memory=0;hint.textContent='Memory cleared 🌸'} if(a==='mr'){input=String(memory);fresh=true;hint.textContent='Memory recalled 🌸';show()} if(a==='mplus'){memory+=Number(input)||0;hint.textContent='Added to memory 🌸'} if(a==='mminus'){memory-=Number(input)||0;hint.textContent='Subtracted from memory 🌸'} });
+    document.querySelector('#theme').onclick=()=>document.body.classList.toggle('dark'); document.querySelector('#menu').onclick=()=>{hint.textContent='🏠 Rupai’s World · Mini Calculator'};
+    addEventListener('keydown',e=>{if(/[0-9.]/.test(e.key))number(e.key);else if('+-*/'.includes(e.key))op(e.key);else if(e.key==='Enter'||e.key==='=')document.querySelector('[data-action="equals"]').click();else if(e.key==='Escape')document.querySelector('[data-action="clear"]').click();else if(e.key==='Backspace')document.querySelector('[data-action="back"]').click()});
+    // The visual buttons are part of the reference artwork; these click zones make every pictured key work.
+    const board=document.querySelector('.calculator'), keyArea=document.querySelector('#keys'), miniLife=document.querySelector('.mini-life'), miniMood=document.querySelector('#miniMood'), keyPop=document.querySelector('#keyPop');
+    let moodTimer;
+    const react=(hit)=>{ const messages=hit.action==='equals'?['Wow! ✨','Yay! 🎉','So smart! ⭐']:hit.action==='clear'?['Fresh start! 🌸']:['Hehe! ✦','Nice! 💜','Go Rupai! ✨']; miniMood.textContent=messages[Math.floor(Math.random()*messages.length)]; miniLife.classList.remove('cheer'); void miniLife.offsetWidth; miniLife.classList.add('cheer'); clearTimeout(moodTimer); moodTimer=setTimeout(()=>miniLife.classList.remove('cheer'),1100); };
+    const fire=(hit)=>{ if(!hit)return; if(hit.action) document.querySelector(`[data-action="${hit.action}"]`)?.click(); else [...document.querySelectorAll('[data-value]')].find(b=>b.dataset.value===hit.value)?.click(); react(hit); };
+    const at=(x,y)=>{
+      const six=['mc','mr','mplus','mminus','percent','clear'];
+      const fun=['square','cube','percent','sqrt','recip','sign'];
+      const five=[55,137,220,303,405];
+      if(y<90){ if(x<75){hint.textContent='🏠 Rupai’s World · Mini Calculator';return null;} if(x>400){document.querySelector('#theme').click();return null;} }
+      if(y>=294&&y<=343)return {action:six[Math.min(5,Math.floor((x-15)/75))]};
+      if(y>=347&&y<=399)return {action:fun[Math.min(5,Math.floor((x-15)/75))]};
+      const fiveIndex=()=>x<96?0:x<178?1:x<261?2:x<344?3:4;
+      const threeIndex=()=>x<96?0:x<178?1:2;
+      if(y>=402&&y<=454){const row=['7','8','9','/','*'];return {value:row[fiveIndex()]};}
+      if(y>=457&&y<=509){const row=['4','5','6','-','+'];return {value:row[fiveIndex()]};}
+      if(y>=511&&y<=565){ if(x>338)return {action:'equals'}; const row=['1','2','3']; return x<261?{value:row[threeIndex()]}:null; }
+      if(y>=566&&y<=625){ if(x>338)return {action:'equals'}; if(x>=95&&x<178)return {action:'sign'}; if(x>=178&&x<261)return {value:'0'}; if(x>=261&&x<342)return {value:'.'}; }
+      return null;
+    };
+    keyArea.addEventListener('click',e=>{ if(e.target.closest('button')) return; const r=board.getBoundingClientRect(); const x=(e.clientX-r.left)*478/r.width, y=(e.clientY-r.top)*638/r.height; const hit=at(x,y); if(hit){ keyPop.style.left=`${(x/478)*100}%`; keyPop.style.top=`${(y/638)*100}%`; keyPop.classList.remove('on'); void keyPop.offsetWidth; keyPop.classList.add('on'); } fire(hit); });
+  </script>
+</body>
+</html>
