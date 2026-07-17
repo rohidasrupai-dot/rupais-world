@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff5e9">
+  <title>Ancient History | Rupai's World</title>
+  <link rel="stylesheet" href="ancient-history.css?v=12">
+</head>
+<body>
+  <div class="ancient-shell">
+    <img class="exact-reference" src="assets/ancient-dashboard-reference-v1.png" alt="Ancient History dashboard">
+    <div class="exact-interaction-layer" id="exactInteractionLayer" aria-label="Ancient History interactive controls"></div>
+    <aside class="ancient-sidebar" aria-label="Rupai's World navigation">
+      <img src="assets/ancient-sidebar-v3.png" alt="">
+      <nav>
+        <a class="side-link home" href="index.html"><span>Home</span></a>
+        <a class="side-link subjects" href="subjects.html"><span>All Subjects</span></a>
+        <a class="side-link notes" href="index.html?panel=My%20Notes"><span>My Notes</span></a>
+        <a class="side-link favorites" href="favorites.html"><span>Favorites</span></a>
+        <a class="side-link bookmark" href="index.html?panel=Bookmarks"><span>Bookmark</span></a>
+        <a class="side-link curiosity" href="index.html?panel=Curiosity%20World"><span>Curiosity World</span></a>
+        <a class="side-link ask" href="index.html?panel=Ask%20Curio"><span>Ask Curio</span></a>
+        <a class="side-link calculator" href="calculator/rupais-world-calculator-live.html"><span>Calculator</span></a>
+        <a class="side-link goals" href="index.html?panel=Daily%20Goals"><span>Daily Goals</span></a>
+        <a class="side-link progress" href="index.html?panel=Study%20Progress"><span>Progress</span></a>
+        <a class="side-link achievements" href="index.html?panel=Achievements"><span>Achievements</span></a>
+        <a class="side-link settings" href="index.html?panel=Settings"><span>Settings</span></a>
+        <a class="side-link theme" href="index.html?panel=Themes"><span>Theme</span></a>
+        <a class="side-link support" href="index.html?panel=Help%20%26%20Support"><span>Help &amp; Support</span></a>
+      </nav>
+    </aside>
+
+    <main class="ancient-main">
+      <header class="ancient-hero">
+        <img src="assets/ancient-header-v3.png" alt="Curio introducing Ancient History with books, lantern, hourglass, scroll and ancient monuments">
+        <a class="hero-back" href="history.html" aria-label="Back to History periods">←</a>
+        <button class="hero-search" id="openSearch" type="button" aria-label="Search Ancient History"></button>
+        <button class="hero-menu" id="openMenu" type="button" aria-label="Ancient History menu"></button>
+      </header>
+
+      <section class="dashboard" aria-label="Ancient History chapter dashboard">
+        <section class="stats" aria-label="Ancient History statistics">
+          <img src="assets/ancient-stats-v3.png" alt="Ancient History statistics summary">
+          <strong class="stat-live chapters" id="totalChapters">11</strong>
+          <strong class="stat-live topics" id="totalTopics">152</strong>
+          <strong class="stat-live study" id="studyTime">8h 35m</strong>
+          <strong class="stat-live progress" id="overallProgress">42%</strong>
+          <i id="overallRing" aria-hidden="true"></i>
+          <button type="button" data-tool="Timeline" aria-label="View History Timeline"></button>
+        </section>
+
+        <div class="chapter-toolbar">
+          <p id="resultCount" aria-live="polite">11 chapters</p>
+          <div><button type="button" id="openFilter">⌕ Filter</button><button type="button" id="openSort">⇅ Sort</button></div>
+        </div>
+
+        <section class="chapter-grid" id="chapterGrid" aria-live="polite">
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+        </section>
+
+        <section class="empty-state" id="emptyState" hidden>
+          <div>🔎</div><h2>Ancient History ki journey abhi load nahi hui.</h2><p>Filters reset karke ek baar phir try karte hain.</p>
+          <div><button type="button" id="tryAgain">Try Again</button><a href="index.html?panel=Ask%20Curio">Ask Curio</a><a href="history.html">Go Back</a></div>
+        </section>
+
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <img src="assets/ancient-bottom-nav-v3.png" alt="">
+      <a class="bottom-link home" href="index.html"><span>Home</span></a>
+      <a class="bottom-link subjects" href="subjects.html" aria-current="page"><span>Subjects</span></a>
+      <a class="bottom-link curio" href="index.html?panel=Ask%20Curio"><span>Curio</span></a>
+      <a class="bottom-link calculator" href="calculator/rupais-world-calculator-live.html"><span>Calculator</span></a>
+      <a class="bottom-link notes" href="index.html?panel=My%20Notes"><span>Notes</span></a>
+      <a class="bottom-link profile" href="index.html?panel=Profile"><span>Profile</span></a>
+    </nav>
+  </div>
+
+  <dialog id="searchDialog"><button class="dialog-x" aria-label="Close">×</button><h2>Search Ancient History</h2><form id="chapterSearch"><input id="searchQuery" type="search" placeholder="Stone Age, Harappa, Buddhism..." autocomplete="off"><button>Search</button></form><div id="searchResults"></div></dialog>
+
+  <dialog id="filterDialog"><button class="dialog-x" aria-label="Close">×</button><h2>Filter Chapters</h2><form id="filterForm"><label>Progress<select name="status"><option value="all">All</option><option value="not-started">Not Started</option><option value="in-progress">In Progress</option><option value="completed">Completed</option></select></label><label>Difficulty<select name="difficulty"><option value="all">All</option><option>Easy</option><option>Medium</option><option>Hard</option></select></label><fieldset><legend>Content Available</legend><label><input type="checkbox" name="hasNotes"> Has Notes</label><label><input type="checkbox" name="hasMaps"> Has Maps</label><label><input type="checkbox" name="hasVideos"> Has Videos</label><label><input type="checkbox" name="hasImages"> Has Images</label><label><input type="checkbox" name="hasQuiz"> Has Quiz</label><label><input type="checkbox" name="isDownloaded"> Downloaded</label><label><input type="checkbox" name="favoritesOnly"> Favorites Only</label></fieldset><div class="dialog-actions"><button type="button" id="resetFilters">Reset</button><button type="submit">Apply</button></div></form></dialog>
+
+  <dialog id="sortDialog"><button class="dialog-x" aria-label="Close">×</button><h2>Sort Chapters</h2><form id="sortForm"><label>Sort by<select id="sortBy"><option value="order">Chapter Order</option><option value="recent">Recently Opened</option><option value="progress">Progress</option><option value="az">A to Z</option><option value="study-time">Study Time</option><option value="easy">Easiest First</option><option value="hard">Hardest First</option></select></label><button type="submit">Apply Sort</button></form></dialog>
+
+  <dialog id="chapterDialog"><button class="dialog-x" aria-label="Close">×</button><h2></h2><p class="chapter-description"></p><div class="chapter-detail-progress"><i></i></div><p class="chapter-status"></p><div class="chapter-dialog-tools"><button data-dialog-tool="Notes">📝 Notes</button><button data-dialog-tool="Maps">🗺 Maps</button><button data-dialog-tool="Videos">▶ Videos</button><button data-dialog-tool="Ask Curio">💬 Ask Curio</button></div><div class="dialog-actions"><button type="button" id="toggleDownload">Download</button><button type="button" id="completeTopic">Complete Next Topic</button><button type="button" id="openChapter">Start Learning</button></div></dialog>
+
+  <dialog id="toolDialog"><button class="dialog-x" aria-label="Close">×</button><div class="dialog-icon">✨</div><h2></h2><p></p><div id="toolExtras"></div><button class="dialog-ok">Okay!</button></dialog>
+
+  <dialog id="menuDialog"><button class="dialog-x" aria-label="Close">×</button><h2>Ancient History Menu</h2><div class="menu-list"><button data-menu="cards">View as Cards</button><button data-menu="list">View as List</button><button data-menu="completed">Show Completed Only</button><button data-menu="progress">Show In Progress</button><button data-menu="not-started">Show Not Started</button><button data-menu="download">Download Ancient History</button><button data-menu="timeline">Open History Timeline</button><button data-menu="settings">Ancient History Settings</button><button data-menu="help">Help</button><button class="danger" data-menu="reset">Reset Ancient History Progress</button></div></dialog>
+
+  <dialog id="resetDialog"><h2>Reset Ancient History Progress?</h2><p>This clears chapter progress, study time, downloads and favorites from this dashboard.</p><div class="dialog-actions"><button id="cancelReset">Cancel</button><button id="confirmReset">Reset</button></div></dialog>
+
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"><span></span><button type="button" hidden>Undo</button></div>
+  <script src="favorites-store.js?v=1"></script>
+  <script src="ancient-history.js?v=8"></script>
+</body>
+</html>

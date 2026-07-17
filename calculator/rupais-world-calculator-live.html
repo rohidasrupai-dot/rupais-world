@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050306">
+  <title>Calculator | Rupai's World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&amp;family=Patrick+Hand&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="calculator.css?v=controls-percent-4">
+</head>
+<body>
+  <main class="calculator-canvas" aria-label="Rupai's World magical calculator">
+    <img class="reference-art" src="calculator-reference.png" alt="Rupai's World magical Calculator screen">
+
+    <section class="live-display" id="liveDisplay" aria-live="polite">
+      <span id="expression">Ready</span>
+      <output id="result">0</output>
+      <p id="displayMessage">Type your magical maths ✨</p>
+    </section>
+
+    <div class="top-controls" aria-label="Calculator controls">
+      <button class="top-sound" id="soundToggle" type="button" aria-label="Turn calculator sounds off" aria-pressed="true"></button>
+      <a class="top-settings" href="../index.html?panel=Settings" aria-label="Open Settings"></a>
+    </div>
+
+    <nav class="side-links" aria-label="Side navigation">
+      <a class="nav-link side-home" href="../index.html" aria-label="Home"></a>
+      <a class="nav-link side-subjects" href="../subjects.html" aria-label="All Subjects"></a>
+      <a class="nav-link side-notes" href="../index.html?panel=My%20Notes" aria-label="My Notes"></a>
+      <a class="nav-link side-favorites" href="../index.html?panel=Favorites" aria-label="Favorites"></a>
+      <a class="nav-link side-bookmarks" href="../index.html?panel=Bookmarks" aria-label="Bookmarks"></a>
+      <a class="nav-link side-curiosity-world" href="../index.html?panel=Curiosity%20World" aria-label="Curiosity World"></a>
+      <a class="nav-link side-ask-curio" href="../index.html?panel=Ask%20Curio" aria-label="Ask Curio"></a>
+      <a class="nav-link side-calculator" href="rupais-world-calculator-live.html" aria-label="Calculator" aria-current="page"></a>
+      <a class="nav-link side-daily-goals" href="../index.html?panel=Daily%20Goals" aria-label="Daily Goals"></a>
+      <a class="nav-link side-progress" href="../index.html?panel=Study%20Progress" aria-label="Progress"></a>
+      <a class="nav-link side-achievements" href="../index.html?panel=Achievements" aria-label="Achievements"></a>
+      <a class="nav-link side-settings" href="../index.html?panel=Settings" aria-label="Settings"></a>
+      <a class="nav-link side-theme" href="../index.html?panel=Themes" aria-label="Theme"></a>
+      <a class="nav-link side-support" href="../index.html?panel=Help%20%26%20Support" aria-label="Help and Support"></a>
+    </nav>
+
+    <section class="basic-keys" id="basicKeys" aria-label="Basic calculator keys">
+      <button type="button" data-action="clear" aria-label="All clear"></button>
+      <button type="button" data-action="backspace" aria-label="Delete last digit"></button>
+      <button type="button" data-action="percent" aria-label="Percentage"></button>
+      <button type="button" data-operator="/" aria-label="Divide"></button>
+
+      <button type="button" data-number="7" aria-label="7"></button>
+      <button type="button" data-number="8" aria-label="8"></button>
+      <button type="button" data-number="9" aria-label="9"></button>
+      <button type="button" data-operator="*" aria-label="Multiply"></button>
+
+      <button type="button" data-number="4" aria-label="4"></button>
+      <button type="button" data-number="5" aria-label="5"></button>
+      <button type="button" data-number="6" aria-label="6"></button>
+      <button type="button" data-operator="-" aria-label="Subtract"></button>
+
+      <button type="button" data-number="1" aria-label="1"></button>
+      <button type="button" data-number="2" aria-label="2"></button>
+      <button type="button" data-number="3" aria-label="3"></button>
+      <button type="button" data-operator="+" aria-label="Add"></button>
+
+      <button type="button" data-action="sign" aria-label="Change sign"></button>
+      <button type="button" data-number="0" aria-label="0"></button>
+      <button type="button" data-number="." aria-label="Decimal point"></button>
+      <button type="button" data-action="equals" aria-label="Equals"></button>
+    </section>
+
+    <section class="science-keys" aria-label="Scientific calculator keys">
+      <button type="button" data-action="square" aria-label="Square"></button>
+      <button type="button" data-action="cube" aria-label="Cube"></button>
+      <button type="button" data-action="sqrt" aria-label="Square root"></button>
+      <button type="button" data-action="cbrt" aria-label="Cube root"></button>
+      <button type="button" data-action="power" aria-label="Power"></button>
+      <button type="button" data-action="reciprocal" aria-label="Reciprocal"></button>
+      <button type="button" data-action="sin" aria-label="Sine"></button>
+      <button type="button" data-action="cos" aria-label="Cosine"></button>
+      <button type="button" data-action="tan" aria-label="Tangent"></button>
+      <button type="button" data-action="log" aria-label="Logarithm"></button>
+      <button type="button" data-action="ln" aria-label="Natural logarithm"></button>
+      <button type="button" data-action="pi" aria-label="Pi"></button>
+      <button type="button" data-action="parentheses" aria-label="Parentheses"></button>
+      <button type="button" data-action="answer" aria-label="Previous answer"></button>
+      <button type="button" data-action="exp" aria-label="Exponential"></button>
+    </section>
+
+    <section class="more-keys" aria-label="More functions">
+      <button type="button" data-action="factorial" aria-label="Factorial"></button>
+      <button type="button" data-action="ten-power" aria-label="Ten to the power"></button>
+      <button type="button" data-action="log" aria-label="Logarithm"></button>
+      <button type="button" data-action="ln" aria-label="Natural logarithm"></button>
+      <button type="button" data-action="sin" aria-label="Sine"></button>
+      <button type="button" data-action="cos" aria-label="Cosine"></button>
+      <button type="button" data-action="tan" aria-label="Tangent"></button>
+    </section>
+
+    <section class="history-panel" aria-labelledby="historyTitle">
+      <span class="history-leaves leaves-top-left" aria-hidden="true">🌿</span>
+      <span class="history-leaves leaves-top-right" aria-hidden="true">🌿</span>
+      <span class="history-leaves leaves-bottom-left" aria-hidden="true">🌿</span>
+      <span class="history-leaves leaves-bottom-right" aria-hidden="true">🌿</span>
+      <span class="history-sparkles" aria-hidden="true">✦　·　✧　·　✦</span>
+      <header>
+        <h2 id="historyTitle"><span aria-hidden="true">◷</span> Calculation History</h2>
+        <button id="clearHistory" type="button">Clear All <span aria-hidden="true">🗑</span></button>
+      </header>
+      <div class="history-list" id="historyList" aria-live="polite"></div>
+    </section>
+
+    <button class="fun-fact-card" id="funFactCard" type="button" aria-label="Show another mathematics fun fact">
+      <span class="fact-leaves" aria-hidden="true">❧</span>
+      <span class="fact-flower" aria-hidden="true">✿</span>
+      <span class="fun-fact-title">⭐ Fun Fact</span>
+      <span class="fact-divider" aria-hidden="true">✦</span>
+      <span class="fun-fact-text" id="funFactText" aria-live="polite"></span>
+      <span class="fact-dots" aria-hidden="true"><i></i><i></i><i></i><i class="active"></i><i></i></span>
+      <span class="fact-footer"><b id="factCountdown">New fact in 05:00</b><i aria-hidden="true">◔</i></span>
+      <span class="fact-sparkles" aria-hidden="true">✦　·　✧</span>
+    </button>
+
+    <nav class="bottom-links" aria-label="Main navigation">
+      <a class="nav-link bottom-home" href="../index.html" aria-label="Home"></a>
+      <a class="nav-link bottom-subjects" href="../subjects.html" aria-label="Subjects"></a>
+      <a class="nav-link bottom-curio" href="../index.html?panel=Ask%20Curio" aria-label="Curio"></a>
+      <a class="nav-link bottom-calculator" href="rupais-world-calculator-live.html" aria-label="Calculator" aria-current="page"></a>
+      <a class="nav-link bottom-notes" href="../index.html?panel=My%20Notes" aria-label="Notes"></a>
+      <a class="nav-link bottom-profile" href="../index.html?panel=Profile" aria-label="Profile"></a>
+    </nav>
+  </main>
+  <script src="math-facts.js?v=controls-percent-4"></script>
+  <script src="calculator.js?v=controls-percent-4"></script>
+</body>
+</html>

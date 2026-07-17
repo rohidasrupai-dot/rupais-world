@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ed">
+  <title>Revision Hub | Rupai's World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="revision.css?v=1">
+  <link rel="stylesheet" href="revision-reference.css?v=5">
+</head>
+<body>
+<div class="revision-shell">
+  <section class="reference-exact-skin" aria-label="Interactive Revision Hub reference layout">
+    <img src="assets/revision-reference-exact-v1.png" alt="" aria-hidden="true" loading="lazy">
+    <nav class="reference-side-hotspots" aria-label="Revision sidebar">
+      <a class="ref-hot side-home-ref" href="index.html" aria-label="Home"></a><a class="ref-hot side-subjects-ref" href="subjects.html" aria-label="All Subjects"></a><a class="ref-hot side-notes-ref" href="index.html?panel=My%20Notes" aria-label="My Notes"></a><a class="ref-hot side-favorites-ref" href="favorites.html" aria-label="Favorites"></a><a class="ref-hot side-revision-ref" href="revision.html" aria-label="Revision" aria-current="page"></a><a class="ref-hot side-bookmarks-ref" href="index.html?panel=Bookmarks" aria-label="Bookmarks"></a><a class="ref-hot side-curio-ref" href="index.html?panel=Ask%20Curio" aria-label="Curio"></a><a class="ref-hot side-calculator-ref" href="calculator/rupais-world-calculator-live.html" aria-label="Calculator"></a><a class="ref-hot side-goals-ref" href="index.html?panel=Daily%20Goals" aria-label="Daily Goals"></a><a class="ref-hot side-progress-ref" href="index.html?panel=Study%20Progress" aria-label="Progress"></a><a class="ref-hot side-achievements-ref" href="index.html?panel=Achievements" aria-label="Achievements"></a><a class="ref-hot side-settings-ref" href="index.html?panel=Settings" aria-label="Settings"></a><a class="ref-hot side-help-ref" href="index.html?panel=Help%20%26%20Support" aria-label="Help and Support"></a>
+    </nav>
+    <button class="ref-hot today-view-ref" type="button" data-ref-action="today-all" aria-label="View all today's revision"></button>
+    <button class="ref-hot today-start-ref row-one" type="button" data-ref-start-title="Harappan Civilization" aria-label="Start Harappan Civilization revision"></button><button class="ref-hot today-more-ref row-one" type="button" data-ref-more-title="Harappan Civilization" aria-label="More Harappan Civilization actions"></button>
+    <button class="ref-hot today-start-ref row-two" type="button" data-ref-start-title="Vedic Age" aria-label="Start Vedic Age revision"></button><button class="ref-hot today-more-ref row-two" type="button" data-ref-more-title="Vedic Age" aria-label="More Vedic Age actions"></button>
+    <button class="ref-hot today-start-ref row-three" type="button" data-ref-start-title="Mauryan Empire" aria-label="Start Mauryan Empire revision"></button><button class="ref-hot today-more-ref row-three" type="button" data-ref-more-title="Mauryan Empire" aria-label="More Mauryan Empire actions"></button>
+    <button class="ref-hot today-start-ref row-four" type="button" data-ref-start-title="Squares 21 – 30" aria-label="Start Squares revision"></button><button class="ref-hot today-more-ref row-four" type="button" data-ref-more-title="Squares 21 – 30" aria-label="More Squares actions"></button>
+    <div class="reference-mode-hotspots" aria-label="Revision modes"><button class="ref-hot" data-mode="Quick Recall" aria-label="Quick Recall"></button><button class="ref-hot" data-mode="Flashcards" aria-label="Flashcards"></button><button class="ref-hot" data-mode="MCQ Practice" aria-label="MCQ Practice"></button><button class="ref-hot" data-mode="Read My Notes" aria-label="Read My Notes"></button><button class="ref-hot" data-mode="Image Revision" aria-label="Image Revision"></button><button class="ref-hot" data-mode="Map Revision" aria-label="Map Revision"></button><button class="ref-hot" data-mode="Voice Revision with Curio" aria-label="Voice Revision with Curio"></button><button class="ref-hot" data-mode="Mistakes Only" aria-label="Mistakes Only"></button><button class="ref-hot" data-mode="Full Chapter Revision" aria-label="Full Chapter Revision"></button></div>
+    <button class="ref-hot smart-view-ref" type="button" data-ref-action="smart-all" aria-label="View all Smart Revision"></button>
+    <button class="ref-hot smart-start-ref smart-one" type="button" data-ref-start-title="Harappan Sites" aria-label="Revise Harappan Sites"></button><button class="ref-hot smart-start-ref smart-two" type="button" data-ref-start-title="Ashoka's Edicts" aria-label="Revise Ashoka's Edicts"></button><button class="ref-hot smart-start-ref smart-three" type="button" data-ref-start-title="Delhi Sultanate" aria-label="Revise Delhi Sultanate"></button><button class="ref-hot smart-start-ref smart-four" type="button" data-ref-start-title="Freedom Movement" aria-label="Revise Freedom Movement"></button>
+    <button class="ref-hot calendar-prev-ref" type="button" data-ref-action="calendar-prev" aria-label="Previous calendar month"></button><button class="ref-hot calendar-next-ref" type="button" data-ref-action="calendar-next" aria-label="Next calendar month"></button><div class="reference-calendar-days" id="referenceCalendarDays" aria-label="Calendar dates"></div>
+    <button class="ref-hot mistakes-view-ref" type="button" data-ref-action="mistakes" aria-label="View all mistakes"></button><button class="ref-hot mistakes-review-ref" type="button" data-ref-action="mistakes" aria-label="Review mistakes"></button>
+    <div class="reference-subject-hotspots" aria-label="Subject progress"><button class="ref-hot" data-subject-card="History" aria-label="History Revision"></button><button class="ref-hot" data-subject-card="Geography" aria-label="Geography Revision"></button><button class="ref-hot" data-subject-card="Polity" aria-label="Polity Revision"></button><button class="ref-hot" data-subject-card="Maths" aria-label="Maths Revision"></button><button class="ref-hot" data-subject-card="English" aria-label="English Revision"></button><button class="ref-hot" data-subject-card="Science" aria-label="Science Revision"></button></div>
+    <nav class="reference-bottom-hotspots" aria-label="Main navigation"><a class="ref-hot" href="index.html" aria-label="Home"></a><a class="ref-hot" href="subjects.html" aria-label="Subjects"></a><a class="ref-hot" href="index.html?panel=Ask%20Curio" aria-label="Curio"></a><a class="ref-hot" href="index.html?panel=My%20Notes" aria-label="Notes"></a><a class="ref-hot" href="index.html?panel=Profile" aria-label="Profile"></a></nav>
+  </section>
+  <aside class="side-nav" aria-label="Revision navigation">
+    <a class="brand" href="index.html"><img src="assets/rupais-world-official-logo-v2.png" alt="Rupai's World"></a>
+    <nav>
+      <a href="index.html">🏠 <span>Home</span></a><a href="subjects.html">📚 <span>All Subjects</span></a>
+      <a href="index.html?panel=My%20Notes">📝 <span>My Notes</span></a><a href="favorites.html">♥ <span>Favorites</span></a>
+      <a class="active" href="revision.html" aria-current="page">⟳ <span>Revision</span></a>
+      <a href="index.html?panel=Bookmarks">🔖 <span>Bookmarks</span></a><a href="index.html?panel=Ask%20Curio">💬 <span>Curio</span></a>
+      <a href="calculator/rupais-world-calculator-live.html">🧮 <span>Calculator</span></a>
+      <a href="index.html?panel=Daily%20Goals">🎯 <span>Daily Goals</span></a><a href="index.html?panel=Study%20Progress">📊 <span>Progress</span></a>
+      <a href="index.html?panel=Achievements">🏆 <span>Achievements</span></a><a href="index.html?panel=Settings">⚙️ <span>Settings</span></a><a href="index.html?panel=Help%20%26%20Support">🎧 <span>Help &amp; Support</span></a><button id="openReminders" type="button">🔔 <span>Reminders</span></button>
+    </nav>
+    <div class="sidebar-companion"><img src="assets/mumma-cat-heart-v1.png" alt="Rupai's study kitten"><span>🌿</span></div>
+    <p>Consistency<br>today, success<br>tomorrow! ✨</p>
+  </aside>
+
+  <div class="page-column">
+    <header class="hero">
+      <button class="back-button" id="backButton" type="button" aria-label="Go back">←</button>
+      <div class="hero-copy"><span class="eyebrow">✦ Your magical memory garden ✦</span><h1>Revision Hub</h1><p>Mumma, chalo jo padha hai<br>usse aur strong banate hain! 💜</p><div class="book-stack" aria-hidden="true"><i>FOCUS</i><i>REVISE</i><i>SUCCEED</i></div></div>
+      <div class="hero-scene"><span class="lantern" aria-hidden="true">🏮</span><img src="assets/curio-integrated-study-scene-v1.png" alt="Curio happily revising beside an open notebook"><span class="plant" aria-hidden="true">🌿</span></div>
+      <div class="hero-info"><div><span>📅</span><strong id="todayDate"></strong><small id="todayDay"></small></div><div><span>🔥</span><strong><b id="streakCount">0</b> Days</strong><small>Revision streak</small></div></div>
+    </header>
+
+    <main>
+      <section class="summary-grid" aria-label="Revision summary">
+        <article><span>📋</span><div><small>Pending Topics</small><strong id="pendingCount">0</strong></div></article>
+        <article><span>✅</span><div><small>Revised Today</small><strong id="revisedCount">0</strong></div></article>
+        <article><span>🎯</span><div><small>Today's Goal</small><strong id="goalCount">0 / 0</strong></div></article>
+        <article><span class="progress-ring" id="progressRing"><i id="progressPercent">0%</i></span><div><small>Overall Progress</small><strong id="overallProgress">0%</strong></div></article>
+      </section>
+
+      <section class="controls" aria-label="Search and filter revision tasks">
+        <label class="search-control"><span>⌕</span><input id="revisionSearch" type="search" placeholder="Search topic, chapter, mode…" aria-label="Search revision tasks"></label>
+        <button id="filterToggle" type="button" aria-expanded="false">⚙ Filters <b id="filterCount"></b></button>
+        <div class="filter-panel" id="filterPanel" hidden>
+          <label>Subject<select id="subjectFilter"><option>All</option><option>History</option><option>Geography</option><option>Polity</option><option>Economy</option><option>Maths</option><option>English</option><option>Reasoning</option><option>Science</option></select></label>
+          <label>Status<select id="statusFilter"><option>All</option><option>Due Today</option><option>Upcoming</option><option>Overdue</option><option>Completed</option><option>Weak</option><option>Mastered</option></select></label>
+          <label>Revision Type<select id="modeFilter"><option>All</option><option>Quick Recall</option><option>Flashcards</option><option>MCQ Practice</option><option>Read My Notes</option><option>Image Revision</option><option>Map Revision</option><option>Voice Revision with Curio</option><option>Mistakes Only</option><option>Full Chapter Revision</option></select></label>
+          <label>Sort<select id="sortFilter"><option>Priority</option><option>Due Date</option><option>Weakest First</option><option>Recently Added</option><option>A to Z</option><option>Shortest First</option></select></label>
+          <button id="resetFilters" type="button">Reset filters</button>
+        </div>
+      </section>
+
+      <section class="panel today-panel" aria-labelledby="todayTitle">
+        <div class="section-heading"><h2 id="todayTitle">📘 Today's Revision</h2><button type="button" data-view-all="today">View All ›</button></div>
+        <div class="loading-state" id="loadingState" aria-label="Curio is loading revision tasks"><span>Curio is thinking… ✨</span><i></i><i></i><i></i></div>
+        <div class="error-state" id="errorState" hidden><img src="assets/curio-official-v3.png" alt="Curio looking gently concerned"><h2>Revision tasks load nahi ho paaye.</h2><p>Chalo ek baar phir try karte hain.</p><button id="tryAgain" type="button">Try Again</button></div>
+        <div id="todayTasks" class="task-list"></div>
+        <div class="empty-state" id="emptyState">
+          <img src="assets/curio-official-v3.png" alt="Curio waiting with a happy smile">
+          <div><h2>No Revision Tasks Yet</h2><p>Mumma, kisi chapter, note ya question ko ‘Add to Revision’ karogi toh woh yahan aa jayega.</p><div><a href="subjects.html">Explore Subjects</a><a href="index.html?panel=My%20Notes">Open My Notes</a><a href="search.html">Search Something</a><a href="index.html?panel=Ask%20Curio">Ask Curio</a></div></div>
+        </div>
+      </section>
+
+      <section class="panel modes-panel" aria-labelledby="modesTitle"><div class="section-heading"><h2 id="modesTitle">🧠 Revision Modes</h2></div><div class="mode-strip" id="modeStrip">
+        <button data-mode="Quick Recall"><span>🧠</span>Quick Recall</button><button data-mode="Flashcards"><span>🃏</span>Flashcards</button><button data-mode="MCQ Practice"><span>❓</span>MCQ Practice</button><button data-mode="Read My Notes"><span>📖</span>Read My Notes</button><button data-mode="Image Revision"><span>🖼️</span>Image Revision</button><button data-mode="Map Revision"><span>🗺️</span>Map Revision</button><button data-mode="Voice Revision with Curio"><span>🎙️</span>Voice with Curio</button><button data-mode="Mistakes Only"><span>❌</span>Mistakes Only</button><button data-mode="Full Chapter Revision"><span>📚</span>Full Chapter</button>
+      </div></section>
+
+      <div class="dashboard-grid">
+        <section class="panel smart-panel" aria-labelledby="smartTitle"><div class="section-heading"><h2 id="smartTitle">🎯 Smart Revision</h2><button type="button" data-view-all="smart">View All ›</button></div><div class="smart-tabs" id="smartTabs"><button class="active" data-smart="Due Today">Due Today</button><button data-smart="Weak Topics">Weak Topics</button><button data-smart="Overdue">Overdue</button><button data-smart="Not Revised">Not Revised</button><button data-smart="Exam Important">Exam Important</button><button data-smart="Bookmarked">Bookmarked</button></div><div id="smartList" class="smart-list"></div></section>
+        <div class="side-stack">
+          <section class="panel calendar-panel" aria-labelledby="calendarTitle"><div class="section-heading"><h2 id="calendarTitle">🗓 Revision Calendar</h2><div><button id="prevMonth" aria-label="Previous month">‹</button><strong id="calendarMonth"></strong><button id="nextMonth" aria-label="Next month">›</button></div></div><div class="calendar" id="calendar"></div><div class="calendar-legend"><span>✓ Revised</span><span>● Due</span><span>! Overdue</span><span>◆ Upcoming</span><span>★ Mastered</span></div></section>
+          <section class="panel mistake-card" aria-labelledby="mistakeTitle"><div class="section-heading"><h2 id="mistakeTitle">📓 Mistake Notebook</h2><button id="viewMistakes" type="button">View All ›</button></div><div><p><b id="totalMistakes">0</b><span>Total Mistakes</span></p><p><b id="needsReview">0</b><span>Needs Review</span></p><p><b id="mistakeAccuracy">100%</b><span>Accuracy</span></p><button id="reviewMistakes" type="button">📝 Review Mistakes</button></div></section>
+        </div>
+      </div>
+
+      <section class="panel progress-panel" aria-labelledby="subjectProgressTitle"><div class="section-heading"><h2 id="subjectProgressTitle">📊 Subject-wise Progress</h2><a href="index.html?panel=Study%20Progress">View Detailed Progress ›</a></div><div class="subject-grid" id="subjectProgress"></div></section>
+      <section class="encouragement"><span>🏆</span><p><b>Little by little, revision makes your knowledge powerful! 💜</b><br>You've got this, Mumma! I'm always with you! 🌸</p><img src="assets/curio-official-v3.png" alt="Curio cheering"></section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation"><a href="index.html"><img src="assets/home-nav-icon-v1.png" alt="">Home</a><a href="subjects.html"><img src="assets/subjects-nav-icon-v1.png" alt="">Subjects</a><a class="curio-link" href="index.html?panel=Ask%20Curio"><img src="assets/curio-nav-icon-v1.png" alt="">Curio</a><a href="index.html?panel=My%20Notes"><img src="assets/notes-nav-icon-v1.png" alt="">Notes</a><a href="index.html?panel=Profile"><img src="assets/profile-nav-icon-v2.png" alt="">Profile</a></nav>
+  </div>
+</div>
+
+<dialog id="taskMenu" class="action-dialog"><button class="dialog-x" type="button" aria-label="Close">×</button><h2>Task actions</h2><div class="dialog-list"><button data-task-action="reschedule">📅 Reschedule</button><button data-task-action="complete">✅ Mark as Completed</button><button data-task-action="remove-today">➖ Remove from Today</button><button data-task-action="goal">🎯 Add to Daily Goal</button><button data-task-action="source">📖 Open Original Chapter</button><button data-task-action="notes">📝 Open My Notes</button><button data-task-action="curio">💬 Ask Curio</button><button data-task-action="delete">🗑 Remove from Revision</button></div></dialog>
+<dialog id="sessionDialog" class="session-dialog"><button class="dialog-x" type="button" aria-label="Close session">×</button><div id="sessionContent"></div></dialog>
+<dialog id="summaryDialog" class="summary-dialog"><div id="sessionSummary"></div></dialog>
+<dialog id="mistakeDialog" class="mistake-dialog"><button class="dialog-x" type="button" aria-label="Close">×</button><h2>📓 Mistake Notebook</h2><div id="mistakeList"></div></dialog>
+<dialog id="calendarDialog" class="action-dialog"><button class="dialog-x" type="button" aria-label="Close">×</button><h2 id="calendarDayTitle"></h2><div id="calendarDayTasks" class="dialog-list"></div></dialog>
+<dialog id="reminderDialog" class="action-dialog"><button class="dialog-x" type="button" aria-label="Close">×</button><h2>🔔 Revision Reminders</h2><label class="switch-row"><input id="reminderEnabled" type="checkbox"> Enable gentle reminders</label><label class="switch-row">Reminder time <input id="reminderTime" type="time" value="18:00"></label><p>Permission will only be requested when you enable reminders.</p><button id="saveReminders" class="primary-button" type="button">Save Preferences</button></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="revision-store.js?v=1"></script><script src="revision.js?v=1"></script>
+</body>
+</html>

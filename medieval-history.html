@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff2e8">
+  <title>Medieval History | Rupai's World</title>
+  <link rel="stylesheet" href="medieval-history.css?v=4">
+</head>
+<body>
+  <main class="medieval-page" aria-label="Medieval History dashboard">
+    <img class="medieval-reference" src="assets/medieval-history-reference-v1.png" alt="Medieval History dashboard with Curio, castles and interactive chapters">
+    <div class="ambient" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="interaction-layer" id="interactionLayer" aria-label="Medieval History controls"></div>
+  </main>
+
+  <dialog id="searchDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <h2>Search Medieval History</h2>
+    <form id="searchForm"><input id="searchQuery" type="search" placeholder="Search chapters, notes, videos or maps…" autocomplete="off"><button>Search</button></form>
+    <div class="result-list" id="searchResults"></div>
+  </dialog>
+
+  <dialog id="filterDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <h2>Filter Chapters</h2>
+    <form id="filterForm">
+      <label>Status<select name="status"><option value="all">All</option><option value="completed">Completed</option><option value="not-started">Not Started</option><option value="learning">Learning</option><option value="favorite">Favorite</option></select></label>
+      <label>Difficulty<select name="difficulty"><option value="all">All</option><option>Easy</option><option>Medium</option><option>Hard</option></select></label>
+      <button>Apply Filter</button>
+    </form>
+    <div class="result-list" id="filterResults"></div>
+  </dialog>
+
+  <dialog id="sortDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <h2>Sort Chapters</h2>
+    <form id="sortForm"><select id="sortBy"><option value="number">Chapter Number</option><option value="progress">Progress</option><option value="recent">Recently Opened</option><option value="alphabetical">Alphabetically</option></select><button>Apply Sort</button></form>
+    <div class="result-list" id="sortResults"></div>
+  </dialog>
+
+  <dialog id="menuDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <h2>Medieval History Menu</h2>
+    <div class="menu-list"><button data-menu="filter">Filter Chapters</button><button data-menu="sort">Sort Chapters</button><button data-menu="favorites">Favorite Chapters</button><button data-menu="learning">Continue Learning</button><button data-menu="downloads">Download Chapters</button><button data-menu="reset">Reset Progress</button><a href="history.html">Back to History</a></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="favorites-store.js?v=1"></script>
+  <script src="medieval-history.js?v=4"></script>
+</body>
+</html>

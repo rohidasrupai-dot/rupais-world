@@ -1,0 +1,19 @@
+const chapters={
+  'slave-age':['Slave Age','Life of slaves, society and the feudal system.',12],
+  'delhi-sultanate':['Delhi Sultanate','Rise of the Sultanate, powerful dynasties and their administration.',15],
+  'vijay-age':['Vijay Age','The rise of the Vijayanagara Empire and its greatness.',10],
+  'maharasputra':['Maharasputra','The rule, society and culture of the era.',14],
+  rashtrakuta:['Rashtrakuta','A powerful dynasty and its remarkable achievements.',11],
+  chaman:['Chaman','Stories of bravery, leadership and valor.',9],
+  'wargan-empire':['Wargan Empire','Expansion, culture and administration.',10],
+  'fort-manage-period':['Fort-Manage Period','Military strategies, forts and defense systems.',8],
+  'gaja-empire':['Gaja Empire','Trade, economy and cultural development.',13],
+  'satyam-age':['Satyam Age','Society, education and art culture.',9],
+  'southern-dynasty':['Southern Dynasty','Glory of the southern kingdoms and their contributions.',16]
+};
+const id=new URLSearchParams(location.search).get('chapter')||'delhi-sultanate';const data=chapters[id]||chapters['delhi-sultanate'];const [title,description,totalTopics]=data;const key='rupaiMedievalHistory:v1';let state;try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch{state={}}state.chapters=state.chapters||{};const item=state.chapters[id]||{};let progress=Number(item.progress||0),favorite=window.RupaiFavorites?.has(`medieval-${id}`)||Boolean(item.favorite);let toastTimer;
+document.title=`${title} | Rupai's World`;document.querySelector('#chapterTitle').textContent=title;document.querySelector('#chapterDescription').textContent=description;document.querySelector('#chapterStory').textContent=`Travel through ${title} with Curio. Discover the people, places, turning points and ideas that shaped this medieval chapter.`;
+function save(){state.chapters[id]={...item,progress,favorite,lastOpened:new Date().toISOString()};localStorage.setItem(key,JSON.stringify(state))}
+function paint(){const complete=Math.round(progress/100*totalTopics);document.querySelector('#progressLabel').textContent=`${progress}% complete`;document.querySelector('#topicLabel').textContent=`${complete} of ${totalTopics} topics`;document.querySelector('#progressBar').style.width=`${progress}%`;document.querySelector('#favoriteButton').textContent=favorite?'♥':'♡';document.querySelector('#favoriteButton').setAttribute('aria-pressed',String(favorite))}
+function toast(message){const el=document.querySelector('#toast');clearTimeout(toastTimer);el.textContent=message;el.classList.add('show');toastTimer=setTimeout(()=>el.classList.remove('show'),2000)}
+document.querySelector('#completeTopic').addEventListener('click',()=>{progress=Math.min(100,progress+Math.max(5,Math.round(100/totalTopics)));save();paint();toast(progress===100?'Chapter completed! 🏆':'Topic completed ✨')});document.querySelector('#favoriteButton').addEventListener('click',()=>{favorite=!favorite;const favoriteItem={id:`medieval-${id}`,title,description,type:'Chapter',subject:'History',chapter:'Medieval History',meta:`${totalTopics} topics · ${progress}%`,icon:'🏰',route:`medieval-chapter.html?chapter=${id}`};favorite?window.RupaiFavorites?.add(favoriteItem):window.RupaiFavorites?.remove(favoriteItem.id);save();paint();toast(favorite?'Added to Favorites ❤️':'Removed from Favorites')});document.querySelector('.lesson-grid').addEventListener('click',event=>{const button=event.target.closest('button');if(!button)return;if(button.dataset.tool){const panel={'Notes':'My Notes','Videos':'Videos','Maps':'Maps','Ask Curio':'Ask Curio'}[button.dataset.tool];location.href=`index.html?${new URLSearchParams({panel,subject:'History',period:'Medieval History',chapter:title,context:title})}`}else toast(button.dataset.panel==='quiz'?'Chapter quiz is ready!':'Learning journey started')});save();paint();

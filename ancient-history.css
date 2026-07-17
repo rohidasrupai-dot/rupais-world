@@ -1,0 +1,176 @@
+:root{--cream:#fff5e9;--paper:#fffaf4;--purple:#542184;--pink:#d82f68;--green:#278b62;--ink:#321d42;--muted:#6f5d70;--shadow:0 8px 22px #68465e1c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:#f5ede7}body{margin:0;min-width:320px;background:#f5ede7;color:var(--ink);font-family:"Segoe UI",Arial,sans-serif}.ancient-shell{width:min(100%,1085px);margin:auto;display:grid;grid-template-columns:182px minmax(0,1fr);background:var(--cream);box-shadow:0 0 45px #67485b24}.ancient-sidebar{position:relative;grid-column:1;grid-row:1;min-height:1368px;background:#08050b;overflow:hidden}.ancient-sidebar>img{display:block;width:100%;height:1368px;object-fit:fill}.side-link{position:absolute;z-index:2;left:0;width:100%;height:64px;border-radius:10px}.side-link.home{top:188px}.side-link.subjects{top:252px}.side-link.notes{top:316px}.side-link.favorites{top:380px}.side-link.bookmark{top:444px}.side-link.curiosity{top:508px}.side-link.ask{top:572px}.side-link.calculator{top:636px}.side-link.goals{top:700px}.side-link.progress{top:764px}.side-link.achievements{top:828px}.side-link.settings{top:892px}.side-link.theme{top:956px}.side-link.support{top:1020px}.ancient-main{grid-column:2;grid-row:1;min-width:0}.ancient-hero{position:relative;aspect-ratio:904/351;background:#fff1e7;overflow:hidden}.ancient-hero>img{display:block;width:100%;height:100%;object-fit:fill}.hero-back{position:absolute;left:12px;top:14px;display:grid;place-items:center;width:46px;height:46px;border:1px solid #eed8c7;border-radius:50%;background:#fffaf1e8;color:#5a287e;text-decoration:none;font-size:28px;box-shadow:var(--shadow)}.hero-search,.hero-menu{position:absolute;top:16px;width:58px;height:58px;border:0;border-radius:50%;background:transparent;cursor:pointer}.hero-search{right:72px}.hero-menu{right:8px}.dashboard{min-height:1010px;padding:10px 20px 30px;background:linear-gradient(#fff5eb,#fffaf1)}
+.stats{position:relative;aspect-ratio:887/78;margin:-3px 0 10px;overflow:hidden;border-radius:17px}.stats>img{display:block;width:100%;height:100%;object-fit:fill}.stats .stat-live{position:absolute;z-index:2;top:51%;display:grid;place-items:center;min-width:54px;height:26px;padding:0 4px;border-radius:8px;background:#fff8f0;color:#2d1744;font-size:20px}.stats .chapters{left:11.5%}.stats .topics{left:29.7%}.stats .study{left:48%;min-width:80px}.stats .progress{left:68.7%;min-width:55px}.stats>i{position:absolute;z-index:2;left:76.8%;top:19%;width:49px;height:49px;border-radius:50%;background:conic-gradient(#356ab7 var(--progress,0%),#eadfce 0)}.stats>i::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#fff8f0}.stats>button{position:absolute;z-index:3;right:0;top:0;width:17.9%;height:100%;border:0;background:transparent;cursor:pointer}
+.chapter-toolbar{display:flex;align-items:center;justify-content:space-between;min-height:38px}.chapter-toolbar p{margin:0;color:var(--muted);font-size:12px}.chapter-toolbar div{display:flex;gap:8px}.chapter-toolbar button{min-width:92px;padding:9px 15px;border:1px solid #ead9d2;border-radius:20px;background:#fffaf6;color:#442466;font-weight:800;cursor:pointer}.chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.chapter-grid.list-view{grid-template-columns:1fr}.chapter-card{--accent:#7341b1;position:relative;overflow:hidden;border:0;border-radius:17px;background:#fffaf4;box-shadow:0 5px 14px #674b5c18;transition:.2s}.chapter-card:hover{transform:translateY(-3px);box-shadow:0 11px 22px #674b5c25}.chapter-card.southern{grid-column:1/-1}.chapter-art-button{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer}.chapter-art{display:block;width:100%;height:auto;min-height:132px;object-fit:fill}.favorite-button{position:absolute;z-index:4;right:6px;top:5px;width:41px;height:41px;border:0;border-radius:50%;background:transparent;cursor:pointer}.favorite-button span{display:grid;place-items:center;width:100%;height:100%;color:#dc315f;font-size:28px;opacity:0;text-shadow:0 1px 2px #fff}.favorite-button.on span{opacity:1;animation:heartPop .28s}@keyframes heartPop{50%{transform:scale(1.2)}}.downloaded-badge{position:absolute;z-index:3;left:9px;bottom:7px;padding:3px 7px;border-radius:10px;background:#2f8d69;color:#fff;font-size:9px}.chapter-footer{position:absolute;z-index:3;inset:0;pointer-events:none}.chapter-meta{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.chapter-tools{position:absolute;left:1.5%;bottom:2%;display:grid;grid-template-columns:repeat(4,1fr);width:55%;height:25%;pointer-events:auto}.chapter-tools button{border:0;background:transparent;color:transparent;cursor:pointer}.chapter-progress{position:absolute;right:24.5%;bottom:2.5%;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--accent) var(--progress),#eadfd7 0);pointer-events:auto}.chapter-progress::after{content:"";position:absolute;inset:6px;border-radius:50%;background:#fffaf4}.chapter-progress b{position:relative;z-index:1;color:#25182d;font-size:13px}.primary-action{position:absolute;right:1.5%;bottom:4.2%;width:23%;height:31%;border:0;border-radius:18px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;cursor:pointer;box-shadow:0 4px 9px color-mix(in srgb,var(--accent) 35%,transparent);pointer-events:auto}.southern .favorite-button{display:none}.southern .chapter-progress{right:27%;bottom:18%}.southern .primary-action{display:none}.southern .chapter-tools{left:35%;bottom:1%;width:29%;height:28%}.southern-ask{position:absolute;z-index:4;right:0;top:0;width:29%;height:100%;border:0;background:transparent;cursor:pointer}.skeleton{height:168px;border-radius:17px;background:linear-gradient(100deg,#f0e4dc 20%,#fff8f1 42%,#f0e4dc 65%);background-size:220% 100%;animation:skeleton 1.1s linear infinite}@keyframes skeleton{to{background-position:-220% 0}}.empty-state{padding:50px 20px;text-align:center;border:1px dashed #ddbfcf;border-radius:22px;background:#fffaf4}.empty-state>div:first-child{font-size:48px}.empty-state h2{color:#62318a}.empty-state a,.empty-state button{display:inline-block;margin:5px;padding:9px 15px;border:0;border-radius:13px;background:#7645a7;color:#fff;text-decoration:none;font-weight:800}
+.bottom-nav{position:sticky;z-index:20;grid-column:1/3;bottom:0;aspect-ratio:1085/82;overflow:hidden;background:#fff3e7;box-shadow:0 -6px 18px #67485c18}.bottom-nav>img{display:block;width:100%;height:100%;object-fit:fill}.bottom-link{position:absolute;top:0;height:100%}.bottom-link.home{left:0;width:16.6%}.bottom-link.subjects{left:16.6%;width:16.7%}.bottom-link.curio{left:33.3%;width:16.7%}.bottom-link.calculator{left:50%;width:16.7%}.bottom-link.notes{left:66.7%;width:16.6%}.bottom-link.profile{left:83.3%;width:16.7%}
+dialog{width:min(92vw,520px);max-height:84vh;overflow:auto;padding:24px;border:1px solid #ead2de;border-radius:23px;background:#fffaf4;color:var(--ink);box-shadow:0 22px 70px #3c294855}dialog::backdrop{background:#3d304955;backdrop-filter:blur(3px)}dialog h2{margin:2px 0 12px;color:#62318d}.dialog-x{position:absolute;right:11px;top:8px;border:0;background:none;color:#7a6087;font-size:25px;cursor:pointer}dialog form{display:grid;gap:13px}dialog label{display:grid;gap:5px;color:#5b3b6f;font-weight:700}dialog select,dialog input[type=search]{width:100%;padding:10px 12px;border:1px solid #e4d5dc;border-radius:12px;background:#fff;color:#3c2949}dialog fieldset{display:grid;grid-template-columns:1fr 1fr;gap:8px;border:1px solid #e5d7dd;border-radius:14px}dialog fieldset label{display:block;font-size:12px}.dialog-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}.dialog-actions button,.dialog-ok,#chapterSearch button,#sortForm>button{padding:10px 14px;border:0;border-radius:12px;background:#7849a8;color:#fff;font-weight:800;cursor:pointer}.dialog-actions button:first-child{background:#f1e5ee;color:#693c78}.chapter-detail-progress{height:9px;border-radius:8px;background:#eadfdc;overflow:hidden}.chapter-detail-progress i{display:block;width:0;height:100%;background:#7a4aae}.chapter-dialog-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0}.chapter-dialog-tools button,.menu-list button,#searchResults button{padding:9px;border:1px solid #eadbd8;border-radius:11px;background:#fff;color:#4f3265;font-weight:700;cursor:pointer}.menu-list{display:grid;gap:6px}.menu-list .danger{color:#c42a51;border-color:#efc2ce}.dialog-icon{text-align:center;font-size:36px}#searchResults{display:grid;gap:6px;margin-top:12px}.snackbar{position:fixed;z-index:40;left:50%;bottom:90px;display:flex;align-items:center;gap:12px;transform:translate(-50%,20px);padding:11px 17px;border-radius:17px;background:#4d286c;color:#fff;opacity:0;pointer-events:none;transition:.2s}.snackbar.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}.snackbar button{border:0;background:none;color:#ffd85a;font-weight:900;cursor:pointer}
+@media(max-width:760px){.ancient-shell{display:block}.ancient-sidebar{display:none}.ancient-main{width:100%}.ancient-hero{aspect-ratio:904/351}.dashboard{padding-inline:8px}.stats .stat-live{top:49%;height:21px;font-size:clamp(10px,3vw,18px)}.stats .study{min-width:55px}.stats>i{width:7%;height:auto;aspect-ratio:1}.chapter-grid{grid-template-columns:1fr}.chapter-card.southern{grid-column:auto}.chapter-art{min-height:0}.bottom-nav{position:sticky}.hero-back{width:40px;height:40px;font-size:23px}.hero-search,.hero-menu{top:4%;width:9%;height:16%}}
+@media(max-width:420px){.chapter-toolbar button{min-width:76px;padding-inline:10px}.chapter-progress{width:47px;height:47px}.primary-action{font-size:9px}.bottom-nav{aspect-ratio:1085/94}dialog fieldset{grid-template-columns:1fr}.chapter-dialog-tools{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* The reference card artwork already contains its progress rings and action
+   buttons. Keep the functional DOM controls as invisible click targets so the
+   artwork is never covered by a second visual control. */
+.stats .stat-live{position:absolute!important;width:1px!important;height:1px!important;min-width:0!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;background:transparent!important}
+.stats>i{display:none!important}
+.chapter-progress{background:transparent!important;color:transparent!important;box-shadow:none!important;pointer-events:none!important}
+.chapter-progress::after{display:none!important}
+.chapter-progress b{display:none!important}
+.primary-action{background:transparent!important;color:transparent!important;font-size:0!important;box-shadow:none!important}
+
+/* Keep the final chapter row comfortably inset instead of reading like an
+   edge-to-edge laptop banner. The Curio panel remains part of the reference
+   artwork, with its complete touch target moved in from the right edge. */
+.chapter-card.southern{width:calc(100% - 34px);margin:6px auto 2px;padding:7px 12px;border-radius:21px;background:#f4e4ff;box-shadow:0 5px 16px #674b5c20}
+.southern .chapter-art-button{overflow:hidden;border-radius:15px}
+.southern .chapter-art{height:96px;min-height:96px;border-radius:15px;object-fit:fill}
+.southern-ask{right:12px;top:7px;width:27%;height:calc(100% - 14px);border-radius:15px}
+
+@media(max-width:760px){
+  .chapter-card.southern{width:calc(100% - 14px);margin:7px auto;padding:6px 8px}
+  .southern .chapter-art{height:84px;min-height:84px}
+  .southern-ask{right:8px;top:6px;width:28%;height:calc(100% - 12px)}
+}
+
+/* Preserve the source artwork's native pixel proportions at the reference
+   desktop width. This avoids browser resampling of small type. */
+@media(min-width:761px){
+  .dashboard{padding-right:21px;padding-left:21px}
+  .stats{width:calc(100% + 26px);margin-left:-13px}
+  .chapter-grid{grid-template-columns:minmax(0,413fr) minmax(0,435fr)}
+}
+
+/* Native text layer: all learning labels render as real browser text instead
+   of pixels baked into the reference artwork. */
+.side-link span{position:absolute;inset:0 0 0 55px;display:flex;align-items:center;padding-left:5px;background:#08050bf2;color:#fff;font-family:"Trebuchet MS","Segoe UI",sans-serif;font-size:15px;font-weight:600;letter-spacing:-.2px;text-shadow:0 1px 1px #000;text-decoration:none}
+.side-link:hover span{color:#ffd3e4}
+
+.stats{background:#fff4e9;border:1px solid #ead5ca;box-shadow:0 4px 12px #674b5c14}
+.stats-native{position:absolute;inset:0;display:grid;grid-template-columns:1.05fr .95fr 1.35fr 1.45fr 1.18fr;gap:8px;padding:7px 9px}
+.stats-native article,.stats-native>button{position:relative;min-width:0;border:1px solid #f0dfd5;border-radius:13px;background:#fffaf5;box-shadow:0 2px 7px #764c5d12}
+.stats-native article{display:grid;grid-template-columns:42px 1fr;grid-template-rows:1fr 1fr;align-items:center;padding:5px 8px}
+.stats-native article>span{grid-row:1/3;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#f2e4ff;color:#66339c;font-size:20px;font-weight:900}
+.stats-native small{align-self:end;color:#3d2458;font-size:9px;font-weight:800;white-space:nowrap}
+.stats-native strong{align-self:start;color:#241536;font-size:18px;line-height:1.05}
+.stats-native .overall-stat{padding-right:48px}
+.stats-native .overall-stat>span{background:#fff0dc}
+.stats-native .overall-stat i{position:absolute;display:block!important;right:7px;top:8px;width:40px;height:40px;border-radius:50%;background:conic-gradient(#356ab7 var(--progress,42%),#e4d5c8 0)!important}
+.stats-native .overall-stat i::after{content:"";position:absolute;inset:6px;border-radius:50%;background:#fffaf5}
+.stats-native>button{display:flex;align-items:center;justify-content:center;gap:6px;border-color:#efcbd8;color:#c92861;font-size:11px;font-weight:900;cursor:pointer}
+.stats-native>button span{font-size:18px}.stats-native>button b{font-size:20px}
+
+.card-copy{position:absolute;z-index:3;left:6px;top:5px;display:grid;grid-template-columns:38px 1fr;gap:5px;width:50%;min-height:64px;padding:5px 9px 5px 3px;border-radius:13px;background:linear-gradient(90deg,#fff1e8 0%,#fff1e8f5 76%,#fff1e800 100%);pointer-events:none}
+.card-copy>span{display:grid;place-items:center;align-self:start;width:32px;height:32px;border-radius:9px;background:var(--accent);color:#fff;font-size:20px;font-weight:900;box-shadow:0 2px 5px #4b274929}
+.card-copy h3{margin:0;color:color-mix(in srgb,var(--accent) 82%,#27122f);font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.02;letter-spacing:-.45px}
+.card-copy p{margin:5px 0 0;color:#332037;font-size:9px;font-weight:650;line-height:1.3}
+.chapter-footer::before{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;border-radius:18px 18px 0 0;background:#fff7ef;box-shadow:0 -2px 7px #6a3c4e12}
+.chapter-meta{position:absolute;left:2.5%;bottom:18%;display:flex;width:54%;height:auto;gap:9px;overflow:visible;clip:auto;color:#382943;font-size:8px;font-weight:800;white-space:nowrap}
+.chapter-tools{left:2%;bottom:1%;width:55%;height:15%}
+.chapter-tools button{padding:0;color:#35253f;font-family:"Segoe UI",sans-serif;font-size:8px;font-weight:700;white-space:nowrap}
+.chapter-progress{display:grid!important;place-items:center!important;background:conic-gradient(var(--accent) var(--progress),#eadfd7 0)!important;color:#281b31!important;pointer-events:none!important}
+.chapter-progress::after{display:block!important;background:#fffaf4!important}
+.chapter-progress b{display:block!important;color:#281b31!important;font-size:13px!important}
+.primary-action{background:var(--accent)!important;color:#fff!important;font-size:10px!important;font-weight:850!important;box-shadow:0 3px 8px color-mix(in srgb,var(--accent) 28%,transparent)!important}
+
+.southern .card-copy{top:7px;left:8px;width:38%;min-height:62px;background:linear-gradient(90deg,#f6eaff 0%,#f6eafff4 77%,#f6eaff00 100%)}
+.southern .card-copy h3{font-size:20px}.southern .card-copy p{font-size:8px}
+.southern .chapter-footer::before{display:none}
+.southern .chapter-meta{display:none}
+.southern .chapter-tools{left:37%;bottom:6%;width:25%;height:25%;background:#f9edfae8;border-radius:10px}
+.southern .chapter-tools button{font-size:7px}
+.southern-curio-copy{position:absolute;z-index:3;right:4.5%;top:18%;display:grid;gap:3px;width:19%;padding:4px 7px;border-radius:10px;background:#7134c9e8;color:#fff;pointer-events:none}
+.southern-curio-copy strong{font-family:Georgia,serif;font-size:18px}.southern-curio-copy span{font-size:9px;font-weight:700}
+
+.bottom-link span{position:absolute;left:8%;right:8%;bottom:0;display:grid;place-items:center;height:25px;background:#fff4e9f5;color:#2c1740;font-size:12px;font-weight:800;text-decoration:none}
+.bottom-link[aria-current="page"] span{color:#6d2f9f}
+
+@media(max-width:760px){
+  .stats{width:100%;min-height:154px;aspect-ratio:auto}
+  .stats-native{grid-template-columns:1fr 1fr;grid-auto-rows:62px}
+  .stats-native>button{grid-column:1/3}
+  .card-copy h3{font-size:clamp(16px,5vw,21px)}
+  .card-copy p{font-size:9px}
+  .chapter-meta,.chapter-tools button{font-size:clamp(7px,2.2vw,9px)}
+  .southern .card-copy{width:48%}
+  .southern-curio-copy{right:3%;width:23%}
+  .bottom-link span{font-size:10px;height:21px}
+}
+
+/* Keep multi-line chapter names compact enough that every description remains
+   visible above the card footer. */
+.card-copy{grid-template-columns:34px 1fr;width:56%;min-height:58px;padding-top:4px;padding-bottom:4px}
+.card-copy>span{width:29px;height:29px;font-size:17px}
+.card-copy h3{font-size:17px;line-height:1.02;letter-spacing:-.3px}
+.card-copy p{margin-top:3px;font-size:8px;line-height:1.2}
+.southern .card-copy{width:41%;min-height:54px}
+.southern .card-copy h3{font-size:17px}
+.southern .card-copy p{font-size:7.5px;line-height:1.15}
+
+@media(max-width:760px){
+  .card-copy{width:60%}
+  .card-copy h3{font-size:clamp(15px,4vw,18px)}
+  .card-copy p{font-size:clamp(7.5px,2.1vw,9px)}
+  .southern .card-copy{width:50%}
+}
+
+/* Final card cleanup: keep the reference footer/buttons in their exact baked
+   positions and use invisible interaction zones. Only the title copy is
+   rebuilt, on an opaque mask that fully removes the older raster lettering. */
+.card-copy{left:44px;top:5px;display:block;width:48%;min-height:69px;padding:5px 14px 5px 7px;background:linear-gradient(90deg,#fff2e9 0%,#fff2e9 86%,#fff2e900 100%)}
+.card-copy>span{display:none}
+.card-copy h3{font-size:17px;line-height:1.04}
+.card-copy p{font-size:8px;line-height:1.2}
+.chapter-footer::before{display:none!important}
+.chapter-meta{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}
+.chapter-tools{left:1.5%!important;bottom:2%!important;width:55%!important;height:25%!important;background:transparent!important}
+.chapter-tools button{color:transparent!important;font-size:0!important}
+.chapter-progress{background:transparent!important;color:transparent!important;box-shadow:none!important;pointer-events:none!important}
+.chapter-progress::after{display:none!important}
+.chapter-progress b{display:none!important}
+.primary-action{right:1.5%!important;bottom:4.2%!important;width:23%!important;height:31%!important;background:transparent!important;color:transparent!important;font-size:0!important;box-shadow:none!important}
+.southern .card-copy{left:45px;top:7px;width:34%;min-height:64px;background:linear-gradient(90deg,#f3e5ff 0%,#f3e5ff 86%,#f3e5ff00 100%)}
+.southern .chapter-tools{left:35%!important;bottom:1%!important;width:29%!important;height:28%!important}
+.southern-curio-copy{background:#7134c9;color:#fff}
+
+@media(max-width:760px){
+  .card-copy{left:42px;width:55%;min-height:64px}
+  .southern .card-copy{left:42px;width:42%}
+}
+
+/* Roll back the native text experiment and show the approved reference art
+   exactly as before. Links and controls remain as transparent hit areas. */
+.side-link span,.bottom-link span,.card-copy,.southern-curio-copy{display:none!important}
+.stats{background:transparent;border:0;box-shadow:none}
+.stats>img{display:block;width:100%;height:100%;object-fit:fill}
+.stats .stat-live{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important}
+.stats>i{display:none!important}
+.stats>button{position:absolute;z-index:3;right:0;top:0;width:17.9%;height:100%;border:0;background:transparent;cursor:pointer}
+
+/* Exact-reference mode: the supplied 1085 × 1449 design is the visible page.
+   Accessible transparent hotspots provide the real interactions. */
+.ancient-shell{position:relative!important;display:block!important;width:min(100%,1085px)!important;aspect-ratio:1085/1449!important;min-height:0!important;overflow:hidden!important;background:#fff5e9}
+.exact-reference{position:absolute;z-index:50;inset:0;display:block;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
+.exact-interaction-layer{position:absolute;z-index:60;inset:0;pointer-events:none}
+.exact-interaction-layer a,.exact-interaction-layer button{position:absolute;display:block;padding:0;border:0;border-radius:8px;background:transparent;color:transparent;cursor:pointer;pointer-events:auto;text-decoration:none}
+.exact-interaction-layer a:focus-visible,.exact-interaction-layer button:focus-visible{outline:3px solid #ffcf3f;outline-offset:2px;background:#ffffff20}
+.ancient-shell>.ancient-sidebar,.ancient-shell>.ancient-main,.ancient-shell>.bottom-nav{position:absolute!important;opacity:0!important;pointer-events:none!important}
+.ancient-shell>.ancient-sidebar{left:0;top:0;width:16.774%!important;height:94.41%}
+.ancient-shell>.ancient-main{left:16.774%;top:0;width:83.226%!important;height:94.41%}
+.ancient-shell>.bottom-nav{left:0;bottom:0;width:100%!important;height:5.66%!important}
+
+/* 3D chapter-card motion. The card crops sit exactly over the reference at
+   rest, then lift and tilt when the pointer approaches. */
+.exact-interaction-layer{perspective:1200px}
+.exact-card-mask{position:absolute;z-index:0;display:block;border-radius:17px;background:#fff4e9;box-shadow:inset 0 0 0 1px #ead8cf;pointer-events:none}
+.exact-interaction-layer .exact-card-tile{z-index:1;border-radius:17px;background-repeat:no-repeat;background-position:center;background-size:100% 100%;box-shadow:0 4px 10px #6b47551a;transform:translateZ(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,filter .28s ease;will-change:transform,box-shadow}
+.exact-interaction-layer .exact-card-tile:hover,.exact-interaction-layer .exact-card-tile:focus-visible{z-index:2;transform:translateY(-6px) rotateX(3deg) rotateY(var(--card-tilt,0deg)) scale(1.025);box-shadow:0 18px 28px #4227443b,0 6px 12px #813c6b2b;filter:saturate(1.05) brightness(1.015)}
+.exact-interaction-layer .exact-card-tile-wide:hover,.exact-interaction-layer .exact-card-tile-wide:focus-visible{transform:translateY(-5px) rotateX(2deg) scale(1.012)}
+.exact-interaction-layer .exact-card-control{z-index:4}
+@media(prefers-reduced-motion:reduce){.exact-interaction-layer .exact-card-tile{transition:none}.exact-interaction-layer .exact-card-tile:hover{transform:none}}
+
+/* Every remaining control uses a matching crop of the full reference, so it
+   can visibly lift without changing the default pixel-perfect appearance. */
+.exact-interaction-layer .exact-ui-tile{z-index:4;background-repeat:no-repeat;transform:translateZ(0);transform-origin:center;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease,filter .2s ease;will-change:transform,box-shadow}
+.exact-interaction-layer .exact-ui-tile:hover,.exact-interaction-layer .exact-ui-tile:focus-visible{z-index:7;transform:translateY(-3px) rotateX(6deg) scale(1.055);box-shadow:0 10px 18px #44274245,0 3px 7px #7f45652e;filter:saturate(1.06) brightness(1.025)}
+.exact-interaction-layer .exact-ui-tile:active{transform:translateY(1px) rotateX(-2deg) scale(.98);box-shadow:0 3px 7px #44274235;transition-duration:.08s}
+@media(prefers-reduced-motion:reduce){.exact-interaction-layer .exact-ui-tile{transition:none}.exact-interaction-layer .exact-ui-tile:hover,.exact-interaction-layer .exact-ui-tile:active{transform:none}}

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9f1">
+  <title>Rupai's World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css?v=status-ribbon-reference-1">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="circle-button menu-toggle" id="drawerToggle" aria-label="Open main menu" aria-controls="mainDrawer" aria-expanded="false">☰</button>
+      <button class="hello-pill" data-panel="Profile">
+        <img src="assets/curio-official-v3.png" alt="Curio">
+        <span>Hi, Rupai bacha! <b>👋</b></span>
+      </button>
+      <button class="circle-button heart" data-panel="Favorites" aria-label="Open favorites"><span class="top-heart-icon">♥</span></button>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="welcome-title">
+        <div class="sparkles" aria-hidden="true">✦　♡　☾　✧　★</div>
+        <div class="curio-scene">
+          <div class="character-wrap">
+          <img src="assets/curio-flowers-kitten-v1.png" alt="Curio smiling with her kitten in a flower garden">
+            <span class="hair-magic" aria-hidden="true">🌙 ✦ 🌸 ★ 🎀</span>
+          </div>
+          <div class="book-stack" aria-label="Dream, Learn, Explore, Grow">
+            <span>Dream</span><span>Learn</span><span>Explore</span><span>Grow</span>
+          </div>
+        </div>
+
+        <div class="hero-copy">
+          <h1 id="welcome-title" class="official-logo-title">
+            <img src="assets/rupais-world-official-logo-v2.png" alt="Rupai's World">
+          </h1>
+          <p class="tagline">A place where my curiosity lives. <span>♥</span></p>
+          <p class="home-line">I'm home, <em>Mumma.</em> <span class="home-heart" aria-hidden="true">♥</span></p>
+          <img class="mumma-cat" src="assets/mumma-cat-heart-v1.png" alt="A happy kitten cuddling a pink heart">
+        </div>
+
+        <aside class="info-grid status-ribbon-reference" aria-label="Today, current time, study streak and learner level">
+          <div class="status-ribbon-crop">
+            <img src="assets/home-status-ribbon-reference.png?v=1" alt="Today, current time, study streak and Level 5 Curious Learner">
+          </div>
+          <div class="sr-only" aria-live="polite">
+            <span id="todayDate">14 July 2026</span>
+            <span id="todayDay">Tuesday</span>
+            <span id="currentTime">05:30 am</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="feature-grid" aria-label="Learning features">
+        <a class="feature-card search-badge-card" href="search.html" aria-label="Search — Find Anything">
+          <img src="assets/search-feature-badge-v2.png" alt="" aria-hidden="true">
+        </a>
+        <button class="subjects-badge-card" data-panel="Subjects" aria-label="Subjects — All Subjects">
+          <img src="assets/subjects-feature-badge-v2.png" alt="" aria-hidden="true">
+        </button>
+        <button class="favorites-badge-card" data-panel="Favorites" aria-label="Favorites — Saved by You">
+          <img src="assets/favorites-feature-badge-v2.png" alt="" aria-hidden="true">
+        </button>
+        <button class="revision-badge-card" data-panel="Revision" aria-label="Revision — Review, Remember, Improve">
+          <img src="assets/revision-feature-badge-v2.png" alt="" aria-hidden="true">
+        </button>
+        <button class="ideas-badge-card" data-panel="Ideas" aria-label="Ideas">
+          <img src="assets/ideas-feature-badge-v2.png" alt="" aria-hidden="true">
+        </button>
+        <button class="notes-badge-card" data-panel="Notes" aria-label="Notes">
+          <img src="assets/notes-feature-badge-v2.png" alt="" aria-hidden="true">
+        </button>
+        <button class="videos-badge-card" data-panel="Videos" aria-label="Videos — Watch, Learn, Grow">
+          <img src="assets/videos-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="images-badge-card" data-panel="Images" aria-label="Images — Save memories, cherish forever">
+          <img src="assets/images-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="pdfs-badge-card" data-panel="PDFs" aria-label="PDFs — All your study files, safe and sorted">
+          <img src="assets/pdfs-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="settings-badge-card" data-panel="Settings" aria-label="Settings — Customize your world">
+          <img src="assets/settings-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="maps-badge-card" data-panel="Maps" aria-label="Maps — Explore, Learn, Discover">
+          <img src="assets/maps-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="ask-curio-badge-card" data-panel="Ask Curio" aria-label="Ask Curio — AI Study Buddy">
+          <img src="assets/ask-curio-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <a class="feature-card calculator-badge-card" href="calculator/rupais-world-calculator-live.html" aria-label="Open Calculator">
+          <img src="assets/calculator-feature-badge-v1.png" alt="" aria-hidden="true">
+        </a>
+        <button class="daily-goals-badge-card" data-panel="Daily Goal" aria-label="Daily Goals — Plan your day">
+          <img src="assets/daily-goals-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="progress-badge-card" data-panel="Progress" aria-label="Progress — Track your growth">
+          <img src="assets/progress-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+        <button class="achievements-badge-card" data-panel="Achievements" aria-label="Achievements — Badges and wins">
+          <img src="assets/achievements-feature-badge-v1.png" alt="" aria-hidden="true">
+        </button>
+      </section>
+
+      <form class="smart-search" id="smartSearch" action="search.html" method="get">
+        <span class="search-glass" aria-hidden="true"></span><input name="q" aria-label="Search Rupai's World" placeholder="Curio, teach me something magical today... ✨"><button class="voice-search-button" type="button" data-panel="Voice Search" aria-label="Voice search">♩</button>
+      </form>
+
+      <section class="daily-grid" aria-label="Daily study widgets">
+        <article class="daily-card note-card note-card-art"><img src="assets/curio-daily-note-card-v2.png" alt="Curio's Daily Note magical garden message"></article>
+        <article class="daily-card focus-card focus-card-art">
+          <img src="assets/focus-timer-card-v2.png" alt="Magical Focus Timer with kitten and study books">
+          <div class="focus-live"><strong id="timer">25:00</strong><small>♥ Focus Time ♥</small></div>
+          <button id="focusButton">Start Focus</button>
+        </article>
+        <article class="daily-card plan-card plan-card-art">
+          <img src="assets/todays-plan-card-v2.png" alt="Today's Plan with Curio, four study tasks and progress garden">
+          <div class="plan-checks" aria-label="Today's study tasks">
+            <label><input type="checkbox" aria-label="Study History Chapter 2"></label>
+            <label><input type="checkbox" aria-label="Revise Polity Notes"></label>
+            <label><input type="checkbox" aria-label="Solve 20 MCQs"></label>
+            <label><input type="checkbox" aria-label="Watch 1 Learning Video"></label>
+          </div>
+        </article>
+        <article class="daily-card says-card says-card-art">
+          <img src="assets/curio-says-card-v2.png" alt="Curio Says motivational messages with Curio and her kitten">
+        </article>
+      </section>
+
+      <section class="secondary-tools" aria-label="More tools">
+        <button class="curio-library-tool" data-panel="Curio Library">
+          <img src="assets/curio-library-logo-v2.png" alt="Curio Library logo">
+        </button>
+        <button class="music-corner-tool" data-panel="Music Corner">
+          <img src="assets/music-corner-logo-v2.png" alt="Music Corner logo">
+        </button>
+        <button class="planner-tool" data-panel="Planner">
+          <img src="assets/planner-logo-v2.png" alt="Planner logo">
+        </button>
+        <button class="daily-surprises-tool" data-panel="Daily Surprise">
+          <img src="assets/daily-surprises-logo-v2.png" alt="Daily Surprises logo">
+        </button>
+        <button class="notification-tool" data-panel="Notifications">
+          <img src="assets/notification-logo-v2.png" alt="Notification logo">
+        </button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="active home-nav-button" data-scroll="top"><img src="assets/home-nav-icon-v1.png" alt="">Home</button>
+      <button class="subjects-nav-button" data-panel="Subjects"><img src="assets/subjects-nav-icon-v1.png" alt="">Subjects</button>
+      <a class="calculator-nav-button" href="calculator/rupais-world-calculator-live.html"><img src="assets/calculator-nav-icon-v1.png" alt="">Calculator</a>
+      <button class="curio-nav-button" data-panel="Ask Curio"><img src="assets/curio-nav-icon-v1.png" alt="">Curio</button>
+      <button class="notes-nav-button" data-panel="Notes"><img src="assets/notes-nav-icon-v1.png" alt="">Notes</button>
+      <button class="profile-nav-button" data-panel="Profile"><img src="assets/profile-nav-icon-v2.png" alt="">Profile</button>
+    </nav>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="main-drawer" id="mainDrawer" aria-label="Main navigation drawer" aria-hidden="true">
+    <div class="drawer-sparkles" aria-hidden="true">✦　·　★　✧</div>
+    <header class="drawer-profile">
+      <img src="assets/profile-nav-icon-v1.png" alt="Rupai's profile picture">
+      <div><strong>Rupai</strong><small>Welcome Home, Mumma 💜</small></div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+    </header>
+    <button class="drawer-close drawer-close-floating" id="drawerCloseTop" aria-label="Close menu">×</button>
+    <section class="drawer-welcome" aria-label="Curio welcomes Mumma">
+      <img src="assets/drawer-hi-mumma-quick-actions-v2.png" alt="Mumma and Curio welcome panel with Quick Actions">
+      <div class="drawer-welcome-copy">
+        <strong>Hi Mumma! <span aria-hidden="true">👋</span></strong>
+        <p>Where shall<br>we go today? <span aria-hidden="true">♥</span></p>
+      </div>
+      <span class="drawer-welcome-sparkle one" aria-hidden="true">✦</span>
+      <span class="drawer-welcome-sparkle two" aria-hidden="true">★</span>
+    </section>
+    <section class="drawer-quick-actions" aria-labelledby="quickActionsTitle">
+      <h2 id="quickActionsTitle"><span>✨</span> Quick Actions <span>✨</span></h2>
+      <div class="quick-actions-grid">
+        <button data-panel="Subjects"><span aria-hidden="true">📖</span><b>Continue<br>Last Study</b></button>
+        <button data-panel="Favorites"><span aria-hidden="true">♥</span><b>Open<br>Favorites</b></button>
+        <button data-panel="My Notes"><span aria-hidden="true">📝</span><b>Continue<br>Notes</b></button>
+        <button data-panel="Daily Goals"><span aria-hidden="true">🗓️</span><b>Today's<br>Plan</b></button>
+      </div>
+    </section>
+    <nav class="drawer-menu" aria-label="All app sections">
+      <button class="drawer-item active" data-scroll="top"><span>🏠</span><b>Home</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Subjects"><span>📚</span><b>Subjects</b><i>›</i></button>
+      <button class="drawer-item" data-panel="My Notes"><span>📝</span><b>My Notes</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Favorites"><span>❤️</span><b>Favorites</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Revision Planner"><span>🔁</span><b>Revision Planner</b><i>›</i></button>
+      <button class="drawer-item" data-panel="My Progress"><span>📈</span><b>My Progress</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Achievements"><span>🏆</span><b>Achievements</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Daily Goals"><span>🎯</span><b>Daily Goals</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Ask Curio"><span>🤖</span><b>Ask Curio</b><i>›</i></button>
+      <a class="drawer-item" href="calculator/rupais-world-calculator-live.html"><span>🧮</span><b>Calculator</b><i>›</i></a>
+      <button class="drawer-item" data-panel="Maps"><span>🗺️</span><b>Maps</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Images"><span>🖼️</span><b>Images</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Videos"><span>🎥</span><b>Videos</b><i>›</i></button>
+      <button class="drawer-item" data-panel="PDFs"><span>📄</span><b>PDFs</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Ideas"><span>💡</span><b>Ideas</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Settings"><span>⚙️</span><b>Settings</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Theme"><span>🌙</span><b>Theme</b><i>›</i></button>
+      <button class="drawer-item" data-panel="About Rupai's World"><span>ℹ️</span><b>About Rupai's World</b><i>›</i></button>
+      <button class="drawer-item" data-panel="Feedback"><span>💬</span><b>Feedback</b><i>›</i></button>
+    </nav>
+    <footer class="drawer-footer">
+      <small>Version</small><strong>Rupai's World v1.0</strong>
+      <p>Made with curiosity, love &amp; tiny daily steps 💜✨</p>
+    </footer>
+  </aside>
+
+  <dialog id="comingSoon">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <div class="dialog-star">✨</div><h2 id="dialogTitle">Rupai's World</h2>
+    <p>Coming soon in Rupai's World.</p><button class="dialog-ok">Okay!</button>
+  </dialog>
+  <script src="home.js?v=search-page-navigation-1"></script>
+</body>
+</html>

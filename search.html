@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ec">
+  <title>Search Results | Rupai's World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="search.css?v=storybook-assets-18">
+</head>
+<body>
+<div class="app-shell">
+  <header class="storybook-header">
+    <a class="icon-button back-button" href="index.html" aria-label="Back to Home">←</a>
+    <div class="header-copy"><h1><span>🌿</span> Search Results <span>🌿</span></h1><p>Explore and learn amazing things<br><b>♥ &nbsp; with Curio &nbsp; ♥</b></p></div>
+    <div class="header-scene" aria-hidden="true"><img class="hero-storybook-art" src="assets/search-hero-storybook-v2.png?v=8" alt=""></div>
+    <div class="header-actions"><button class="icon-button" type="button" data-voice aria-label="Voice search">🎙</button><button class="icon-button" type="button" data-camera aria-label="Camera search">▣</button></div>
+    <div class="wisdom-note">Curiosity<br>leads to<br>knowledge <b>♥</b></div>
+  </header>
+
+  <main>
+    <section class="search-sticky" aria-label="Search Rupai's World">
+      <form class="search-bar" id="searchForm" role="search">
+        <span class="glass" aria-hidden="true"></span>
+        <input id="searchInput" name="q" type="search" autocomplete="off" placeholder="Curio, teach me something magical today…" aria-label="Search all learning content">
+        <button class="search-tool clear-button" id="clearButton" type="button" aria-label="Clear search" hidden>×</button>
+        <button class="search-tool" type="button" data-voice aria-label="Voice search">🎙</button>
+        <button class="search-tool camera-tool" type="button" data-camera aria-label="Camera search">▣</button>
+        <button class="submit-button" type="submit" aria-label="Search"><span class="glass"></span></button>
+        <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden>
+      </form>
+      <div class="suggestion-box" id="suggestionBox" role="listbox" hidden></div>
+    </section>
+
+    <nav class="category-tabs" id="categoryTabs" aria-label="Search result categories"></nav>
+
+    <section class="recent-box" id="recentBox" aria-labelledby="recentTitle">
+      <div class="recent-heading"><h2 id="recentTitle">◷ &nbsp; Recent Searches</h2><button id="clearAllRecents" type="button">♲ &nbsp; Clear All</button></div>
+      <div class="recent-list" id="recentList"></div>
+    </section>
+
+    <section class="results-toolbar">
+      <h2 id="resultsSummary" aria-live="polite"></h2>
+      <div class="toolbar-actions"><label>Sort by: <select id="sortSelect"><option>Most Relevant</option><option>Recently Opened</option><option>Recently Added</option><option>A to Z</option><option>Most Viewed</option><option>Most Bookmarked</option></select></label><button id="filterButton" class="filter-button" type="button">▽ &nbsp; Filter <span id="filterBadge"></span></button></div>
+    </section>
+
+    <section class="result-grid" id="resultGrid" aria-live="polite"></section>
+    <section class="empty-state" id="emptyState" hidden><img src="assets/curio-official-v3.png" alt="Curio"><h2>No magical result found</h2><p>Try another word, Mumma, or ask Curio directly.</p><button type="button" id="tryAgain">Try Another Search</button></section>
+
+    <section class="related-box" id="relatedBox"><h2><span class="mini-glass"></span> Related Searches</h2><div id="relatedList"></div></section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <a href="index.html"><img src="assets/home-nav-icon-v1.png" alt=""><span>Home</span></a>
+    <a href="subjects.html"><img src="assets/subjects-nav-icon-v1.png" alt=""><span>Subjects</span></a>
+    <button class="curio-nav" type="button" data-placeholder="Curio"><img src="assets/curio-nav-icon-v1.png" alt=""><span>Curio</span></button>
+    <button type="button" data-placeholder="Notes"><img src="assets/notes-nav-icon-v1.png" alt=""><span>Notes</span></button>
+    <button type="button" data-placeholder="Profile"><img src="assets/profile-nav-icon-v2.png" alt=""><span>Profile</span></button>
+  </nav>
+</div>
+
+<dialog id="filterDialog" class="filter-dialog"><form method="dialog"><div class="dialog-heading"><h2>✦ Magical Filters</h2><button value="cancel" aria-label="Close">×</button></div><fieldset><legend>Subject</legend><label><input type="checkbox" name="subject" value="History"> History</label><label><input type="checkbox" name="subject" value="Geography"> Geography</label><label><input type="checkbox" name="subject" value="Science"> Science</label></fieldset><fieldset><legend>Status</legend><label><input type="checkbox" name="status" value="bookmarked"> Bookmarked</label><label><input type="checkbox" name="status" value="downloaded"> Downloaded</label></fieldset><label class="kitty"><input type="checkbox" id="kittyDiary"> Include Kitty Diary in Global Search <small>Private diary stays hidden by default.</small></label><div class="dialog-actions"><button type="button" id="resetFilters">Reset</button><button class="apply" value="apply">Apply Filters</button></div></form></dialog>
+<dialog id="placeholderDialog" class="placeholder-dialog"><button class="dialog-x" aria-label="Close">×</button><div>✦</div><h2></h2><p>This Rupai's World section is connected and ready for its full page.</p><button class="okay">Okay</button></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="revision-store.js?v=1"></script><script src="search.js?v=storybook-assets-18"></script>
+</body>
+</html>

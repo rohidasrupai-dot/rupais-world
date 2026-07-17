@@ -1,0 +1,5 @@
+@import url("medieval-history.css?v=4");
+.modern-page .ui-tile,.modern-page .chapter-tile,.modern-page .stat-tile{background-image:url("assets/modern-history-reference-v1.png")}
+.modern-page{background:#fff1e8}
+.modern-page .ambient i{background:#fff8b8;box-shadow:0 0 13px #fff09a}
+dialog h2{color:#582b8e}

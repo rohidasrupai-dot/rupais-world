@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8ef">
+  <title>History | Rupai's World</title>
+  <link rel="stylesheet" href="history.css?v=exact-history-1">
+</head>
+<body>
+  <main class="history-page" aria-label="History period selection">
+    <img class="history-reference" src="assets/history-reference-exact-v1.png" alt="Rupai's World History page with Curio and Ancient, Medieval and Modern History journeys">
+
+    <nav aria-label="History side navigation">
+      <a class="hotspot side-home" href="index.html" aria-label="Home"></a>
+      <a class="hotspot side-subjects" href="subjects.html" aria-label="All Subjects"></a>
+      <a class="hotspot side-notes" href="index.html?panel=My%20Notes" aria-label="My Notes"></a>
+      <a class="hotspot side-favorites" href="index.html?panel=Favorites" aria-label="Favorites"></a>
+      <a class="hotspot side-bookmark" href="index.html?panel=Bookmarks" aria-label="Bookmarks"></a>
+      <a class="hotspot side-curiosity" href="index.html?panel=Curiosity%20World" aria-label="Curiosity World"></a>
+      <a class="hotspot side-ask-curio" href="index.html?panel=Ask%20Curio" aria-label="Ask Curio"></a>
+      <a class="hotspot side-calculator" href="calculator/rupais-world-calculator-live.html" aria-label="Calculator"></a>
+      <a class="hotspot side-goals" href="index.html?panel=Daily%20Goals" aria-label="Daily Goals"></a>
+      <a class="hotspot side-progress" href="index.html?panel=Study%20Progress" aria-label="Progress"></a>
+      <a class="hotspot side-achievements" href="index.html?panel=Achievements" aria-label="Achievements"></a>
+      <a class="hotspot side-settings" href="index.html?panel=Settings" aria-label="Settings"></a>
+      <a class="hotspot side-theme" href="index.html?panel=Themes" aria-label="Theme"></a>
+      <a class="hotspot side-support" href="index.html?panel=Help%20%26%20Support" aria-label="Help and Support"></a>
+    </nav>
+
+    <button class="hotspot sound-button" type="button" id="soundButton" aria-label="Play or pause Curio's History explanation"></button>
+    <button class="hotspot search-button" type="button" id="historySearchButton" aria-label="Search inside History"></button>
+    <button class="hotspot curio-explains" type="button" id="curioExplains" aria-label="Curio Explains, tap to listen"></button>
+    <div class="voice-wave" id="voiceWave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <span class="sr-only" id="voiceStatus" aria-live="polite"></span>
+
+    <button class="hotspot period ancient" type="button" data-period="ancient" aria-label="Explore Ancient History"></button>
+    <button class="hotspot period medieval" type="button" data-period="medieval" aria-label="Explore Medieval History"></button>
+    <button class="hotspot period modern" type="button" data-period="modern" aria-label="Explore Modern History"></button>
+
+    <button class="hotspot all-topics" type="button" data-feature="all-topics" aria-label="All History Topics"></button>
+    <button class="hotspot fun-fact" type="button" id="funFactButton" aria-label="Show next History fun fact"></button>
+    <button class="hotspot timeline" type="button" data-feature="timeline" aria-label="History Timeline"></button>
+    <button class="hotspot maps" type="button" data-feature="maps" aria-label="History Map Explorer"></button>
+    <button class="hotspot personalities" type="button" data-feature="personalities" aria-label="Famous Personalities"></button>
+    <button class="hotspot quizzes" type="button" data-feature="quizzes" aria-label="History Quiz Time"></button>
+
+    <nav aria-label="Main navigation">
+      <a class="hotspot bottom-home" href="index.html" aria-label="Home"></a>
+      <a class="hotspot bottom-subjects" href="subjects.html" aria-label="Subjects" aria-current="page"></a>
+      <a class="hotspot bottom-curio" href="index.html?panel=Ask%20Curio" aria-label="Curio"></a>
+      <a class="hotspot bottom-calculator" href="calculator/rupais-world-calculator-live.html" aria-label="Calculator"></a>
+      <a class="hotspot bottom-notes" href="index.html?panel=My%20Notes" aria-label="Notes"></a>
+      <a class="hotspot bottom-profile" href="index.html?panel=Profile" aria-label="Profile"></a>
+    </nav>
+  </main>
+
+  <dialog id="periodDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <h2></h2><p class="dialog-description"></p>
+    <div class="dialog-topics"></div>
+    <div class="dialog-actions"><button type="button" id="favoritePeriod">♡ Favorite</button><button type="button" id="addPeriodRevision">⟳ Add to Revision</button><button type="button" id="continuePeriod">Continue</button></div>
+  </dialog>
+
+  <dialog id="featureDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <div class="dialog-icon">✨</div><h2></h2><p></p>
+    <button class="dialog-ok" type="button">Okay!</button>
+  </dialog>
+
+  <dialog id="searchDialog">
+    <button class="dialog-x" type="button" aria-label="Close">×</button>
+    <h2>Search History</h2>
+    <form id="historySearch"><input id="historyQuery" type="search" placeholder="Ashoka, Delhi Sultanate, Revolt of 1857..." autocomplete="off"><button type="submit">Search</button></form>
+    <div id="historySearchResults"></div>
+  </dialog>
+
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
+  <script src="revision-store.js?v=1"></script><script src="history.js?v=modern-connect-1"></script>
+</body>
+</html>
