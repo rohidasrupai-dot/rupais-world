@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff9f1">
+  <title>Quiz · Teach Curio Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="quiz.css">
+  <script src="auth.js"></script><script>window.__studioSession=window.RupaiAuth.requireStudioAccess();</script>
+</head>
+<body>
+  <div class="studio-shell quiz-shell">
+    <header class="studio-topbar">
+      <a class="back-link" id="backLesson" href="lesson.html" aria-label="Back to Lesson">←</a>
+      <div class="brand"><img src="../assets/curio-official-v3.png" alt=""><div><small>Teach Curio Studio · Assessment</small><strong id="projectName">Quiz</strong></div></div>
+      <span class="save-state" id="saveState" role="status">Saved</span><a class="secondary" id="assessmentAnalytics" href="assessment-analytics.html">Analytics</a><a class="secondary" id="studentQuiz" href="student-assessment.html">Student View</a><button class="secondary" id="questionLibrary">Question Library</button><button class="secondary" id="quizVersions">Versions</button><button class="primary" id="previewQuiz">Preview Quiz</button>
+    </header>
+    <nav class="studio-tabs" aria-label="Lesson workspace"><a id="lessonTab" href="lesson.html">Lesson</a><a class="active" aria-current="page">Quiz</a><a id="visualAssetsTab" href="visual-assets.html">Visual Assets</a></nav>
+    <main>
+      <section class="quiz-hero"><div><span class="eyebrow">Phase 3C-1</span><h1>Quiz & Assessment Engine</h1><p>Manual, AI-generated, or hybrid questions connected to the approved lesson.</p></div><div class="quiz-stats"><strong id="questionCount">0</strong><small>Questions</small></div></section>
+      <section id="quizGate"></section>
+      <section id="quizWorkspace" hidden>
+        <div class="quiz-toolbar panel">
+          <label>Quiz title<input id="quizTitle"></label><label>Mode<select id="quizMode"><option value="practice">Practice</option><option value="exam">Exam</option><option value="revision">Revision</option><option value="challenge">Challenge</option></select></label>
+          <label class="check"><input type="checkbox" id="randomQuestions"> Randomize questions</label><label class="check"><input type="checkbox" id="randomOptions"> Randomize options</label>
+          <button class="secondary" id="generateQuiz">Generate with AI</button><button class="primary" id="addQuestion">Add Question</button>
+        </div>
+        <div class="question-list" id="questionList"></div>
+        <div class="pagination" id="pagination"></div>
+      </section>
+    </main>
+  </div>
+  <dialog id="questionDialog" class="wide-dialog"><form id="questionForm"><button type="button" class="dialog-close" id="closeQuestion" aria-label="Close">&times;</button><span class="eyebrow">Question editor</span><h2 id="questionDialogTitle">Add Question</h2><input type="hidden" name="id">
+    <div class="form-grid"><label>Question type<select name="type" id="questionType"></select></label><label>Difficulty<select name="difficulty"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></label><label>Bloom level<select name="bloomLevel"><option value="remember">Remember</option><option value="understand">Understand</option><option value="apply">Apply</option><option value="analyze">Analyze</option><option value="evaluate">Evaluate</option><option value="create">Create</option></select></label><label>Reference lesson section<select name="referenceSectionId" id="referenceSection"></select></label></div>
+    <label>Question<textarea name="prompt" required></textarea></label>
+    <div id="optionEditor"></div><label id="correctTextField">Correct answer<textarea name="correctText"></textarea></label>
+    <div class="form-grid"><label>Marks<input name="marks" type="number" min=".25" step=".25" value="1"></label><label>Negative marks<input name="negativeMarks" type="number" min="0" step=".25" value="0"></label><label>Time limit · seconds<input name="timeLimitSeconds" type="number" min="0" value="0"></label><label>Difficulty weight<input name="difficultyWeight" type="number" min=".1" step=".1" value="1"></label></div>
+    <label>Detailed explanation<textarea name="explanation"></textarea></label><label>Why other options are wrong<textarea name="wrongAnswerExplanation"></textarea></label>
+    <div class="form-grid"><label>Hint<input name="hint"></label><label>Memory trick<input name="memoryTrick"></label><label>Image URL<input name="imageUrl" type="url" placeholder="https://…"></label><label>Tags<input name="tags" placeholder="Topic, SSC, custom"></label></div>
+    <div class="dialog-actions"><button type="button" class="secondary" id="cancelQuestion">Cancel</button><button class="primary" type="submit">Save Question</button></div>
+  </form></dialog>
+  <dialog id="previewDialog" class="wide-dialog"><div class="dialog-body"><button class="dialog-close" id="closePreview" aria-label="Close">&times;</button><span class="eyebrow">Student-style preview</span><h2 id="previewTitle">Quiz Preview</h2><div id="previewContent"></div></div></dialog>
+  <dialog id="libraryDialog" class="wide-dialog"><div class="dialog-body"><button class="dialog-close" id="closeLibrary" aria-label="Close">&times;</button><span class="eyebrow">Reusable questions</span><h2>Question Library</h2><label>Search<input id="librarySearch" placeholder="Search question or tag"></label><div id="libraryList"></div></div></dialog>
+  <dialog id="versionsDialog"><div class="dialog-body"><button class="dialog-close" id="closeVersions" aria-label="Close">&times;</button><span class="eyebrow">Quiz history</span><h2>Versions</h2><div id="versionList"></div></div></dialog>
+  <dialog id="providerDialog"><div class="dialog-body"><button class="dialog-close" id="closeProvider" aria-label="Close">&times;</button><span class="eyebrow">Quiz provider</span><h2 id="providerTitle">Generating Quiz</h2><p id="providerMessage">Using approved lesson content only.</p><div class="dialog-actions"><button class="secondary" id="returnQuiz">Return</button><button class="primary" id="retryQuiz">Retry</button></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="store.js"></script><script src="prompt-builder-service.js"></script><script src="ai-service.js"></script><script src="lesson-writing-service.js"></script><script src="quiz-service.js"></script><script src="quiz.js?v=phase-3c2-1"></script>
+</body>
+</html>

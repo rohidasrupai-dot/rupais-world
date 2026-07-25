@@ -85,6 +85,15 @@ drawer.querySelector('.drawer-menu').innerHTML = drawerReferenceItems.map(([icon
     </div>
   </section>`;
 
+if (window.RupaiAuth?.canAccessStudio()) {
+  const studioLink = document.createElement('a');
+  studioLink.className = 'drawer-item studio-link';
+  studioLink.href = 'studio/index.html';
+  studioLink.innerHTML = '<span>✦</span><b>Teach Curio Studio</b><i>›</i>';
+  studioLink.setAttribute('aria-label', 'Open Teach Curio Studio');
+  drawer.querySelector('.drawer-menu').appendChild(studioLink);
+}
+
 function openDrawer() {
   clearTimeout(drawerTimer);
   drawerBackdrop.hidden = false;

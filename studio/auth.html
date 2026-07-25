@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff9f1">
+  <title>Account · Rupai’s World</title>
+  <link rel="stylesheet" href="studio.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-brand" aria-labelledby="brandTitle">
+      <a href="../index.html" class="back-link" aria-label="Back to Rupai’s World">←</a>
+      <div>
+        <span class="eyebrow">Rupai’s World</span>
+        <h1 id="brandTitle">Your learning, safely connected.</h1>
+        <p>Accounts keep identity separate from learning records and prepare Curio for future cloud services.</p>
+      </div>
+      <aside class="dev-notice"><strong>Local development mode</strong><span>Development account — data is stored only on this device.</span></aside>
+    </section>
+    <section class="auth-card">
+      <div id="offline" class="offline" hidden role="status">You are offline. Cloud sign-in is unavailable; local development accounts can still be used on this device.</div>
+      <div id="screen" aria-live="polite"></div>
+      <div id="errorSummary" class="error-summary" role="alert" tabindex="-1" hidden></div>
+    </section>
+  </main>
+  <script src="auth.js"></script>
+  <script src="auth-ui.js"></script>
+</body>
+</html>

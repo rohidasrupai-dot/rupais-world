@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff9f1">
+  <title>Lesson Structure · Teach Curio Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="structure.css">
+  <script src="auth.js"></script><script>window.__studioSession=window.RupaiAuth.requireStudioAccess();</script>
+</head>
+<body>
+  <div class="studio-shell structure-shell">
+    <header class="studio-topbar structure-topbar">
+      <a class="back-link" id="backMaterials" href="upload.html" aria-label="Back to Materials">←</a>
+      <div class="brand"><img src="../assets/curio-official-v3.png" alt=""><div><small>Teach Curio Studio · Structure Review</small><strong id="projectName">Lesson Structure</strong></div></div>
+      <span class="save-state" id="saveState" role="status">Saved</span><button class="secondary" id="saveDraft">Save Draft</button><button class="secondary" id="generateLesson">Generate Lesson</button><button class="primary" id="approveButton">Approve Structure</button>
+    </header>
+
+    <main>
+      <section class="structure-summary">
+        <div><span class="eyebrow">Structure only · no lesson content</span><h1>Shape the learning journey</h1><p>Build and verify the hierarchy Curio will use in the next phase.</p></div>
+        <div class="summary-counts"><span><b id="nodeCount">0</b> items</span><span><b id="reviewCount">0</b> need review</span><span><b id="sourceCount">0</b> sources</span></div>
+      </section>
+
+      <section class="structure-toolbar" aria-label="Structure tools">
+        <label class="structure-search"><span>⌕</span><input id="structureSearch" placeholder="Search title, keyword or source"></label>
+        <label><span class="sr-label">Filter structure</span><select id="structureFilter"><option value="all">All items</option><option value="needs_verification">Needs Verification</option><option value="user_approved">User Approved</option><option value="curio_suggested">Curio Suggested</option><option value="from_my_notes">From My Notes</option><option value="rejected">Rejected</option><option value="included">Included</option><option value="excluded">Excluded</option></select></label>
+        <button class="secondary" id="addRoot">＋ Add Subject</button><button class="secondary" id="versionsButton">Version History</button>
+      </section>
+
+      <section class="structure-layout">
+        <section class="tree-panel panel">
+          <div class="panel-title row"><div><span class="eyebrow">Outline</span><h2>Lesson structure</h2></div><span class="analysis-status" id="analysisStatus">Manual review</span></div>
+          <div id="structureTree" class="structure-tree" role="tree" aria-label="Lesson structure"></div>
+        </section>
+        <section class="node-panel panel">
+          <div class="panel-title"><span class="eyebrow">Selected item</span><h2>Node editor</h2></div>
+          <div id="nodeEditor"></div>
+        </section>
+        <aside class="review-panel panel">
+          <div class="review-tabs" role="tablist"><button class="active" data-tab="metadata">Metadata</button><button data-tab="verification">Verification</button><button data-tab="sources">Sources</button></div>
+          <div id="reviewContent"></div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="nodeDialog"><form method="dialog" id="nodeForm"><button class="dialog-close" value="cancel" aria-label="Close">×</button><span class="eyebrow">Manual structure item</span><h2 id="nodeDialogTitle">Add item</h2>
+    <label>Item type<select id="newNodeType"></select></label><label>Title<input id="newNodeTitle" required maxlength="140"></label><label>Parent<select id="newNodeParent"></select></label>
+    <div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button class="primary">Add item</button></div>
+  </form></dialog>
+  <dialog id="confirmDelete"><form method="dialog"><h2>Delete this item?</h2><p>Its child items will also be removed. The project and source materials remain safe.</p><div class="dialog-actions"><button value="cancel" class="secondary">Keep it</button><button value="delete" class="danger">Delete item</button></div></form></dialog>
+  <dialog id="sourceDialog"><div class="source-dialog"><button class="dialog-close" id="closeSource" aria-label="Close">×</button><span class="eyebrow">Source traceability</span><div id="sourceDetails"></div></div></dialog>
+  <dialog id="approvalDialog"><div class="approval-dialog"><button class="dialog-close" id="closeApproval" aria-label="Close">×</button><span class="eyebrow">Approval check</span><h2>Approve this structure?</h2><div id="approvalSummary"></div><div class="dialog-actions"><button class="secondary" id="cancelApproval">Continue reviewing</button><button class="primary" id="confirmApproval">Approve Structure</button></div></div></dialog>
+  <dialog id="versionDialog"><div class="version-dialog"><button class="dialog-close" id="closeVersions" aria-label="Close">×</button><span class="eyebrow">Protected history</span><h2>Structure versions</h2><div id="versionList"></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="store.js"></script><script src="ai-service.js"></script><script src="structure-service.js"></script><script src="structure.js?v=node-editor-fix-2"></script>
+</body>
+</html>

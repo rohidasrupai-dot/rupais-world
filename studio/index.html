@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9f1">
+  <title>Teach Curio Studio · Rupai's World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio.css">
+  <script src="auth.js"></script>
+  <script>window.__studioSession = window.RupaiAuth.requireStudioAccess();</script>
+</head>
+<body>
+  <div class="studio-shell">
+    <header class="studio-topbar">
+      <a class="back-link" href="../index.html" aria-label="Back to Rupai's World">←</a>
+      <div class="brand">
+        <img src="../assets/curio-official-v3.png" alt="">
+        <div><small>Rupai's World · Creator workspace</small><strong>Teach Curio Studio</strong></div>
+      </div>
+      <span class="role-pill" id="rolePill">Creator</span>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <div>
+          <span class="eyebrow">Teach Curio once. Create learning everywhere.</span>
+          <h1>What shall we teach Curio today?</h1>
+          <p>Bring your own material, shape the lesson, verify every detail, then publish only when it is ready.</p>
+          <div class="welcome-actions">
+            <button class="primary" id="newProjectButton">＋ New lesson project</button>
+            <button class="secondary" id="uploadButton">Upload material</button>
+          </div>
+        </div>
+        <img class="guide-curio" src="../assets/curio-standing-wave-v1.png" alt="Curio waving">
+      </section>
+
+      <section class="metrics" aria-label="Studio overview">
+        <article><span>Draft lessons</span><strong id="draftCount">0</strong><small>Ready to continue</small></article>
+        <article><span>Verification queue</span><strong id="verificationCount">0</strong><small>Needs your review</small></article>
+        <article><span>Published lessons</span><strong id="publishedCount">0</strong><small>Approved knowledge</small></article>
+        <article><span>Generation jobs</span><strong id="incompleteCount">0</strong><small>In progress</small></article>
+      </section>
+
+      <section class="workspace-grid">
+        <div class="main-column">
+          <div class="section-heading"><div><span class="eyebrow">Your workspace</span><h2>Recent projects</h2></div><button class="text-button" id="projectFilter">All projects</button></div>
+          <div id="projectsList" class="projects-list"></div>
+        </div>
+        <aside>
+          <section class="quick-panel">
+            <div class="section-heading"><div><span class="eyebrow">Start here</span><h2>Studio tools</h2></div></div>
+            <div class="tool-grid">
+              <button data-action="upload"><b>↑</b><span>Upload Material</span><small>Text, files and notes</small></button>
+              <button data-action="generate"><b>✦</b><span>Generate Lesson</span><small>From approved sources</small></button>
+              <button data-action="verify"><b>✓</b><span>Verification Queue</span><small>Review every claim</small></button>
+              <button data-action="templates"><b>▦</b><span>Templates</span><small>Subject-aware structure</small></button>
+            </div>
+          </section>
+          <section class="suggestion-card">
+            <div class="curio-dot">✦</div>
+            <div><span class="eyebrow">Curio suggests</span><h3 id="suggestionTitle">Begin with trusted source material</h3><p id="suggestionText">Create a lesson project, then add your notes before analysis.</p></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="projectDialog">
+    <form method="dialog" id="projectForm">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+      <span class="eyebrow">New draft</span>
+      <h2>Create a lesson project</h2>
+      <label>Project name<input id="projectTitle" required maxlength="80" placeholder="e.g. The Mauryan Empire"></label>
+      <label>Subject<select id="projectSubject"><option value="">Choose later</option><option>History</option><option>Geography</option><option>Science</option><option>Polity</option><option>Economy</option><option>Reasoning</option><option>Mathematics</option><option>English</option><option>Hindi</option><option>Odia</option></select></label>
+      <div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="default" class="primary" id="createProjectButton">Create draft</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="store.js"></script>
+  <script src="ai-service.js"></script>
+  <script src="studio.js"></script>
+</body>
+</html>
+

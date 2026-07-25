@@ -1,2 +1,14 @@
 .agents/
 .codex/
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+dist/
+build/
+.cache/
+coverage/
+*.log
+.preview-server*.log
+.tmp-browser-client.mjs

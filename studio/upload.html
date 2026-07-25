@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#fff9f1">
+  <title>Upload Material · Teach Curio Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="upload.css">
+  <script src="auth.js"></script><script>window.__studioSession=window.RupaiAuth.requireStudioAccess();</script>
+</head>
+<body>
+  <div class="studio-shell upload-shell">
+    <header class="studio-topbar upload-topbar">
+      <a class="back-link" href="index.html" aria-label="Back to Studio">←</a>
+      <div class="brand"><img src="../assets/curio-official-v3.png" alt=""><div><small>Teach Curio Studio</small><strong>Upload Material</strong></div></div>
+      <span class="save-state" id="saveState" role="status">Saved</span><button class="secondary" id="saveDraft">Save Draft</button>
+    </header>
+
+    <main>
+      <section class="project-strip" id="projectStrip">
+        <div><span class="eyebrow">Current project</span><h1 id="projectHeading">Choose or create a project</h1><p id="projectDescription">Every source stays connected to one lesson project.</p></div>
+        <button class="secondary" id="changeProject">Change project</button>
+      </section>
+
+      <section class="upload-layout">
+        <aside class="material-panel panel">
+          <div class="panel-title"><span class="eyebrow">Collect</span><h2>Add material</h2></div>
+          <button class="material-choice active" data-mode="text"><b>¶</b><span>Write or paste text<small>Preserve your words exactly</small></span></button>
+          <button class="material-choice" data-mode="files"><b>↑</b><span>Upload files<small>PDF, DOCX, images, audio</small></span></button>
+          <button class="material-choice" data-mode="image"><b>▧</b><span>Image, map or diagram<small>Gallery or camera-supported picker</small></span></button>
+          <button class="material-choice" data-mode="clipboard"><b>⌘</b><span>Paste from clipboard<small>Permission may be required</small></span></button>
+          <button class="material-choice unavailable" data-mode="existing"><b>≡</b><span>Choose existing note<small>Notes adapter not connected yet</small></span></button>
+          <div class="curio-tip"><img src="../assets/curio-nav-icon-v1.png" alt=""><p><b>Curio’s tip</b> Mark the most trusted source as Primary.</p></div>
+        </aside>
+
+        <section class="sources-panel panel">
+          <div class="panel-title row"><div><span class="eyebrow">Organise</span><h2>Source materials <em id="sourceCount">0</em></h2></div><button class="text-button" id="addMore">＋ Add</button></div>
+          <div id="composer"></div>
+          <div id="sourceList" class="source-list"></div>
+        </section>
+
+        <aside class="preview-panel panel">
+          <div class="panel-title"><span class="eyebrow">Review</span><h2>Preview & settings</h2></div>
+          <div id="previewContent" class="preview-content"></div>
+        </aside>
+      </section>
+
+      <footer class="analysis-bar">
+        <div><strong id="analysisSummary">Add material to continue</strong><small>Curio will only analyse sources you include.</small></div>
+        <button class="primary" id="analyseButton" disabled>Analyse Material →</button>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="projectDialog"><form method="dialog" id="projectForm"><button class="dialog-close" value="cancel" aria-label="Close">×</button><span class="eyebrow">Material project</span><h2>Create or edit project</h2>
+    <label id="existingProjectLabel">Continue an existing draft<select id="existingProject"><option value="">Create a new project</option></select></label>
+    <label>Project name<input id="projectTitle" required maxlength="80"></label>
+    <label>Description<textarea id="projectDesc" maxlength="500"></textarea></label>
+    <div class="two-fields"><label>Subject hint<input id="projectSubject"></label><label>Chapter hint<input id="projectChapter"></label></div>
+    <label>Creator notes<textarea id="projectNotes" maxlength="1000"></textarea></label>
+    <div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button class="primary" id="projectSubmit">Save project</button></div>
+  </form></dialog>
+  <dialog id="confirmDialog"><form method="dialog"><h2>Remove this source?</h2><p>The project will remain safe. This source and its stored local file will be removed.</p><div class="dialog-actions"><button value="cancel" class="secondary">Keep it</button><button value="remove" class="danger">Remove source</button></div></form></dialog>
+  <dialog id="analysisDialog"><div class="analysis-modal"><button class="dialog-close" id="closeAnalysis" aria-label="Close">×</button><span class="eyebrow">Analysis preparation</span><h2 id="analysisTitle">Preparing material</h2><p id="analysisMessage">Checking the connected AI provider.</p><ol id="analysisStages"><li class="current">Queued</li><li>Reading Sources</li><li>Understanding Content</li><li>Detecting Subject and Chapter</li><li>Finding Topics and Subtopics</li><li>Extracting Concepts</li><li>Checking Conflicts</li><li>Building Proposed Structure</li><li>Ready for Review</li></ol><div class="dialog-actions"><button class="secondary" id="returnMaterials">Return to Materials</button><button class="secondary" id="buildManually">Build Manually</button><button class="primary" id="retryAnalysis">Retry</button></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <input type="file" id="fileInput" multiple accept=".pdf,.docx,image/*,audio/*" hidden><input type="file" id="imageInput" multiple accept="image/*" capture="environment" hidden>
+  <script src="store.js"></script><script src="file-validation.js"></script><script src="file-storage.js"></script><script src="ai-service.js"></script><script src="structure-service.js"></script><script src="upload.js"></script>
+</body>
+</html>
