@@ -87,6 +87,26 @@ function speak(text){if(!('speechSynthesis'in window)){toast('Read aloud is not 
 function listen(){const R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R){toast('Microphone conversation is ready for a supported browser.');return}const r=new R();r.lang='en-IN';r.onresult=e=>{$('#voiceAnswer').value=e.results[0][0].transcript;$('#voiceStatus').textContent='I heard you! Check the answer when ready.'};r.onerror=()=>toast('I could not hear that. Please try again.');r.start();$('#voiceStatus').textContent='Listening…'}
 
 $('#backButton').addEventListener('click',()=>history.length>1?history.back():location.href='index.html');$('#filterToggle').addEventListener('click',()=>{const panel=$('#filterPanel'),open=panel.hidden;panel.hidden=!open;$('#filterToggle').setAttribute('aria-expanded',open)});let searchTimer;$('#revisionSearch').addEventListener('input',e=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{RupaiRevision.setFilters({query:e.target.value});renderAll()},180)});['subjectFilter','statusFilter','modeFilter','sortFilter'].forEach(id=>$('#'+id).addEventListener('change',e=>{RupaiRevision.setFilters({[id.replace('Filter','')]:e.target.value});renderAll()}));$('#resetFilters').addEventListener('click',()=>{RupaiRevision.setFilters({query:'',subject:'All',status:'All',mode:'All',sort:'Priority'});renderAll()});$('[data-view-all="today"]').addEventListener('click',()=>{RupaiRevision.setFilters({status:'All'});renderAll();toast('Showing all revision tasks')});$('[data-view-all="smart"]').addEventListener('click',()=>{activeSmart='Not Revised';$$('[data-smart]').forEach(b=>b.classList.toggle('active',b.dataset.smart===activeSmart));renderSmart()});$('#prevMonth').addEventListener('click',()=>{calendarDate=new Date(calendarDate.getFullYear(),calendarDate.getMonth()-1,1);renderCalendar()});$('#nextMonth').addEventListener('click',()=>{calendarDate=new Date(calendarDate.getFullYear(),calendarDate.getMonth()+1,1);renderCalendar()});$('#reviewMistakes').addEventListener('click',openMistakes);$('#viewMistakes').addEventListener('click',openMistakes);$$('dialog .dialog-x').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));$('#openReminders').addEventListener('click',()=>{$('#reminderEnabled').checked=state.notifications.enabled;$('#reminderTime').value=state.notifications.time;$('#reminderDialog').showModal()});$('#saveReminders').addEventListener('click',async()=>{const enabled=$('#reminderEnabled').checked;if(enabled&&'Notification'in window&&Notification.permission==='default')await Notification.requestPermission();RupaiRevision.setNotifications({enabled,time:$('#reminderTime').value});$('#reminderDialog').close();toast('Reminder preferences saved')});
+$('#exportRevisionData').addEventListener('click',()=>{
+  try{
+    const backup=RupaiRevision.exportData();
+    const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
+    const link=document.createElement('a');
+    link.href=URL.createObjectURL(blob);
+    link.download=`rupais-world-revision-backup-${new Date().toISOString().slice(0,10)}.json`;
+    document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(link.href);
+    toast('Revision backup downloaded safely.');
+  }catch(error){console.error(error);toast('Revision backup could not be created.');}
+});
+$('#importRevisionData').addEventListener('click',()=>$('#revisionDataFile').click());
+$('#revisionDataFile').addEventListener('change',async event=>{
+  const file=event.target.files?.[0];event.target.value='';if(!file)return;
+  try{
+    const backup=JSON.parse(await file.text());
+    RupaiRevision.importData(backup);renderAll();
+    toast('Revision backup restored successfully.');
+  }catch(error){console.error(error);toast(error.message||'This Revision backup could not be imported.');}
+});
 function loadRevisionHub(){
   $('#loadingState').hidden=false;$('#errorState').hidden=true;$('#todayTasks').hidden=true;
   requestAnimationFrame(()=>{try{renderAll();$('#loadingState').hidden=true;$('#todayTasks').hidden=false}catch(error){console.error(error);$('#loadingState').hidden=true;$('#errorState').hidden=false}});

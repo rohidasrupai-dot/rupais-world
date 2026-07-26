@@ -150,6 +150,10 @@ document.addEventListener('click', (event) => {
     window.location.href = 'subjects.html';
     return;
   }
+  if (trigger?.dataset.panel === 'Ask Curio') {
+    window.location.href = 'studio/ask-curio.html';
+    return;
+  }
   if (trigger?.dataset.panel === 'Favorites') {
     window.location.href = 'favorites.html';
     return;

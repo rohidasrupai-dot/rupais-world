@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ask Curio · Rupai's World</title>
+  <link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="ask-curio.css">
+  <script src="auth.js"></script>
+  <script>window.__curioSession=RupaiAuth.readSession();if(!window.__curioSession)location.replace('auth.html?returnTo=ask-curio.html');</script>
+</head>
+<body>
+  <header class="curio-header">
+    <a class="secondary" href="../index.html">← Home</a>
+    <div><span class="eyebrow">EDUCATIONAL TEACHING COMPANION</span><h1>Ask Curio</h1></div>
+    <button id="newConversation" class="primary">New conversation</button>
+  </header>
+  <div class="curio-layout">
+    <aside class="conversation-panel" aria-label="Conversation history">
+      <h2>Conversations</h2><div id="conversationList"></div>
+    </aside>
+    <main>
+      <section class="controls" aria-label="Teaching controls">
+        <label>Lesson<select id="project"></select></label>
+        <label>Mode<select id="mode"></select></label>
+        <label>Language<select id="language"></select></label>
+        <label>Detail<select id="level"></select></label>
+      </section>
+      <section id="providerNotice" class="notice" role="status"></section>
+      <section id="suggestions" class="suggestions" aria-label="Suggested questions"></section>
+      <section id="messages" class="messages" aria-live="polite" aria-busy="false"></section>
+      <div id="progress" class="progress" role="status" aria-live="polite"></div>
+      <form id="composer" class="composer">
+        <label class="sr-only" for="question">Your educational question</label>
+        <textarea id="question" maxlength="4000" required placeholder="Ask about this lesson, solve a doubt, or request a practice question…"></textarea>
+        <div class="composer-actions"><button type="button" id="stop" class="secondary" disabled>Stop generation</button><button class="primary">Ask Curio</button></div>
+      </form>
+    </main>
+    <aside class="learning-tools" aria-label="Learning tools">
+      <h2>Learning tools</h2>
+      <button id="openLesson">Open related lesson</button><button id="launchQuiz">Launch quiz</button><button id="findVisual">Find approved visual</button><button id="summarize">Save conversation summary</button>
+      <label class="consent"><input type="checkbox" id="contextConsent"> Allow relevant learning context</label>
+      <p>Curio only uses recorded learning evidence and never invents history.</p>
+    </aside>
+  </div>
+  <dialog id="reportDialog"><form method="dialog" id="reportForm"><h2>Report answer</h2><input type="hidden" id="reportMessage"><label>Issue<select id="reportCategory"><option value="factual_error">Factual error</option><option value="confusing_explanation">Confusing explanation</option><option value="wrong_source">Wrong source</option><option value="outdated_information">Outdated information</option><option value="inappropriate_difficulty">Difficulty issue</option><option value="translation_issue">Translation issue</option><option value="missing_visual">Missing visual</option><option value="other">Other</option></select></label><label>Details<textarea id="reportDetails" required></textarea></label><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="default" class="primary">Send report</button></div></form></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="store.js"></script><script src="adaptive-learning-service.js"></script><script src="learning-memory-service.js"></script><script src="ai-provider-service.js"></script><script src="visual-intelligence-service.js"></script><script src="curio-conversation-service.js"></script><script src="ask-curio.js"></script>
+</body></html>

@@ -1,6 +1,10 @@
 (function () {
   'use strict';
   const KEY = 'rupaiRevision:v1';
+  const DAILY_GOALS_KEY = 'rupaiDailyGoals:v1';
+  const BACKUP_FORMAT = 'rupais-world-revision-backup';
+  const BACKUP_VERSION = 1;
+  const BACKUP_KEYS = [KEY, DAILY_GOALS_KEY];
   const DAY = 86400000;
   const listeners = new Set();
 
@@ -155,12 +159,62 @@
     if (!task || state.goals.some(goal => goal.taskId === taskId)) return state;
     task.addedToGoal = true;
     state.goals.push({ id: `goal-${Date.now()}`, taskId, title: `Revise ${task.title}`, completed: false, date: isoDate() });
-    localStorage.setItem('rupaiDailyGoals:v1', JSON.stringify(state.goals));
+    localStorage.setItem(DAILY_GOALS_KEY, JSON.stringify(state.goals));
     return write(state);
   }
 
   function setFilters(filters) { const state = read(); state.filters = { ...state.filters, ...filters }; return write(state); }
   function setNotifications(changes) { const state = read(); state.notifications = { ...state.notifications, ...changes }; return write(state); }
 
-  window.RupaiRevision = { read, write, addTask, updateTask, removeTask, completeSession, addMistake, reviewMistake, addGoal, setFilters, setNotifications, normalizeTask, isoDate, addDays, intervalFor, subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); } };
+  function exportData() {
+    const data = {};
+    BACKUP_KEYS.forEach(key => {
+      const value = localStorage.getItem(key);
+      if (value !== null) data[key] = JSON.parse(value);
+    });
+    return {
+      format: BACKUP_FORMAT,
+      version: BACKUP_VERSION,
+      exportedAt: new Date().toISOString(),
+      storageKeys: [...BACKUP_KEYS],
+      data
+    };
+  }
+
+  function importData(backup) {
+    if (!backup || backup.format !== BACKUP_FORMAT || backup.version !== BACKUP_VERSION || !backup.data || typeof backup.data !== 'object' || Array.isArray(backup.data)) {
+      throw new Error('This is not a valid Rupai’s World Revision backup.');
+    }
+    const incomingRevision = backup.data[KEY];
+    if (incomingRevision !== undefined && (!incomingRevision || !Array.isArray(incomingRevision.tasks) || !Array.isArray(incomingRevision.sessions) || !Array.isArray(incomingRevision.mistakes))) {
+      throw new Error('The Revision backup data is incomplete or damaged.');
+    }
+    const incomingGoals = backup.data[DAILY_GOALS_KEY];
+    if (incomingGoals !== undefined && !Array.isArray(incomingGoals)) {
+      throw new Error('The Daily Goals backup data is invalid.');
+    }
+
+    const previous = new Map(BACKUP_KEYS.map(key => [key, localStorage.getItem(key)]));
+    try {
+      BACKUP_KEYS.forEach(key => {
+        if (Object.prototype.hasOwnProperty.call(backup.data, key)) {
+          localStorage.setItem(key, JSON.stringify(backup.data[key]));
+        }
+      });
+      const state = read();
+      listeners.forEach(fn => fn(state));
+      window.dispatchEvent(new CustomEvent('rupai:revision-changed', { detail: state }));
+      return state;
+    } catch (error) {
+      previous.forEach((value, key) => value === null ? localStorage.removeItem(key) : localStorage.setItem(key, value));
+      throw error;
+    }
+  }
+
+  window.RupaiRevision = {
+    read, write, addTask, updateTask, removeTask, completeSession, addMistake, reviewMistake, addGoal,
+    setFilters, setNotifications, normalizeTask, isoDate, addDays, intervalFor, exportData, importData,
+    storageKeys: Object.freeze([...BACKUP_KEYS]),
+    subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); }
+  };
 })();
