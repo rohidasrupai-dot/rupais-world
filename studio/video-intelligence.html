@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Video Intelligence · Teach Curio Studio</title>
+  <link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="video-intelligence.css">
+  <script src="auth.js"></script>
+  <script>window.__videoSession=RupaiAuth.requireStudioAccess({redirect:true,returnTo:'video-intelligence.html'});</script>
+</head>
+<body>
+  <header class="video-header"><a href="index.html" class="secondary">← Studio</a><div><span class="eyebrow">VIDEO INTELLIGENCE FOUNDATION</span><h1>Educational Video Planner</h1></div><span id="providerStatus" class="provider-status" role="status">Checking provider…</span></header>
+  <div class="workspace">
+    <aside class="request-panel"><div class="panel-title"><h2>Video requests</h2><button id="newRequest" class="primary">New request</button></div><div id="requestList"></div></aside>
+    <main>
+      <section id="emptyState" class="empty-state"><strong>Create a video plan</strong><p>Plan scenes and link approved lesson assets. No video is generated in this foundation workspace.</p></section>
+      <div id="editor" hidden>
+        <nav class="tabs" aria-label="Video workspace sections"><button data-tab="plan" class="active">Video plan</button><button data-tab="scenes">Scene planner</button><button data-tab="timeline">Timeline</button><button data-tab="review">Review</button></nav>
+        <section id="content"></section>
+      </div>
+    </main>
+  </div>
+  <dialog id="requestDialog"><form method="dialog" id="requestForm"><h2>Create video request</h2><div class="form-grid"><label>Lesson<select name="projectId" required></select></label><label>Video type<select name="videoType" required></select></label><label>Topic<input name="topic"></label><label>Subtopic<input name="subtopic"></label><label class="wide">Learning objective<textarea name="learningObjective" required></textarea></label><label>Audience<input name="audience" value="Student"></label><label>Estimated duration (seconds)<input name="duration" type="number" min="15" max="7200" value="120" required></label><label>Pacing<select name="pacing"></select></label><label>Narration style<select name="narrationStyle"></select></label><label>Visual style<input name="visualStyle" value="Rupai’s World educational style"></label><label>Language<select name="language"></select></label><label>Background music preference<select name="music"><option value="none">None</option><option value="subtle">Subtle</option><option value="educational">Educational</option><option value="creator_selected">Creator selected later</option></select></label><label class="check"><input name="subtitles" type="checkbox" checked> Include subtitles</label></div><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="create" class="primary">Create request</button></div></form></dialog>
+  <dialog id="sceneDialog"><form method="dialog" id="sceneForm"><h2 id="sceneDialogTitle">Add scene</h2><input type="hidden" name="sceneId"><div class="form-grid"><label>Title<input name="title" required></label><label>Estimated duration (seconds)<input name="duration" type="number" min="1" max="1800" value="15" required></label><label class="wide">Narration<textarea name="narration" placeholder="What Curio will say"></textarea></label><label class="wide">Visual description<textarea name="visualDescription" placeholder="What learners should see"></textarea></label><label class="wide">Learning objective<input name="learningObjective"></label><label>Transition<select name="transition"></select></label><label class="wide">Creator notes<textarea name="notes"></textarea></label></div><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="save" class="primary">Save scene</button></div></form></dialog>
+  <dialog id="assetDialog"><form method="dialog" id="assetForm"><h2>Link existing asset</h2><input type="hidden" name="sceneId"><label>Approved lesson asset or uploaded file<select name="assetId" required></select></label><p>Only references are created. Source files are not duplicated.</p><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button value="link" class="primary">Link asset</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="store.js"></script><script src="ai-provider-service.js"></script><script src="video-intelligence-service.js"></script><script src="video-intelligence.js"></script>
+</body></html>

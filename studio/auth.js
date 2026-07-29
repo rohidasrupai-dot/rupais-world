@@ -22,15 +22,15 @@
     minimumPasswordLength: 10
   });
   const PERMISSIONS = Object.freeze({
-    student: ['lesson.read', 'quiz.take', 'progress.read.own', 'profile.edit.own', 'visual.student.view', 'visual.request.create'],
-    creator: ['lesson.read', 'lesson.create', 'lesson.edit', 'lesson.approve', 'lesson.publish', 'quiz.review', 'studio.access', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read'],
+    student: ['lesson.read', 'quiz.take', 'progress.read.own', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'voice.input.use', 'voice.output.use', 'voice.transcript.read.own', 'voice.session.read.own'],
+    creator: ['lesson.read', 'lesson.create', 'lesson.edit', 'lesson.approve', 'lesson.publish', 'quiz.review', 'studio.access', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read', 'voice.input.use', 'voice.output.use', 'voice.transcript.read.own', 'voice.session.read.own', 'voice.review.creator', 'voice.cost.view', 'video.request.create', 'video.request.edit', 'video.review'],
     teacher: ['lesson.read', 'quiz.review', 'progress.read.linked', 'profile.edit.own'],
     parent: ['lesson.read', 'progress.read.linked', 'profile.edit.own'],
-    admin: ['lesson.read', 'studio.access', 'users.manage', 'roles.manage', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read', 'visual.provider.configure'],
-    super_admin: ['lesson.read', 'studio.access', 'users.manage', 'roles.manage', 'system.configure', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read', 'visual.provider.configure'],
+    admin: ['lesson.read', 'studio.access', 'users.manage', 'roles.manage', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read', 'visual.provider.configure', 'voice.input.use', 'voice.output.use', 'voice.transcript.read.own', 'voice.session.read.own', 'voice.review.creator', 'voice.cost.view', 'voice.retention.manage', 'voice.provider.configure', 'video.request.create', 'video.request.edit', 'video.review', 'video.provider.configure'],
+    super_admin: ['lesson.read', 'studio.access', 'users.manage', 'roles.manage', 'system.configure', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read', 'visual.provider.configure', 'voice.input.use', 'voice.output.use', 'voice.transcript.read.own', 'voice.session.read.own', 'voice.review.creator', 'voice.cost.view', 'voice.retention.manage', 'voice.provider.configure', 'video.request.create', 'video.request.edit', 'video.review', 'video.provider.configure'],
     guest: ['lesson.read', 'quiz.take']
   });
-  const SAFE_RETURN_PREFIXES = ['../', './', '/', 'index.html', 'upload.html', 'structure.html', 'lesson.html', 'quiz.html', 'ask-curio.html', 'curio-', 'visual-', 'adaptive-', 'learning-', 'account.html', 'admin-users.html'];
+  const SAFE_RETURN_PREFIXES = ['../', './', '/', 'index.html', 'upload.html', 'structure.html', 'lesson.html', 'quiz.html', 'ask-curio.html', 'voice-test.html', 'video-', 'curio-', 'visual-', 'adaptive-', 'learning-', 'account.html', 'admin-users.html'];
   const emptyState = () => ({
     schemaVersion: 2,
     providerConfiguration: { mode: CONFIG.mode, provider: CONFIG.provider, configured: false },

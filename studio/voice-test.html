@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Curio Voice Test · Teach Curio Studio</title>
+  <link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="voice-test.css">
+  <script src="auth.js"></script>
+  <script>window.__voiceTestSession=RupaiAuth.requireStudioAccess({redirect:true,returnTo:'voice-test.html'});</script>
+</head>
+<body>
+  <header><a href="index.html" class="secondary">← Studio</a><div><span class="eyebrow">CREATOR-SAFE TEST AREA</span><h1>Curio Voice Test</h1></div><span id="overallState" class="pill" role="status">Checking…</span></header>
+  <main>
+    <section class="notice" id="providerNotice" role="status"></section>
+    <section class="grid" aria-label="Voice capability assessment">
+      <article class="card"><h2>Browser capability</h2><dl id="capabilities"></dl></article>
+      <article class="card"><h2>Provider availability</h2><dl id="providers"></dl><p>No credentials are displayed here.</p></article>
+      <article class="card"><h2>Privacy defaults</h2><p>Raw browser-recognition audio is not stored. Confirmed transcript text is canonical. Raw audio is not synchronised by default.</p><strong id="retention">Not Stored</strong></article>
+    </section>
+    <section class="card">
+      <h2>Microphone and transcript test</h2>
+      <p>Curio uses your microphone only while listening. Review the transcript before sending it.</p>
+      <label class="check"><input type="checkbox" id="consent"> Allow microphone for this short test</label>
+      <div class="fields"><label>Input language<select id="inputLanguage"><option value="english">English</option><option value="hindi">Hindi</option><option value="hinglish">Hinglish — review required</option></select></label><label>Maximum duration<select id="duration"><option value="15000">15 seconds</option><option value="30000">30 seconds</option><option value="60000">60 seconds</option></select></label></div>
+      <div class="actions"><button id="permission">Test permission</button><button id="listen" class="primary">Start listening</button><button id="stop" disabled>Stop</button><button id="cancel" disabled>Cancel</button></div>
+      <p id="inputState" class="state" role="status" aria-live="assertive">Idle</p><p id="partial" class="partial" aria-live="polite"></p>
+      <label>Editable transcript<textarea id="transcript" placeholder="Final transcript appears here. You may edit it."></textarea></label>
+      <p>This test does not submit the transcript to Ask Curio.</p>
+    </section>
+    <section class="card">
+      <h2>Spoken-output preview</h2>
+      <div class="fields"><label>Output language<select id="outputLanguage"><option value="english">English</option><option value="hindi">Hindi</option><option value="hinglish">Hinglish</option></select></label><label>Available browser voice<select id="voice"><option value="">Device default</option></select></label></div>
+      <label>Approved preview text<textarea id="previewText">Hello! I am Curio. I can read approved learning content aloud while keeping the full text visible.</textarea></label>
+      <div class="actions"><button id="speak" class="primary">Speak preview</button><button id="pause" disabled>Pause</button><button id="resume" disabled>Resume</button><button id="stopSpeech" disabled>Stop</button><button id="replay" disabled>Replay</button></div>
+      <p id="outputState" class="state" role="status" aria-live="polite">Idle</p>
+    </section>
+    <section class="card"><h2>Accessibility status</h2><ul><li>Keyboard controls and visible focus</li><li>Screen-reader state announcements</li><li>Text equivalent always visible</li><li>Large touch targets and reduced-motion support</li><li>No essential information delivered only through audio</li></ul></section>
+  </main>
+  <script src="store.js"></script><script src="ai-provider-service.js"></script><script src="curio-conversation-service.js"></script><script src="voice-intelligence-service.js"></script><script src="voice-test.js"></script>
+</body></html>
