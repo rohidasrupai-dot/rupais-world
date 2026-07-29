@@ -1,0 +1,78 @@
+{
+  "feature": "Rupai's World Revision Menu",
+  "entryPoint": "revision.html",
+  "sourceFiles": [
+    "revision.html",
+    "revision.css",
+    "revision-reference.css",
+    "revision-store.js",
+    "revision.js"
+  ],
+  "testFiles": [
+    "tests/revision-store.test.js"
+  ],
+  "assets": [
+    "assets/revision-reference-exact-v1.png",
+    "assets/revision-hero-storybook-v2.png",
+    "assets/rupais-world-official-logo-v2.png",
+    "assets/mumma-cat-heart-v1.png",
+    "assets/curio-integrated-study-scene-v1.png",
+    "assets/curio-official-v3.png",
+    "assets/home-nav-icon-v1.png",
+    "assets/subjects-nav-icon-v1.png",
+    "assets/curio-nav-icon-v1.png",
+    "assets/notes-nav-icon-v1.png",
+    "assets/profile-nav-icon-v2.png",
+    "assets/subject-history-web-v1.webp",
+    "assets/subject-geography-web-v1.webp",
+    "assets/subject-polity-web-v1.webp",
+    "assets/subject-economy-web-v1.webp",
+    "assets/subject-maths-web-v1.webp",
+    "assets/subject-english-web-v1.webp",
+    "assets/subject-reasoning-web-v1.webp",
+    "assets/subject-science-web-v1.webp"
+  ],
+  "routeDependencies": [
+    "index.html",
+    "subjects.html",
+    "search.html",
+    "favorites.html",
+    "history.html",
+    "calculator/rupais-world-calculator-live.html"
+  ],
+  "externalFonts": [
+    "https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap"
+  ],
+  "localStorage": {
+    "keys": [
+      "rupaiRevision:v1",
+      "rupaiDailyGoals:v1"
+    ],
+    "revisionDefault": {
+      "version": 1,
+      "tasks": [],
+      "sessions": [],
+      "mistakes": [],
+      "goals": [],
+      "achievements": [],
+      "filters": {
+        "query": "",
+        "subject": "All",
+        "status": "All",
+        "mode": "All",
+        "sort": "Priority"
+      },
+      "notifications": {
+        "enabled": false,
+        "time": "18:00"
+      }
+    },
+    "dailyGoalsDefault": []
+  },
+  "backup": {
+    "format": "rupais-world-revision-backup",
+    "version": 1,
+    "exportsOnlyListedRevisionKeys": true,
+    "preservesUnrelatedLocalStorageOnImport": true
+  }
+}
