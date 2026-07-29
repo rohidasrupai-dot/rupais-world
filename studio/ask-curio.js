@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  const C=TeachCurioConversation,S=TeachCurioStore,V=TeachCurioVoice,session=window.__curioSession,$=q=>document.querySelector(q);
+  const C=TeachCurioConversation,O=TeachCurioConversationOrchestrator,S=TeachCurioStore,V=TeachCurioVoice,session=window.__curioSession,$=q=>document.querySelector(q);
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const params=new URLSearchParams(location.search),actor=()=>({userId:session.userId,permissions:session.permissions||[]});
   let conversationId=params.get('conversation'),busy=false,activeExecution=null,voiceSessionId=null,activeTranscriptId=null,lastSpokenText='',timer=null,timerStarted=0;
@@ -12,30 +12,36 @@
     const data=S.read(),projects=data.projects.filter(x=>!x.deletedAt);
     $('#project').innerHTML='<option value="">No lesson selected</option>'+projects.map(x=>`<option value="${esc(x.id)}">${esc(x.title)}</option>`).join('');
     if(params.get('project'))$('#project').value=params.get('project');
-    $('#mode').innerHTML=C.MODES.map(x=>`<option value="${x}">${labels(x)}</option>`).join('');
+    $('#mode').innerHTML=O.MODES.map(x=>`<option value="${x}">${labels(x)}</option>`).join('');
+    $('#studyMode').innerHTML=O.STUDY_MODES.map(x=>`<option value="${x}">${labels(x)}</option>`).join('');
     $('#language').innerHTML=C.LANGUAGES.map(x=>`<option value="${x}">${labels(x)}</option>`).join('');
     $('#level').innerHTML=C.LEVELS.map(x=>`<option value="${x}">${labels(x)}</option>`).join('');
-    $('#mode').value='solve_doubt';$('#level').value='standard';
+    $('#mode').value='doubt_solving';$('#studyMode').value='normal_study';$('#level').value='standard';
     const profile=data.studentLearningProfiles?.find(x=>x.studentId===session.userId);
     if(profile){$('#language').value=C.LANGUAGES.includes(profile.preferredLanguage)?profile.preferredLanguage:'english';$('#level').value=profile.detailLevel==='detailed'?'detailed':'standard';document.body.classList.toggle('large-text',profile.accessibility?.largeText);document.body.classList.toggle('high-contrast',profile.accessibility?.highContrast)}
     const noProvider=RupaiAI.dashboard().noProvider;
-    $('#providerNotice').textContent=noProvider?"AI teaching is not configured. Curio can still help using approved Rupai's World lessons and learning tools.":'A configured provider may be used only after safety, privacy, grounding and budget checks.';
+    $('#providerNotice').textContent=noProvider?'AI conversation provider is not configured. Curio can still help using approved lessons and learning tools.':'A configured provider may be used only after safety, privacy, grounding and budget checks.';
     setupVoice();bind();refreshList();if(conversationId)load();else newConversation();
   }
   function newConversation(){
     const data=S.read(),identity=RupaiAuth.getCurrentUser?.(),profile=identity?.profile||data.profiles?.find(x=>x.userId===session.userId);
     if(voiceSessionId)V.cleanup(voiceSessionId,session.userId,actor(),'new_conversation');
-    const c=C.createConversation({userId:session.userId,projectId:$('#project').value||null,teachingMode:$('#mode').value,preferredLanguage:$('#language').value,explanationLevel:$('#level').value,ageGroup:profile?.ageGroup||'unknown',memoryPermissionState:'not_asked'});
-    conversationId=c.id;history.replaceState(null,'',`ask-curio.html?conversation=${c.id}`);refreshList();load();
+    const c=C.createConversation({userId:session.userId,projectId:$('#project').value||null,teachingMode:'solve_doubt',preferredLanguage:$('#language').value,explanationLevel:$('#level').value,ageGroup:profile?.ageGroup||'unknown',memoryPermissionState:'not_asked'});
+    conversationId=c.id;history.replaceState(null,'',`ask-curio.html?conversation=${c.id}`);O.state(c.id,session.userId);O.greeting(c.id,session.userId);refreshList();load();
   }
   function refreshList(){
-    const rows=C.listConversations(session.userId);
-    $('#conversationList').innerHTML=rows.map(x=>`<button class="conversation-item ${x.id===conversationId?'active':''}" data-conversation="${x.id}">${esc(x.currentTeachingGoal||'Learning conversation')}<small>${labels(x.teachingMode)} · ${new Date(x.lastActiveAt).toLocaleDateString()}</small></button>`).join('')||'<p>No conversations yet.</p>';
+    const rows=O.history(session.userId,$('#historySearch').value);
+    $('#conversationList').innerHTML=rows.map(x=>`<div class="history-row"><button class="conversation-item ${x.id===conversationId?'active':''}" data-conversation="${x.id}">${esc(x.title||x.currentTeachingGoal||'Learning conversation')}<small>${new Date(x.lastActiveAt).toLocaleDateString()}</small></button><div><button data-rename="${x.id}" aria-label="Rename conversation">Rename</button><button data-archive="${x.id}" aria-label="Archive conversation">Archive</button><button data-delete="${x.id}" aria-label="Delete conversation">Delete</button></div></div>`).join('')||'<p>No conversations found.</p>';
     document.querySelectorAll('[data-conversation]').forEach(b=>b.onclick=()=>{if(voiceSessionId)V.cleanup(voiceSessionId,session.userId,actor(),'conversation_change');conversationId=b.dataset.conversation;history.replaceState(null,'',`ask-curio.html?conversation=${conversationId}`);load();refreshList()});
+    document.querySelectorAll('[data-rename]').forEach(b=>b.onclick=()=>{const value=prompt('Rename conversation');if(value){O.historyAction(b.dataset.rename,session.userId,'rename',value);refreshList()}});
+    document.querySelectorAll('[data-archive]').forEach(b=>b.onclick=()=>{O.historyAction(b.dataset.archive,session.userId,'archive');if(conversationId===b.dataset.archive)newConversation();else refreshList()});
+    document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('Delete this conversation from this device?')){O.historyAction(b.dataset.delete,session.userId,'delete');conversationId=null;newConversation()}});
   }
   function load(){
     const view=C.getConversation(conversationId,session.userId),c=view.conversation;
-    $('#project').value=c.projectId||'';$('#mode').value=c.teachingMode;$('#language').value=c.preferredLanguage;$('#level').value=c.explanationLevel;$('#contextConsent').checked=c.contextSharingAllowed;
+    const companion=O.state(conversationId,session.userId);
+    $('#project').value=c.projectId||'';$('#mode').value=companion.currentMode;$('#studyMode').value=companion.studyMode;$('#language').value=c.preferredLanguage;$('#level').value=c.explanationLevel;$('#contextConsent').checked=c.contextSharingAllowed;
+    $('#currentMode').textContent=labels(companion.currentMode);$('#currentTopic').textContent=companion.currentTopic||'Not set';$('#goalState').textContent=companion.currentGoalId?'Goal: Active':'Goal: Not set';
     ensureVoiceSession(c);renderMessages(view.messages);renderSuggestions();
   }
   function renderSuggestions(){
@@ -55,9 +61,12 @@
   async function submit(e){
     e.preventDefault();if(busy)return;busy=true;activeExecution=null;$('#messages').setAttribute('aria-busy','true');$('#progress').textContent='Preparing · Retrieving lesson context · Reviewing safety';e.submitter.disabled=true;$('#stop').disabled=true;const question=$('#question').value;
     try{
-      C.updateConversation(conversationId,session.userId,{teachingMode:$('#mode').value,preferredLanguage:$('#language').value,explanationLevel:$('#level').value,contextSharingAllowed:$('#contextConsent').checked});
-      const result=await C.ask(conversationId,session.userId,question,{streaming:true,onExecution:id=>{activeExecution=id;$('#stop').disabled=!id;$('#progress').textContent='Waiting for provider · Generating'},onChunk:event=>{$('#progress').textContent=`Generating · ${event.content.length} confirmed characters`}});
+      C.updateConversation(conversationId,session.userId,{preferredLanguage:$('#language').value,explanationLevel:$('#level').value,contextSharingAllowed:$('#contextConsent').checked});
+      const result=await O.orchestrate(conversationId,session.userId,question,{mode:$('#mode').value,studyMode:$('#studyMode').value,explanationLevel:$('#level').value,streaming:true,onExecution:id=>{activeExecution=id;$('#stop').disabled=!id;$('#progress').textContent='Waiting for provider · Generating'},onChunk:event=>{$('#progress').textContent=`Generating · ${event.content.length} confirmed characters`}});
       $('#question').value='';load();$('#progress').textContent=result.state==='complete'?'Complete':labels(result.state);
+      if(result.action?.type==='stop_speech')V.stopSpeaking(voiceSessionId,session.userId,actor());
+      if(result.action?.type==='confirm_note'&&confirm(result.message.content))O.confirmNote(result.action.pendingId,session.userId,true);
+      if(result.action?.type==='create_summary'){const x=O.summary(conversationId,session.userId);toast(`Summary saved: ${x.questionsAnswered} answer(s).`)}
       const pref=V.preference(session.userId);if(pref.autoRead&&result.message?.content)speakMessage(result.message.id,result.message.content);
     }catch(error){$('#progress').textContent=`Failed: ${error.message}`}
     finally{busy=false;activeExecution=null;$('#stop').disabled=true;e.submitter.disabled=false;$('#messages').setAttribute('aria-busy','false');refreshList()}
@@ -109,9 +118,13 @@
   }
   function bind(){
     $('#newConversation').onclick=newConversation;$('#composer').onsubmit=submit;
-    ['project','mode','language','level'].forEach(id=>$('#'+id).onchange=()=>{if(conversationId)C.updateConversation(conversationId,session.userId,{projectId:$('#project').value,teachingMode:$('#mode').value,preferredLanguage:$('#language').value,explanationLevel:$('#level').value});renderSuggestions()});
+    ['project','language','level'].forEach(id=>$('#'+id).onchange=()=>{if(conversationId)C.updateConversation(conversationId,session.userId,{projectId:$('#project').value,preferredLanguage:$('#language').value,explanationLevel:$('#level').value});renderSuggestions()});
+    ['mode','studyMode'].forEach(id=>$('#'+id).onchange=()=>{if(conversationId){$('#currentMode').textContent=labels($('#mode').value);toast(`${labels($('#mode').value)} selected. Curio will not force a mode.`)}});
+    $('#historySearch').oninput=refreshList;
     $('#contextConsent').onchange=()=>{C.updateConversation(conversationId,session.userId,{contextSharingAllowed:$('#contextConsent').checked});C.setConsent(session.userId,{type:'provider_context',granted:$('#contextConsent').checked,dataCategories:['learning_preferences','concept_mastery']})};
-    $('#openLesson').onclick=()=>{$('#project').value?location.href=`lesson.html?project=${encodeURIComponent($('#project').value)}`:toast('Choose a lesson first.')};$('#launchQuiz').onclick=()=>{const x=C.quizLink($('#project').value);x.available?location.href=x.url:toast(x.message)};$('#findVisual').onclick=()=>{const x=C.visualRecommendation($('#project').value,$('#question').value);toast(x.available?`Approved visual: ${x.asset.title}`:(x.task?.message||x.message||'No approved visual matched.'))};$('#summarize').onclick=()=>{const x=C.summarize(conversationId,session.userId);toast(`Summary saved: ${x.questionsAnswered} answer(s).`)};
+    $('#openLesson').onclick=()=>{$('#project').value?location.href=`lesson.html?project=${encodeURIComponent($('#project').value)}`:toast('Choose a lesson first.')};$('#launchQuiz').onclick=()=>{const x=C.quizLink($('#project').value);x.available?location.href=x.url:toast(x.message)};$('#findVisual').onclick=()=>{const x=C.visualRecommendation($('#project').value,$('#question').value);toast(x.available?`Approved visual: ${x.asset.title}`:(x.task?.message||x.message||'No approved visual matched.'))};$('#summarize').onclick=()=>{const x=O.summary(conversationId,session.userId);toast(`Summary saved: ${x.questionsAnswered} answer(s).`)};
+    $('#personalitySettings').onclick=()=>{const p=O.personality(session.userId);$('#formOfAddress').value=p.formOfAddress;$('#customAddress').value=p.customAddress||'';$('#affectionateGreetings').checked=p.affectionateGreetings;$('#warmth').value=p.warmth;$('#encouragementFrequency').value=p.encouragementFrequency;$('#followUpFrequency').value=p.followUpFrequency;$('#responseLength').value=p.responseLength;const patterns=O.patterns(session.userId);$('#patternSettings').innerHTML=patterns.map(x=>`<div class="pattern-setting"><span>${labels(x.patternType)} · ${labels(x.status)}</span><button type="button" data-pattern-disable="${x.id}">Disable</button><button type="button" data-pattern-correct="${x.id}">Correct</button></div>`).join('')||'<p>No confirmed learning preferences.</p>';document.querySelectorAll('[data-pattern-disable]').forEach(b=>b.onclick=()=>{O.changePreference(b.dataset.patternDisable,session.userId,'disable');b.closest('.pattern-setting').remove()});document.querySelectorAll('[data-pattern-correct]').forEach(b=>b.onclick=()=>{O.changePreference(b.dataset.patternCorrect,session.userId,'correct');b.closest('.pattern-setting').remove()});$('#personalityDialog').showModal()};
+    $('#personalityForm').addEventListener('submit',e=>{if(e.submitter?.value!=='save')return;O.savePersonality(session.userId,{formOfAddress:$('#formOfAddress').value,customAddress:$('#customAddress').value,affectionateGreetings:$('#affectionateGreetings').checked,warmth:$('#warmth').value,encouragementFrequency:$('#encouragementFrequency').value,followUpFrequency:$('#followUpFrequency').value,responseLength:$('#responseLength').value});toast('Companion settings saved as a new version.')});
     $('#stop').onclick=()=>{if(activeExecution&&RupaiAI.cancel(activeExecution))$('#progress').textContent='Cancelled — partial text was not marked complete.'};
     $('#reportForm').onsubmit=e=>{if(e.submitter?.value==='cancel')return;C.reportCorrection({conversationId,userId:session.userId,messageId:$('#reportMessage').value,category:$('#reportCategory').value,details:$('#reportDetails').value});toast('Report added to creator review.');$('#reportDetails').value=''};
     $('#startListening').onclick=beginListening;$('#stopListening').onclick=()=>{V.stopListening(voiceSessionId,session.userId,actor());voiceState('stopped')};$('#cancelListening').onclick=()=>{V.cancelListening(voiceSessionId,session.userId,actor());$('#partialTranscript').textContent='';$('#transcriptReview').hidden=true;voiceState('cancelled')};$('#keyboardFallback').onclick=()=>{$('#question').focus();voiceState('idle')};
