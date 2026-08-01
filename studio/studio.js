@@ -86,6 +86,7 @@
   document.querySelector('[data-action="visual-intelligence"]').addEventListener('click', () => { window.location.href = 'visual-intelligence.html'; });
   document.querySelector('[data-action="voice-test"]').addEventListener('click', () => { window.location.href = 'voice-test.html'; });
   document.querySelector('[data-action="video-intelligence"]').addEventListener('click', () => { window.location.href = 'video-intelligence.html'; });
+  document.querySelector('[data-action="brain-inspector"]').addEventListener('click', () => { window.location.href = 'curio-brain-inspector.html'; });
   document.querySelectorAll('[data-action="generate"], [data-action="verify"], [data-action="templates"], #projectFilter').forEach(button => button.addEventListener('click', () => showToast('This belongs to a later Studio phase.')));
   window.addEventListener('teach-curio:changed', render);
   render();

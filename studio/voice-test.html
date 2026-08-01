@@ -11,6 +11,12 @@
   <header><a href="index.html" class="secondary">← Studio</a><div><span class="eyebrow">CREATOR-SAFE TEST AREA</span><h1>Curio Voice Test</h1></div><span id="overallState" class="pill" role="status">Checking…</span></header>
   <main>
     <section class="notice" id="providerNotice" role="status"></section>
+    <section class="card" aria-labelledby="sessionTitle">
+      <h2 id="sessionTitle">Voice conversation session</h2>
+      <p>Session control is local to this device. Pausing or stopping never claims that a remote voice service was contacted.</p>
+      <div class="actions"><button id="pauseSession">Pause session</button><button id="resumeSession" disabled>Resume session</button><button id="stopSession">Stop session</button><button id="recoverSession" disabled>Recover session</button><button id="endSession">End conversation</button></div>
+      <p id="sessionState" class="state" role="status" aria-live="polite">Active</p>
+    </section>
     <section class="grid" aria-label="Voice capability assessment">
       <article class="card"><h2>Browser capability</h2><dl id="capabilities"></dl></article>
       <article class="card"><h2>Provider availability</h2><dl id="providers"></dl><p>No credentials are displayed here.</p></article>
@@ -28,12 +34,20 @@
     </section>
     <section class="card">
       <h2>Spoken-output preview</h2>
-      <div class="fields"><label>Output language<select id="outputLanguage"><option value="english">English</option><option value="hindi">Hindi</option><option value="hinglish">Hinglish</option></select></label><label>Available browser voice<select id="voice"><option value="">Device default</option></select></label></div>
+      <div class="fields"><label>Output language<select id="outputLanguage"><option value="english">English</option><option value="hindi">Hindi</option><option value="hinglish">Hinglish</option></select></label><label>Available browser voice<select id="voice"><option value="">Device default</option></select></label><label>Voice personality<select id="personality"><option value="friendly_curio">Friendly Curio</option><option value="teacher_curio">Teacher Curio</option><option value="story_curio">Story Curio</option></select></label><label>Speech speed<input id="speechSpeed" type="range" min=".5" max="2" step=".1" value="1"></label><label>Speech pitch<input id="speechPitch" type="range" min="0" max="2" step=".1" value="1"></label><label>Speech volume<input id="speechVolume" type="range" min="0" max="1" step=".1" value="1"></label></div>
       <label>Approved preview text<textarea id="previewText">Hello! I am Curio. I can read approved learning content aloud while keeping the full text visible.</textarea></label>
       <div class="actions"><button id="speak" class="primary">Speak preview</button><button id="pause" disabled>Pause</button><button id="resume" disabled>Resume</button><button id="stopSpeech" disabled>Stop</button><button id="replay" disabled>Replay</button></div>
       <p id="outputState" class="state" role="status" aria-live="polite">Idle</p>
     </section>
+    <section class="card">
+      <h2>Local voice-command router</h2>
+      <p>Commands are interpreted with transparent device-side rules. No provider response is fabricated.</p>
+      <label>Command<input id="commandText" value="Open Revision"></label>
+      <div class="actions"><button id="runCommand" class="primary">Interpret command</button></div>
+      <p id="commandResult" class="state" role="status" aria-live="polite">Ready</p>
+      <p>Supported: Next lesson, Previous lesson, Repeat, Explain again, Give example, Show image, Open map, Start quiz, Stop quiz, Read this page, Slower, Faster, Stop speaking, Continue, Open Revision and Open Notes.</p>
+    </section>
     <section class="card"><h2>Accessibility status</h2><ul><li>Keyboard controls and visible focus</li><li>Screen-reader state announcements</li><li>Text equivalent always visible</li><li>Large touch targets and reduced-motion support</li><li>No essential information delivered only through audio</li></ul></section>
   </main>
-  <script src="store.js"></script><script src="ai-provider-service.js"></script><script src="curio-conversation-service.js"></script><script src="voice-intelligence-service.js"></script><script src="voice-test.js"></script>
+  <script src="store.js"></script><script src="adaptive-learning-service.js"></script><script src="learning-memory-service.js"></script><script src="adaptive-teaching-intelligence-service.js?phase=6b"></script><script src="ai-provider-service.js"></script><script src="curio-brain-decision-service.js?phase=6d"></script><script src="curio-conversation-service.js"></script><script src="curio-conversation-orchestrator.js?phase=6e"></script><script src="voice-intelligence-service.js?phase=6f"></script><script src="voice-conversation-controller.js?phase=6f"></script><script src="voice-test.js?phase=6f"></script>
 </body></html>

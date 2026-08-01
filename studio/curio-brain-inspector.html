@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Curio Brain Inspector · Teach Curio Studio</title><link rel="stylesheet" href="studio.css"><link rel="stylesheet" href="curio-brain-inspector.css"><script src="auth.js"></script><script>window.__brainInspectorSession=RupaiAuth.requireStudioAccess({redirect:true,returnTo:'curio-brain-inspector.html'});</script></head>
+<body><header><a href="index.html" class="secondary">← Studio</a><div><span class="eyebrow">CREATOR WORKSPACE · PHASE 6D</span><h1>Curio Brain Inspector</h1></div><span id="mode" class="pill">Local rules</span></header>
+<main>
+  <section class="notice" id="providerStatus" role="status"></section>
+  <section class="controls" aria-label="Decision inspection controls"><label>Learner ID<input id="studentId" autocomplete="off"></label><label>Lesson<select id="project"></select></label><label>Current concept<input id="concept" value="Water Cycle"></label><button id="run" class="primary">Create local decision</button></section>
+  <section id="empty" class="card"><h2>No inspected decision yet</h2><p>Create a local decision or select a learner with existing decisions. Curio uses approved resources and recorded evidence only.</p></section>
+  <section id="decision" hidden aria-live="polite">
+    <div class="metrics"><article><small>Recommended action</small><strong id="action"></strong></article><article><small>Explanation</small><strong id="style"></strong></article><article><small>Difficulty</small><strong id="difficulty"></strong></article><article><small>Confidence</small><strong id="confidence"></strong></article></div>
+    <div class="grid"><article class="card"><h2>Why Curio suggested this</h2><p id="reason"></p><h3>Evidence</h3><ul id="evidence"></ul></article><article class="card"><h2>Selected resource</h2><div id="resource"></div><h3>Fallback</h3><p id="fallback"></p><h3>Provider requirement</h3><p id="providerRequirement"></p></article><article class="card"><h2>Prerequisite readiness</h2><p id="prerequisite"></p><h3>Revision status</h3><p id="revision"></p></article><article class="card"><h2>Verified connections</h2><ul id="connections"></ul><h3>Optional curiosity paths</h3><ul id="curiosity"></ul></article></div>
+    <section class="card"><h2>Learner override</h2><p>Overrides are stored as evidence and never become a permanent preference automatically.</p><div class="override-actions" id="overrides"></div><p id="overrideStatus" role="status"></p></section>
+  </section>
+  <section class="card"><h2>Versioned rule packs</h2><div id="rules"></div></section>
+</main><script src="store.js"></script><script src="ai-provider-service.js"></script><script src="curio-brain-decision-service.js"></script><script src="curio-brain-inspector.js"></script></body></html>
