@@ -1,0 +1,5 @@
+export type CuriosityCardType = 'did_you_know'|'what_if'|'imagine_this'|'mystery'|'hidden_connection'|'fun_fact'|'surprising_comparison'|'explore_more'|'try_it_yourself'|'historical_mystery'|'science_question'|'geography_challenge'|'observation_task';
+export type CuriosityInteraction = 'viewed'|'completed'|'ignored'|'favorite';
+export interface CuriosityCard { id:string; type:CuriosityCardType; title:string; prompt:string; explanation:string; subject:string|null; topic:string|null; difficulty:'easy'|'medium'|'hard'; ageGroups:string[]; interestTags:string[]; evidenceReferenceIds:string[]; status:'draft'|'approved'|'rejected'|'archived'; activeVersion:number; createdAt:string; updatedAt:string; }
+export interface CuriosityChain { id:string; title:string; startNodeId:string; stepIds:string[]; status:'draft'|'approved'|'rejected'|'archived'; activeVersion:number; }
+export interface CuriosityProgress { id:string; studentId:string; chainId:string; currentStep:number; completedStepIds:string[]; status:'started'|'in_progress'|'completed'; updatedAt:string; }

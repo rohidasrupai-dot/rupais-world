@@ -1,0 +1,5 @@
+export type ReasoningType='why'|'how'|'cause_effect'|'compare_contrast'|'sequence'|'classification'|'evidence_based'|'source_interpretation'|'mathematical_procedure'|'scientific_process'|'hypothesis'|'prediction'|'what_if'|'error_analysis'|'definition_application'|'chronology'|'map_reasoning'|'multi_step_problem'|'open_reflection'|'unclear_unsupported';
+export type ReasoningStepState='pending'|'active'|'answered'|'needs_hint'|'needs_simpler_step'|'skipped'|'completed'|'abandoned';
+export type ResponseEvaluation='correct'|'mostly_correct'|'partially_correct'|'correct_idea_weak_explanation'|'unsupported_claim'|'incorrect'|'misconception'|'irrelevant'|'unclear'|'not_answered'|'manual_review_needed';
+export type ReasoningConfidence='high'|'medium'|'low'|'insufficient_evidence'|'speculative';
+export interface CurioReasoningSession{id:string;studentId:string;question:string;questionType:ReasoningType;strategy:string;teachingMode:string;confidence:ReasoningConfidence;currentStepNumber:number;status:string;hiddenChainOfThoughtStored:false;providerUsed:false}

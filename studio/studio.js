@@ -87,6 +87,11 @@
   document.querySelector('[data-action="voice-test"]').addEventListener('click', () => { window.location.href = 'voice-test.html'; });
   document.querySelector('[data-action="video-intelligence"]').addEventListener('click', () => { window.location.href = 'video-intelligence.html'; });
   document.querySelector('[data-action="brain-inspector"]').addEventListener('click', () => { window.location.href = 'curio-brain-inspector.html'; });
+  document.querySelector('[data-action="knowledge-map"]').addEventListener('click', () => { window.location.href = 'knowledge-map.html'; });
+  document.querySelector('[data-action="learning-paths"]').addEventListener('click', () => { window.location.href = 'learning-paths.html'; });
+  document.querySelector('[data-action="reasoning-workspace"]').addEventListener('click', () => { window.location.href = 'reasoning-workspace.html'; });
+  document.querySelector('[data-action="curiosity-workspace"]').addEventListener('click', () => { window.location.href = 'curiosity-workspace.html'; });
+  document.querySelector('[data-action="discovery-dashboard"]').addEventListener('click', () => { window.location.href = 'discovery-dashboard.html'; });
   document.querySelectorAll('[data-action="generate"], [data-action="verify"], [data-action="templates"], #projectFilter').forEach(button => button.addEventListener('click', () => showToast('This belongs to a later Studio phase.')));
   window.addEventListener('teach-curio:changed', render);
   render();
