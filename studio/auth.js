@@ -30,7 +30,7 @@
     super_admin: ['lesson.read', 'studio.access', 'users.manage', 'roles.manage', 'system.configure', 'profile.edit.own', 'visual.student.view', 'visual.request.create', 'visual.generate.execute', 'visual.prompt.edit', 'visual.output.review', 'visual.asset.approve', 'visual.cost.view', 'visual.provenance.read', 'visual.provider.configure', 'voice.input.use', 'voice.output.use', 'voice.transcript.read.own', 'voice.session.read.own', 'voice.review.creator', 'voice.cost.view', 'voice.retention.manage', 'voice.provider.configure', 'video.request.create', 'video.request.edit', 'video.review', 'video.provider.configure', 'curio.brain.use', 'curio.brain.explanation.read', 'curio.brain.override.own', 'curio.brain.review', 'curio.rules.manage', 'curio.decision.audit', 'curio.provider.configure'],
     guest: ['lesson.read', 'quiz.take']
   });
-  const SAFE_RETURN_PREFIXES = ['../', './', '/', 'index.html', 'upload.html', 'structure.html', 'lesson.html', 'quiz.html', 'ask-curio.html', 'voice-test.html', 'video-', 'curio-', 'visual-', 'adaptive-', 'learning-', 'creator-', 'publishing-', 'offline-', 'account.html', 'admin-users.html'];
+  const SAFE_RETURN_PREFIXES = ['../', './', '/', 'index.html', 'upload.html', 'structure.html', 'lesson.html', 'quiz.html', 'ask-curio.html', 'voice-test.html', 'video-', 'curio-', 'visual-', 'adaptive-', 'learning-', 'creator-', 'publishing-', 'offline-', 'production-', 'account.html', 'admin-users.html'];
   const emptyState = () => ({
     schemaVersion: 2,
     providerConfiguration: { mode: CONFIG.mode, provider: CONFIG.provider, configured: false },

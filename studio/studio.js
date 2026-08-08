@@ -98,6 +98,10 @@
   document.querySelector('[data-action="publishing-studio"]').addEventListener('click', () => { window.location.href = 'publishing-studio.html'; });
   document.querySelector('[data-action="offline-center"]').addEventListener('click', () => { window.location.href = 'offline-center.html'; });
   document.querySelector('[data-action="creator-review-center"]').addEventListener('click', () => { window.location.href = 'creator-review-center.html'; });
+  document.querySelector('[data-action="production-readiness"]').addEventListener('click', () => { window.location.href = 'production-readiness.html'; });
+  document.querySelector('[data-action="production-release-manager"]').addEventListener('click', () => { window.location.href = 'production-release-manager.html'; });
+  document.querySelector('[data-action="production-architecture"]').addEventListener('click', () => { window.location.href = 'production-architecture.html'; });
+  document.querySelector('[data-action="creator-handoff"]').addEventListener('click', () => { window.location.href = 'creator-handoff.html'; });
   document.querySelector('[data-action="visual-studio"]').addEventListener('click', () => { window.location.href = 'visual-studio.html'; });
   document.querySelectorAll('[data-action="generate"], [data-action="verify"], [data-action="templates"], #projectFilter').forEach(button => button.addEventListener('click', () => showToast('This belongs to a later Studio phase.')));
   window.addEventListener('teach-curio:changed', render);
