@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="student-reader.css">
   <link rel="stylesheet" href="student-reader-blocks.css">
   <link rel="stylesheet" href="student-reader-interactions.css">
+  <link rel="stylesheet" href="curio-guided-learning.css">
+  <link rel="stylesheet" href="curio-conversation.css">
   <style>[hidden]{display:none!important}.focus-reading .reader-tools{display:block;position:fixed;right:14px;bottom:14px;top:auto;z-index:20;padding:0;border:0;background:transparent}.focus-reading .reader-tools>*:not(#focusMode){display:none}.focus-reading #focusMode{display:block;background:var(--paper);box-shadow:0 5px 18px #0003}</style>
   <script src="studio/auth.js?phase=10b"></script>
 </head>
@@ -37,8 +39,12 @@
       <section id="emptyLesson" class="empty-state" hidden><h2>This lesson is waiting for its story.</h2><p>The creator has not added approved lesson content yet. Please check again after the lesson is reviewed.</p></section>
       <footer class="lesson-navigation"><a id="previousLesson" class="nav-card" hidden><small>Previous lesson</small><strong></strong></a><a id="nextLesson" class="nav-card next" hidden><small>Next lesson</small><strong></strong></a></footer>
     </article>
+    <aside id="curioPanel" class="curio-panel" aria-label="Curio local learning guide">
+      <header><div class="curio-avatar" aria-hidden="true">C</div><div><strong>Curio Learning Guide</strong><small>Local lesson guidance</small></div><button id="toggleCurio" aria-expanded="true" aria-controls="curioPanelBody">Hide</button></header>
+      <div id="curioPanelBody"><div id="curioContext"></div><div id="curioGuidance"></div><div class="curio-actions"><button data-explain="simple">Explain simply</button><button data-explain="detailed">Explain in detail</button><button data-explain="example">Give example</button><button data-explain="realLife">Real-life connection</button></div><div id="curioResponse" role="status"></div><details open><summary>Learning Journey</summary><div id="curioJourney"></div></details><details><summary>Ask Curio Offline</summary><form id="askCurioForm"><div id="curioChat" class="curio-chat" role="log" aria-live="polite" aria-label="Local Curio conversation"></div><div id="curioTyping" class="curio-typing" role="status" hidden>Curio is checking approved lesson content&hellip;</div><label for="curioQuestion">Choose or type a supported question</label><input id="curioQuestion" list="curioQuestions" placeholder="Explain again"><datalist id="curioQuestions"><option value="Explain again"><option value="Give another example"><option value="Simplify"><option value="Show image"><option value="Show diagram"><option value="Summarize"><option value="Important points"><option value="What should I study next?"><option value="Previous topic"><option value="Related topic"></datalist><button>Ask locally</button><div class="curio-session-controls" aria-label="Local conversation controls"><button id="clearCurioChat" type="button">Clear Chat</button><button id="restartCurioChat" type="button">Restart Conversation</button><button id="exportCurioChat" type="button">Export Conversation</button></div></form></details><details><summary>Curio Summary</summary><div id="curioSummaries"></div></details><details><summary>Key Points</summary><div id="curioKeyPoints"></div></details><details><summary>Study Advice</summary><div id="curioAdvice"></div></details></div>
+    </aside>
   </main>
   <dialog id="imageDialog" class="image-dialog" aria-labelledby="imageDialogTitle"><button id="closeImage" aria-label="Close full-screen image">×</button><h2 id="imageDialogTitle" class="sr-only">Lesson image preview</h2><img id="fullImage" alt=""><p id="fullImageCaption"></p></dialog>
-  <script src="studio/store.js"></script><script src="student-reader-service.js?phase=10b"></script><script src="student-reader.js?phase=10b"></script>
+  <script src="studio/store.js"></script><script src="student-reader-service.js?phase=11c2"></script><script src="curio-guided-learning-service.js?phase=11c2"></script><script src="curio-conversation-service.js?phase=11c2"></script><script src="curio-learning-intelligence-service.js?phase=11c2"></script><script src="student-reader.js?phase=11c2"></script><script src="curio-guided-learning.js?phase=11c2"></script><script src="curio-conversation.js?phase=11c2"></script><script src="curio-learning-intelligence-client.js?phase=11c2"></script>
 </body>
 </html>

@@ -1,0 +1,1 @@
+(function(){'use strict';const L=window.RupaiCurioLearningIntelligence,R=window.RupaiStudentReader,params=new URLSearchParams(location.search),session=window.RupaiAuth?.readSession?.(),userId=session?.userId||'local_student',projectId=params.get('lesson')||params.get('project')||R.lessons()[0]?.id||null;if(projectId)L.recordLessonOpen(userId,projectId)})();
