@@ -1,0 +1,6 @@
+export type OfflineAvailability='available_offline'|'not_downloaded'|'updating'|'waiting_to_sync'|'error'|'internet_required';
+export type OfflineItemType='lesson'|'chapter'|'subject'|'visual_asset'|'diagram'|'map'|'quiz'|'revision'|'voice_plan'|'video_plan'|'learning_path'|'curiosity_card'|'knowledge_graph';
+export type OfflinePackage={id:string;scope:'lesson'|'chapter'|'subject';scopeId:string;title:string;state:OfflineAvailability;estimatedBytes:number;missingFiles:string[];createdAt:string;updatedAt:string};
+export type OfflineSyncItem={id:string;entityType:string;entityId:string;operation:'create'|'update'|'delete';state:'waiting_to_sync'|'sync_failed';retryCount:number;lastAttemptAt:string|null};
+export type OfflineConflict={id:string;entityType:string;entityId:string;conflictType:'same_lesson_edited'|'asset_version_mismatch'|'deleted_content'|'language_conflict'|'publication_conflict';resolution:'open'|'keep_local'|'keep_remote'|'merge_later'};
+export interface OfflineProviderContract{configured:boolean;remote:boolean;health():Promise<{available:boolean;confirmed:boolean;message:string}>;push(items:OfflineSyncItem[]):Promise<unknown>;pull(cursor:string|null):Promise<unknown>}

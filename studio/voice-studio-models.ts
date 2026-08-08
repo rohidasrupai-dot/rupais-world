@@ -1,0 +1,4 @@
+export type CurioVoicePersona='friendly_curio'|'teacher_curio'|'story_curio'|'calm_curio'|'excited_curio'|'documentary_narrator'|'quiz_host'|'bedtime_story'|'custom_persona';
+export interface VoiceStudioProfile{id:string;name:string;persona:CurioVoicePersona;description:string;tone:string;speakingRate:number;pitch:number;pauseStyle:string;warmth:number;formality:number;energy:number;pronunciationProfileId:string|null;approvalState:'draft'|'creator_approved'|'rejected';createdBy:string;createdAt:string;updatedAt:string}
+export interface PronunciationEntry{id:string;profileId:string;word:string;pronunciation:string;language:string;notes:string;approvalState:string;createdAt:string}
+export interface LessonVoiceRule{id:string;contentType:'story'|'fact'|'definition'|'warning'|'memory_trick'|'quiz'|'summary'|'motivation'|'curiosity_question';tone:string;rateMultiplier:number;pauseAfterSeconds:number;emphasis:string;enabled:boolean}

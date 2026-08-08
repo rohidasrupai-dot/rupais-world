@@ -1,0 +1,4 @@
+export type VisualStudioType='timeline'|'map'|'flowchart'|'cycle'|'process_diagram'|'comparison_table'|'tree_diagram'|'classification_chart'|'mind_map'|'illustration'|'object_cutaway'|'infographic';
+export interface VisualScene{id:string;planId:string;title:string;subject:string;characters:string[];objects:string[];environment:string;cameraAngle:string;mood:string;lighting:string;style:string;aspectRatio:string;educationalPurpose:string;sortOrder:number}
+export interface VisualPromptPlan{id:string;planId:string;version:number;subject:string;style:string;composition:string;importantObjects:string[];restrictions:string[];educationalNotes:string;status:'draft'|'creator_approved'}
+export interface VisualReviewFinding{id:string;planId:string;type:string;severity:'low'|'medium'|'high';message:string;affectedIds:string[];resolved:false}
