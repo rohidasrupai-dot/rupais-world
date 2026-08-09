@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#fff8ed">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/pwa-icon-192.png">
   <title>Revision Hub | Rupai's World</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="revision.css?v=2">
+  <link rel="stylesheet" href="pwa-client.css?v=phase14a">
   <link rel="stylesheet" href="revision-reference.css?v=5">
 </head>
 <body>
@@ -118,5 +121,6 @@
 <dialog id="reminderDialog" class="action-dialog"><button class="dialog-x" type="button" aria-label="Close">×</button><h2>🔔 Revision Reminders</h2><label class="switch-row"><input id="reminderEnabled" type="checkbox"> Enable gentle reminders</label><label class="switch-row">Reminder time <input id="reminderTime" type="time" value="18:00"></label><p>Permission will only be requested when you enable reminders.</p><button id="saveReminders" class="primary-button" type="button">Save Preferences</button></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="revision-store.js?v=2"></script><script src="revision.js?v=2"></script>
+<script src="pwa-client.js?v=phase14a"></script>
 </body>
 </html>

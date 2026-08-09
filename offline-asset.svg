@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title description">
+  <title id="title">Visual unavailable offline</title>
+  <desc id="description">This lesson visual has not been saved on this device yet.</desc>
+  <rect width="640" height="360" rx="28" fill="#fff9f1"/>
+  <rect x="24" y="24" width="592" height="312" rx="22" fill="#f7edf7" stroke="#dac9df" stroke-width="3"/>
+  <circle cx="320" cy="132" r="42" fill="#eadbee"/>
+  <path d="M300 134l14 14 28-32" fill="none" stroke="#76518f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="215" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#49345e">Visual not saved offline</text>
+  <text x="320" y="254" text-anchor="middle" font-family="system-ui,sans-serif" font-size="17" fill="#74677d">Connect once and save this lesson for offline use.</text>
+</svg>

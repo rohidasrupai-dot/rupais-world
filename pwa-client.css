@@ -1,0 +1,5 @@
+.pwa-status-host{position:fixed;inset:auto 12px 12px auto;z-index:10000;display:flex;flex-direction:column;align-items:flex-end;gap:8px;max-width:min(360px,calc(100vw - 24px));font:600 14px/1.35 system-ui,sans-serif;pointer-events:none}
+.pwa-status{display:flex;align-items:center;gap:9px;max-width:100%;padding:10px 13px;border:1px solid #d9cce0;border-radius:14px;background:#fffdf9;color:#402b52;box-shadow:0 8px 26px #2e163526;pointer-events:auto}
+.pwa-status[hidden]{display:none}.pwa-status button{min-height:38px;border:0;border-radius:999px;padding:8px 12px;background:#68458b;color:#fff;font:inherit;cursor:pointer}.pwa-status button:focus-visible{outline:3px solid #f1bcd8;outline-offset:2px}.pwa-offline-dot{width:9px;height:9px;flex:none;border-radius:50%;background:#c16a3e}.pwa-install{background:#f8eef6}.pwa-update{background:#f2ebff}
+@media(max-width:540px){.pwa-status-host{inset:auto 8px 8px 8px;align-items:stretch}.pwa-status{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.pwa-status-host,.pwa-status{scroll-behavior:auto;transition:none;animation:none}}

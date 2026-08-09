@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff9f1">
+  <title>Offline · Rupai's World</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+    :root{font-family:Nunito,system-ui,sans-serif;color:#3f2b57;background:#fff9f1}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box}.card{width:min(520px,100%);background:#fff;border:1px solid #eadced;border-radius:24px;padding:32px;box-shadow:0 18px 50px #573d7018;text-align:center}.mark{width:84px;height:84px;border-radius:50%;object-fit:cover}.card h1{margin:.7rem 0 .4rem}.card p{line-height:1.6}.card a,.card button{display:inline-block;margin:.4rem;padding:.75rem 1rem;border:0;border-radius:999px;background:#68458b;color:#fff;text-decoration:none;font:inherit;font-weight:700;cursor:pointer}.card a.secondary{background:#f0e8f3;color:#51326f}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="mark" src="assets/pwa-icon-192.png" alt="Curio">
+    <h1>You're offline right now</h1>
+    <p>Lessons and tools opened on this device may still be available. Your local notes, bookmarks and progress are safe.</p>
+    <button type="button" onclick="location.reload()">Try again</button>
+    <a class="secondary" href="index.html">Open cached home</a>
+    <a class="secondary" href="offline-library.html">Offline Library</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff9f1">
+  <title>Offline Learning Library · Rupai's World</title>
+  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/pwa-icon-192.png">
+  <link rel="stylesheet" href="offline-library.css"><link rel="stylesheet" href="pwa-client.css?v=phase14b">
+  <script src="studio/auth.js?phase=14b"></script>
+</head>
+<body>
+  <header><a href="student-dashboard.html" style="min-height:44px;display:inline-flex;align-items:center">← Learning Hub</a><div><h1>Offline Learning Library</h1><p>Choose what stays available on this device.</p></div><span>Local device only</span></header>
+  <main>
+    <section class="hero"><div><p class="eyebrow">OFFLINE-FIRST LEARNING</p><h2>Your saved learning stays with you</h2><p>Offline copies are separate from progress, notes, bookmarks and highlights.</p></div><div id="networkSummary" role="status"></div></section>
+    <section class="card"><div class="heading"><div><h2>Lessons</h2><p>Only items marked “Available offline” have a verified device copy.</p></div><div class="actions"><button id="verifyLibrary" type="button">Verify offline copies</button><button id="refreshLibrary" type="button">Refresh status</button></div></div><p id="verificationStatus" role="status"></p><div id="lessonLibrary" class="lesson-grid"></div></section>
+    <div class="two-column">
+      <section class="card"><h2>Local Storage Overview</h2><div id="storageOverview" class="metrics"></div><div id="dataGroups"></div><button id="clearOffline" class="danger" type="button">Remove all offline lesson copies</button><p class="muted">This never deletes your progress, notes, bookmarks, highlights or quiz history.</p></section>
+      <section class="card"><h2>Local Backup &amp; Restore</h2><p>Export student-created learning data to a JSON file. No cloud upload is used.</p><div class="actions"><button id="exportBackup" type="button">Export local backup</button><label class="file-button">Choose backup file<input id="importBackup" type="file" accept="application/json,.json"></label></div><div id="restoreReview" class="restore-review" hidden></div><button id="confirmRestore" type="button" hidden>Restore validated backup</button><p id="backupStatus" role="status"></p></section>
+    </div>
+    <section class="card safety"><h2>Local data protection</h2><ul><li>Authentication credentials are never included in student backups.</li><li>Malformed and unsupported files are rejected before changes are made.</li><li>A failed restore rolls back touched records.</li><li>Offline-copy cleanup does not touch learning history.</li></ul></section>
+  </main>
+  <script src="studio/store.js"></script><script src="student-reader-service.js?phase=14b"></script><script src="offline-library-service.js?phase=14b"></script><script src="offline-library.js?phase=14b"></script><script src="pwa-client.js?v=phase14b"></script>
+</body>
+</html>

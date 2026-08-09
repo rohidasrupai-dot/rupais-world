@@ -1,6 +1,6 @@
 (function(){'use strict';
 const KEY='rupaiStudentReader:v1',THEMES=['light','dark','sepia'],SPACING=['compact','comfortable','relaxed'],BLOCK_TYPES=['text','image','curio_explains','did_you_know','important','activity','memory_trick','quote','divider','end'];
-const clone=v=>JSON.parse(JSON.stringify(v)),text=v=>String(v??'').trim(),now=()=>new Date().toISOString();
+let lastTimestamp=0;const clone=v=>JSON.parse(JSON.stringify(v)),text=v=>String(v??'').trim(),now=()=>{const value=Math.max(Date.now(),lastTimestamp+1);lastTimestamp=value;return new Date(value).toISOString()};
 function empty(){return{version:1,preferences:{fontSize:18,lineSpacing:'comfortable',theme:'light',readingWidth:'comfortable',focusMode:false},progress:[],bookmarks:[],sectionProgress:[],completions:[],notes:[],highlights:[],quizAttempts:[]}}
 function readState(){try{const value=JSON.parse(localStorage.getItem(KEY)||'null');if(value?.version===1)return{...empty(),...value,preferences:{...empty().preferences,...value.preferences}}}catch{}return empty()}
 function writeState(state){localStorage.setItem(KEY,JSON.stringify(state));return clone(state)}

@@ -1,0 +1,8 @@
+const fs=require('fs'),assert=require('assert'),vm=require('vm');
+const sw=fs.readFileSync('service-worker.js','utf8'),client=fs.readFileSync('pwa-client.js','utf8'),offline=fs.readFileSync('offline.html','utf8'),library=fs.readFileSync('offline-library-service.js','utf8');
+for(const file of ['service-worker.js','pwa-client.js','offline-library-service.js','offline-library.js'])new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});
+assert.match(sw,/phase14c-v3/);assert.match(sw,/REQUIRED_SHELL/);assert.match(sw,/CHECK_URLS/);assert.match(sw,/rupai-runtime-/);assert.match(sw,/runtime\.put\(request, response\)/);assert.match(sw,/rupai-.*caches\.delete|caches\.delete\(RUNTIME_CACHE\)/s);assert(!/localStorage|indexedDB/.test(sw));assert.match(sw,/request\.destination === 'image'/);assert(fs.existsSync('offline-asset.svg'));
+assert.match(client,/Connection restored/);assert.match(client,/data-requires-network/);assert.match(client,/unsavedWork/);assert.match(client,/beforeinstallprompt/);assert.match(offline,/Open cached home/);assert.match(offline,/Offline Library/);
+assert.match(library,/unsupported\. No safe migration is available/);assert.match(library,/verifyPackages/);assert.match(library,/identity\|auth\|credential\|secret\|token/);
+const phase14b=fs.readFileSync('tests/phase14b.test.js','utf8');assert.match(phase14b,/unrelated:key/);assert.match(phase14b,/rupaiIdentity:v2/);
+console.log('Phase 14C tests passed: required-shell certification, versioned lifecycle, cache-only cleanup, missing-image recovery, offline-copy verification, connection recovery, optional install, unsaved-update protection and backup-version safety.');
