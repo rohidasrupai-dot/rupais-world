@@ -1,9 +1,31 @@
-*{box-sizing:border-box}html{background:#f6eee8}body{margin:0;min-width:320px;background:#f6eee8;color:#321b4b;font-family:Arial,sans-serif}.reference-page{position:relative;width:min(100%,1024px);aspect-ratio:2/3;margin:0 auto;overflow:hidden;background:#fff8f2;box-shadow:0 0 36px #65483124}.reference-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}.hotspot{position:absolute;z-index:3;display:block;margin:0;padding:0;border:0;border-radius:14px;background:transparent;color:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.hotspot:active{background:#ffffff20}.hotspot:focus-visible{outline:3px solid #ffcc36;outline-offset:-3px;background:#ffffff18}
-.menu{left:1.55%;top:1.72%;width:5.5%;height:3.55%}.search{left:62.7%;top:1.72%;width:23.4%;height:3.55%}.notifications{left:86.9%;top:1.65%;width:5.1%;height:3.7%;border-radius:50%}.top-profile{left:92.8%;top:1.35%;width:6.0%;height:4.1%;border-radius:50%}.continue-learning{left:56.4%;top:19.35%;width:42.8%;height:7.35%}.filter-all{left:75.7%;top:27.95%;width:17.5%;height:3.0%}.filter-settings{left:94.3%;top:27.95%;width:4.8%;height:3.0%;border-radius:50%}
-.subject{width:31.4%;height:18.3%}.history{left:1.55%;top:31.55%}.geography{left:34.55%;top:31.55%}.polity{left:66.55%;top:31.55%}.economy{left:1.55%;top:51.05%;height:17.35%}.science{left:34.55%;top:51.05%;height:17.35%}.environment{left:66.55%;top:51.05%;height:17.35%}.reasoning{left:1.55%;top:69.45%;height:14.6%}.maths{left:34.55%;top:69.45%;height:14.6%}.english{left:66.55%;top:69.45%;height:14.6%}
-.favorite{z-index:5;width:4.1%;height:2.85%;border-radius:50%}.history-favorite{left:28.3%;top:32.0%}.geography-favorite{left:61.2%;top:32.0%}.polity-favorite{left:93.5%;top:32.0%}.economy-favorite{left:28.3%;top:51.45%}.science-favorite{left:61.2%;top:51.45%}.environment-favorite{left:93.5%;top:51.45%}.reasoning-favorite{left:28.3%;top:69.85%}.maths-favorite{left:61.2%;top:69.85%}.english-favorite{left:93.5%;top:69.85%}
-.current-affairs{left:1.55%;top:85.0%;width:41.7%;height:8.6%}.quick-access{left:1.7%;top:94.0%;width:18.5%;height:2.0%}.my-notes{left:20.3%;top:94.0%;width:19.0%;height:2.0%}.flashcards{left:39.4%;top:94.0%;width:18.0%;height:2.0%}.weak-topics{left:57.5%;top:94.0%;width:18.3%;height:2.0%}.download-center{left:75.8%;top:94.0%;width:22.4%;height:2.0%}
-.nav-home{left:1.7%;top:96.45%;width:13.2%;height:3.4%}.nav-subjects{left:14.9%;top:96.45%;width:13.0%;height:3.4%}.nav-calculator{left:28.0%;top:96.45%;width:14.9%;height:3.4%}.nav-curio{left:45.7%;top:95.75%;width:9.3%;height:4.2%;border-radius:50%}.nav-explore{left:56.5%;top:96.45%;width:14.0%;height:3.4%}.nav-achievements{left:70.5%;top:96.45%;width:14.6%;height:3.4%}.nav-profile{left:85.1%;top:96.45%;width:13.3%;height:3.4%}
+*{box-sizing:border-box}html{background:#f6eee8}body{margin:0;min-width:320px;background:#f6eee8;color:#321b4b;font-family:Arial,sans-serif}.reference-page{position:relative;width:min(100%,1036px);aspect-ratio:1036/1519;margin:0 auto;overflow:hidden;background:#fff8f2;box-shadow:0 0 36px #65483124}.reference-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}.hotspot{position:absolute;z-index:3;display:block;margin:0;padding:0;border:0;border-radius:18px;background:transparent;color:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.hotspot:active{background:#ffffff20}.hotspot:focus-visible{outline:3px solid #ffcc36;outline-offset:-3px;background:#ffffff18}
+.close-page{left:90.1%;top:2.4%;width:7.2%;height:5.1%;border-radius:50%}.search{left:18.5%;top:14.9%;width:72.0%;height:7.0%}
+.subject{left:15.2%;width:74.7%;height:6.25%}.history{top:23.5%}.geography{top:30.4%}.polity{top:37.3%}.economy{top:44.2%}.science{top:50.9%}.environment{top:57.4%}.reasoning{top:63.5%}.maths{top:69.5%}.english{top:75.5%}.current-affairs{top:81.5%}
 dialog{width:min(88vw,400px);padding:25px;border:1px solid #ecd7e4;border-radius:25px;background:#fffaf6;color:#321b4b;text-align:center;box-shadow:0 22px 70px #3d294855}dialog::backdrop{background:#3d304955;backdrop-filter:blur(3px)}dialog h2{margin:3px 0 10px;color:#67339a;font-size:25px}dialog p{line-height:1.45}.dialog-icon{font-size:34px}.dialog-x{position:absolute;right:12px;top:9px;border:0;background:none;color:#80638d;font-size:25px;cursor:pointer}.dialog-ok,#subjectSearch button{border:0;border-radius:14px;padding:10px 25px;background:#7950bd;color:#fff;font-weight:800;cursor:pointer}#subjectSearch{display:flex;gap:8px;margin-top:15px}#subjectSearch input{flex:1;min-width:0;padding:11px 14px;border:1px solid #e6d7dd;border-radius:16px;color:#321b4b;font:700 14px Arial}#subjectSearch button{padding-inline:15px}#searchResults{display:grid;gap:6px;margin-top:15px;text-align:left}#searchResults button{width:100%;padding:10px;border:1px solid #eadbd2;border-radius:12px;background:#fff;color:#54268f;text-align:left;font-weight:800;cursor:pointer}
 @media(max-width:480px){dialog{padding:21px}#subjectSearch{flex-direction:column}.hotspot:focus-visible{outline-width:2px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+#searchDialog{
+  position:relative;
+  width:min(94vw,calc(94vh * 1054 / 1493),700px);
+  max-width:none;
+  max-height:none;
+  aspect-ratio:1054/1493;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  border-radius:4.5%;
+  background:transparent;
+  box-shadow:0 24px 80px #3d29486b;
+}
+#searchDialog .search-popup-art{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;user-select:none;-webkit-user-drag:none}
+#searchDialog .popup-close,#searchDialog #subjectSearch,#searchDialog .popup-subject{position:absolute;z-index:3;margin:0;padding:0;border:0;background:transparent;cursor:pointer}
+#searchDialog .popup-close{left:88.2%;top:1.7%;width:8.8%;height:6.2%;border-radius:50%;font-size:0}
+#searchDialog #subjectSearch{left:17.3%;top:14.65%;width:71.7%;height:6.65%;display:block}
+#searchDialog #subjectSearch input{position:absolute;inset:0 auto 0 0;width:78.2%;height:100%;padding:0 4%;border:0;border-radius:999px;background:transparent;color:#4e3c57;font:700 clamp(12px,2.2vw,24px) Arial,sans-serif;outline:0}
+#searchDialog #subjectSearch input::placeholder{color:transparent}
+#searchDialog #subjectSearch input:focus{background:rgba(255,251,248,.92);box-shadow:inset 0 0 0 2px #8b45b0}
+#searchDialog #subjectSearch button{position:absolute;inset:0 0 0 auto;width:20.5%;height:100%;padding:0;border:0;border-radius:999px;background:transparent;cursor:pointer;font-size:0}
+#searchDialog .popup-subject{left:10.3%;width:80.6%;height:6.45%;border-radius:999px}
+#searchDialog .popup-subject.history{top:23.3%}#searchDialog .popup-subject.geography{top:30.7%}#searchDialog .popup-subject.polity{top:38.1%}#searchDialog .popup-subject.economy{top:45.75%}#searchDialog .popup-subject.science{top:53.25%}#searchDialog .popup-subject.environment{top:60.35%}#searchDialog .popup-subject.reasoning{top:67.65%}#searchDialog .popup-subject.maths{top:74.75%}#searchDialog .popup-subject.english{top:81.75%}#searchDialog .popup-subject.current-affairs{top:88.25%}
+#searchDialog .popup-close:focus-visible,#searchDialog #subjectSearch button:focus-visible,#searchDialog .popup-subject:focus-visible{outline:3px solid #ffcc36;outline-offset:-3px;background:#ffffff20}

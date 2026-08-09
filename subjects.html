@@ -5,59 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#fff8f2">
   <title>Subjects | Rupai's World</title>
-  <link rel="stylesheet" href="subjects.css?v=exact-reference-1">
+  <link rel="stylesheet" href="subjects.css?v=illustrated-search-popup-1">
 </head>
 <body>
-  <main class="reference-page" aria-label="Rupai's World Subjects">
-    <img class="reference-image" src="assets/subjects-reference-exact-v2.png" alt="Rupai's World Subjects page with Curio, learning progress and subject cards">
+  <main class="reference-page" aria-label="Search Subjects">
+    <img class="reference-image" src="assets/search-subjects-flower-removed-v1.png" alt="Search Subjects with History, Geography, Polity, Economy, Science, Environment, Reasoning, Maths, English and Current Affairs">
 
-    <button class="hotspot menu" type="button" data-coming="Menu" aria-label="Open menu"></button>
+    <a class="hotspot close-page" href="index.html" aria-label="Close Search Subjects and return home"></a>
     <button class="hotspot search" type="button" id="openSearch" aria-label="Search subjects and topics"></button>
-    <button class="hotspot notifications" type="button" data-coming="Notifications" aria-label="Notifications, 3 new"></button>
-    <button class="hotspot top-profile" type="button" data-coming="Profile" aria-label="Open profile"></button>
-
-    <button class="hotspot continue-learning" type="button" data-subject="History" aria-label="Continue History, Ancient India, Mauryan Empire, Chapter 8"></button>
-
-    <button class="hotspot filter-all" type="button" data-coming="All Subjects filter" aria-label="Filter: All Subjects"></button>
-    <button class="hotspot filter-settings" type="button" data-coming="Subject filters" aria-label="Open subject filters"></button>
 
     <button class="hotspot subject history" type="button" data-subject="History" aria-label="Open History"></button>
-    <button class="hotspot favorite history-favorite" type="button" data-favorite="History" aria-label="Favorite History"></button>
     <button class="hotspot subject geography" type="button" data-subject="Geography" aria-label="Open Geography"></button>
-    <button class="hotspot favorite geography-favorite" type="button" data-favorite="Geography" aria-label="Favorite Geography"></button>
     <button class="hotspot subject polity" type="button" data-subject="Polity" aria-label="Open Polity"></button>
-    <button class="hotspot favorite polity-favorite" type="button" data-favorite="Polity" aria-label="Favorite Polity"></button>
-
     <button class="hotspot subject economy" type="button" data-subject="Economy" aria-label="Open Economy"></button>
-    <button class="hotspot favorite economy-favorite" type="button" data-favorite="Economy" aria-label="Favorite Economy"></button>
     <button class="hotspot subject science" type="button" data-subject="Science" aria-label="Open Science"></button>
-    <button class="hotspot favorite science-favorite" type="button" data-favorite="Science" aria-label="Favorite Science"></button>
     <button class="hotspot subject environment" type="button" data-subject="Environment" aria-label="Open Environment"></button>
-    <button class="hotspot favorite environment-favorite" type="button" data-favorite="Environment" aria-label="Favorite Environment"></button>
-
     <button class="hotspot subject reasoning" type="button" data-subject="Reasoning" aria-label="Open Reasoning"></button>
-    <button class="hotspot favorite reasoning-favorite" type="button" data-favorite="Reasoning" aria-label="Favorite Reasoning"></button>
     <button class="hotspot subject maths" type="button" data-subject="Maths" aria-label="Open Maths"></button>
-    <button class="hotspot favorite maths-favorite" type="button" data-favorite="Maths" aria-label="Favorite Maths"></button>
     <button class="hotspot subject english" type="button" data-subject="English" aria-label="Open English"></button>
-    <button class="hotspot favorite english-favorite" type="button" data-favorite="English" aria-label="Favorite English"></button>
-
-    <button class="hotspot current-affairs" type="button" data-subject="Current Affairs" aria-label="Open Current Affairs"></button>
-    <button class="hotspot quick-access" type="button" data-coming="Quick Access" aria-label="Quick Access"></button>
-    <button class="hotspot my-notes" type="button" data-coming="My Notes" aria-label="My Notes"></button>
-    <button class="hotspot flashcards" type="button" data-coming="Flashcards" aria-label="Flashcards"></button>
-    <button class="hotspot weak-topics" type="button" data-coming="Weak Topics" aria-label="Weak Topics"></button>
-    <button class="hotspot download-center" type="button" data-coming="Download Center" aria-label="Download Center"></button>
-
-    <nav aria-label="Main navigation">
-      <a class="hotspot nav-home" href="index.html" aria-label="Home"></a>
-      <a class="hotspot nav-subjects" href="subjects.html" aria-label="Subjects" aria-current="page"></a>
-      <a class="hotspot nav-calculator" href="calculator/rupais-world-calculator-live.html" aria-label="Calculator"></a>
-      <button class="hotspot nav-curio" type="button" data-coming="Curio" aria-label="Curio"></button>
-      <button class="hotspot nav-explore" type="button" data-coming="Explore" aria-label="Explore"></button>
-      <button class="hotspot nav-achievements" type="button" data-coming="Achievements" aria-label="Achievements"></button>
-      <button class="hotspot nav-profile" type="button" data-coming="Profile" aria-label="Profile"></button>
-    </nav>
+    <button class="hotspot subject current-affairs" type="button" data-subject="Current Affairs" aria-label="Open Current Affairs"></button>
   </main>
 
   <dialog id="subjectDialog">
@@ -68,12 +34,26 @@
   </dialog>
 
   <dialog id="searchDialog">
-    <button class="dialog-x" type="button" aria-label="Close">×</button>
-    <h2>Search Subjects</h2>
-    <form id="subjectSearch"><input id="subjectQuery" type="search" placeholder="Search subjects, topics..." autocomplete="off"><button type="submit">Search</button></form>
-    <div id="searchResults"></div>
+    <img class="search-popup-art" src="assets/search-subjects-popup-reference-v1.png" alt="Search Subjects">
+    <button class="dialog-x popup-close" type="button" aria-label="Close"></button>
+    <form id="subjectSearch">
+      <input id="subjectQuery" type="search" placeholder="Search subjects, topics..." aria-label="Search subjects and topics" autocomplete="off">
+      <button type="submit" aria-label="Search"></button>
+    </form>
+    <div class="popup-subject-hotspots" aria-label="Subjects">
+      <button class="popup-subject history" type="button" data-search-subject="History" aria-label="Open History"></button>
+      <button class="popup-subject geography" type="button" data-search-subject="Geography" aria-label="Open Geography"></button>
+      <button class="popup-subject polity" type="button" data-search-subject="Polity" aria-label="Open Polity"></button>
+      <button class="popup-subject economy" type="button" data-search-subject="Economy" aria-label="Open Economy"></button>
+      <button class="popup-subject science" type="button" data-search-subject="Science" aria-label="Open Science"></button>
+      <button class="popup-subject environment" type="button" data-search-subject="Environment" aria-label="Open Environment"></button>
+      <button class="popup-subject reasoning" type="button" data-search-subject="Reasoning" aria-label="Open Reasoning"></button>
+      <button class="popup-subject maths" type="button" data-search-subject="Maths" aria-label="Open Maths"></button>
+      <button class="popup-subject english" type="button" data-search-subject="English" aria-label="Open English"></button>
+      <button class="popup-subject current-affairs" type="button" data-search-subject="Current Affairs" aria-label="Open Current Affairs"></button>
+    </div>
   </dialog>
   <script src="favorites-store.js"></script>
-  <script src="subjects.js?v=favorites-1"></script>
+  <script src="subjects.js?v=illustrated-search-popup-1"></script>
 </body>
 </html>

@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#fff8ee">
   <title>My Favorites | Rupai's World</title>
-  <link rel="stylesheet" href="favorites.css?v=empty-reference-1">
+  <link rel="stylesheet" href="favorites.css?v=transparent-popup-input-2">
 </head>
 <body>
   <main class="reference-page" aria-label="Rupai's World My Favorites empty state">
-    <img class="reference-image" src="assets/favorites-empty-reference-exact-v1.png" alt="Rupai's World My Favorites empty state">
+    <img class="reference-image" src="assets/favorites-reference-no-bottom-nav-v1.png" alt="Rupai's World My Favorites empty state">
 
-    <button class="hotspot back" id="backButton" type="button" aria-label="Go back"></button>
     <button class="hotspot top-search" id="openSearch" type="button" aria-label="Search favorites"></button>
     <button class="hotspot settings" type="button" data-message="Favorite settings are coming soon." aria-label="Favorite settings"></button>
+    <button class="hotspot search-field" type="button" data-open-favorite-search aria-label="Search your favorites"></button>
+    <button class="hotspot filter-button" type="button" data-message="Favorite filters are ready." aria-label="Filter favorites"></button>
+    <button class="hotspot view-button" type="button" data-message="Favorite grid view selected." aria-label="Change favorites view"></button>
 
     <button class="hotspot filter all-types" type="button" data-message="Showing all favorite types." aria-label="All Types"></button>
     <button class="hotspot filter chapters" type="button" data-message="Showing Chapters." aria-label="Chapters"></button>
@@ -22,10 +24,18 @@
     <button class="hotspot filter images" type="button" data-message="Showing Images." aria-label="Images"></button>
     <button class="hotspot filter maps" type="button" data-message="Showing Maps." aria-label="Maps"></button>
     <button class="hotspot filter recent" type="button" data-message="Favorites sorted by Recent." aria-label="Sort by Recent"></button>
+    <a class="hotspot start-exploring" href="subjects.html" aria-label="Start exploring and add favorites"></a>
 
     <a class="hotspot explore-subjects" href="subjects.html" aria-label="Explore Subjects"></a>
     <a class="hotspot search-something" href="search.html" aria-label="Search Something"></a>
-    <button class="hotspot ask-curio" type="button" data-message="Curio is always ready to help!" aria-label="Ask Curio"></button>
+    <a class="hotspot ask-curio" href="studio/ask-curio.html" aria-label="Ask Curio"></a>
+    <div class="quick-tool-hotspots" aria-label="Favorite quick tools">
+      <button class="hotspot quick-goals" type="button" data-message="Daily Goals are coming next." aria-label="Daily Goals"></button>
+      <a class="hotspot quick-revision" href="revision.html" aria-label="Revision Planner"></a>
+      <button class="hotspot quick-progress" type="button" data-message="Progress is coming next." aria-label="Progress"></button>
+      <button class="hotspot quick-achievements" type="button" data-message="Achievements are coming next." aria-label="Achievements"></button>
+      <button class="hotspot quick-planner" type="button" data-message="Planner is coming next." aria-label="Planner"></button>
+    </div>
     <section class="favorite-revision-list" id="favoriteRevisionList" aria-label="Saved favorites" hidden></section>
 
     <nav aria-label="Sidebar navigation">
@@ -35,31 +45,24 @@
       <a class="hotspot side-favorites" href="favorites.html" aria-label="Favorites" aria-current="page"></a>
       <button class="hotspot side-bookmark" type="button" data-message="Bookmarks are coming next." aria-label="Bookmark"></button>
       <button class="hotspot side-world" type="button" data-message="Curiosity World is coming next." aria-label="Curiosity World"></button>
-      <button class="hotspot side-curio" type="button" data-message="Curio is always ready to help!" aria-label="Ask Curio"></button>
+      <a class="hotspot side-curio" href="studio/ask-curio.html" aria-label="Ask Curio"></a>
       <a class="hotspot side-calculator" href="calculator/rupais-world-calculator-live.html" aria-label="Calculator"></a>
       <button class="hotspot side-goals" type="button" data-message="Daily Goals are coming next." aria-label="Daily Goals"></button>
       <button class="hotspot side-progress" type="button" data-message="Progress is coming next." aria-label="Progress"></button>
       <button class="hotspot side-achievements" type="button" data-message="Achievements are coming next." aria-label="Achievements"></button>
-      <button class="hotspot side-settings" type="button" data-message="Settings are coming next." aria-label="Settings"></button>
+      <button class="hotspot side-settings" type="button" data-message="Planner is coming next." aria-label="Planner"></button>
       <button class="hotspot side-theme" type="button" data-message="Theme settings are coming next." aria-label="Theme"></button>
       <button class="hotspot side-help" type="button" data-message="Help and Support are coming next." aria-label="Help and Support"></button>
     </nav>
 
-    <nav aria-label="Bottom navigation">
-      <a class="hotspot nav-home" href="index.html" aria-label="Home"></a>
-      <a class="hotspot nav-subjects" href="subjects.html" aria-label="Subjects"></a>
-      <button class="hotspot nav-curio" type="button" data-message="Curio is always ready to help!" aria-label="Curio"></button>
-      <button class="hotspot nav-notes" type="button" data-message="Your Notes are coming next." aria-label="Notes"></button>
-      <button class="hotspot nav-profile" type="button" data-message="Your Profile is coming next." aria-label="Profile"></button>
-    </nav>
   </main>
 
   <dialog id="searchDialog">
-    <button class="dialog-close" type="button" aria-label="Close">×</button>
-    <h2>Search in Favorites</h2>
-    <form id="searchForm"><input id="favoriteQuery" type="search" placeholder="Search in your favorites..." autocomplete="off"><button type="submit">Search</button></form>
+    <img class="favorites-search-popup-art" src="assets/favorites-search-popup-no-placeholder-v2.png" alt="Search in Favorites">
+    <button class="dialog-close" type="button" aria-label="Close"></button>
+    <form id="searchForm"><input id="favoriteQuery" type="search" placeholder="Search in your favorites..." aria-label="Search in your favorites" autocomplete="off"><button type="submit" aria-label="Search">Search</button></form>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="favorites-store.js?v=1"></script><script src="revision-store.js?v=1"></script><script src="favorites.js?v=revision-connect-1"></script>
+  <script src="favorites-store.js?v=1"></script><script src="revision-store.js?v=1"></script><script src="favorites.js?v=all-controls-3d-1"></script>
 </body>
 </html>

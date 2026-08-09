@@ -2,7 +2,6 @@ const subjectNames = ['History','Geography','Polity','Economy','Science','Enviro
 const subjectDialog = document.querySelector('#subjectDialog');
 const searchDialog = document.querySelector('#searchDialog');
 const searchInput = document.querySelector('#subjectQuery');
-const searchResults = document.querySelector('#searchResults');
 const favorites = new Set(JSON.parse(localStorage.getItem('rupaiSubjectFavorites') || '[]'));
 const subjectIcons = {History:'🏛️',Geography:'🌍',Polity:'⚖️',Economy:'📈',Science:'🔬',Environment:'🌿',Reasoning:'🧩',Maths:'➗',English:'📖','Current Affairs':'📰'};
 
@@ -19,12 +18,6 @@ function openSubject(name) {
     return;
   }
   showMessage(name, `${name} is coming soon to Rupai's World.`);
-}
-
-function renderSearch(value = '') {
-  const needle = value.trim().toLowerCase();
-  const matches = subjectNames.filter(name => name.toLowerCase().includes(needle));
-  searchResults.innerHTML = matches.map(name => `<button type="button" data-search-subject="${name}">${name}</button>`).join('');
 }
 
 document.addEventListener('click', event => {
@@ -53,12 +46,18 @@ document.addEventListener('click', event => {
 document.querySelectorAll('[data-favorite]').forEach(button => button.setAttribute('aria-pressed', favorites.has(button.dataset.favorite)));
 
 document.querySelector('#openSearch').addEventListener('click', () => {
-  renderSearch();
   searchDialog.showModal();
   searchInput.focus();
 });
-document.querySelector('#subjectSearch').addEventListener('submit', event => { event.preventDefault(); renderSearch(searchInput.value); });
-searchInput.addEventListener('input', () => renderSearch(searchInput.value));
+document.querySelector('#subjectSearch').addEventListener('submit', event => {
+  event.preventDefault();
+  const needle = searchInput.value.trim().toLowerCase();
+  const match = subjectNames.find(name => name.toLowerCase().includes(needle));
+  if (match) {
+    searchDialog.close();
+    openSubject(match);
+  }
+});
 document.querySelectorAll('.dialog-x').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
 subjectDialog.querySelector('.dialog-ok').addEventListener('click', () => subjectDialog.close());
 [subjectDialog, searchDialog].forEach(dialog => dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); }));

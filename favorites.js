@@ -2,9 +2,9 @@ const $=(selector)=>document.querySelector(selector);
 const toast=$('#toast');
 const searchDialog=$('#searchDialog');
 function showMessage(message){toast.textContent=message;toast.classList.add('show');clearTimeout(showMessage.timer);showMessage.timer=setTimeout(()=>toast.classList.remove('show'),2300)}
-$('#backButton').addEventListener('click',()=>history.length>1?history.back():location.href='index.html');
 document.querySelectorAll('[data-message]').forEach(button=>button.addEventListener('click',()=>showMessage(button.dataset.message)));
 $('#openSearch').addEventListener('click',()=>{searchDialog.showModal();$('#favoriteQuery').focus()});
+document.querySelector('[data-open-favorite-search]').addEventListener('click',()=>{searchDialog.showModal();$('#favoriteQuery').focus()});
 $('.dialog-close').addEventListener('click',()=>searchDialog.close());
 searchDialog.addEventListener('click',event=>{if(event.target===searchDialog)searchDialog.close()});
 function renderFavoriteRevisionList(){

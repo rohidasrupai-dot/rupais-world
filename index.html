@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="home.css?v=status-ribbon-reference-1">
+    <link rel="stylesheet" href="home.css?v=curio-says-restored-1">
 </head>
 <body>
   <div class="app-shell">
@@ -45,7 +45,7 @@
 
         <aside class="info-grid status-ribbon-reference" aria-label="Today, current time, study streak and learner level">
           <div class="status-ribbon-crop">
-            <img src="assets/home-status-ribbon-reference.png?v=1" alt="Today, current time, study streak and Level 5 Curious Learner">
+            <img src="assets/home-status-ribbon-clear.png?v=1" alt="Today, current time, study streak and Level 5 Curious Learner">
           </div>
           <div class="sr-only" aria-live="polite">
             <span id="todayDate">14 July 2026</span>
@@ -112,11 +112,16 @@
 
       <section class="daily-grid" aria-label="Daily study widgets">
         <article class="daily-card note-card note-card-art"><img src="assets/curio-daily-note-card-v2.png" alt="Curio's Daily Note magical garden message"></article>
-        <article class="daily-card focus-card focus-card-art">
-          <img src="assets/focus-timer-card-v2.png" alt="Magical Focus Timer with kitten and study books">
-          <div class="focus-live"><strong id="timer">25:00</strong><small>♥ Focus Time ♥</small></div>
-          <button id="focusButton">Start Focus</button>
-        </article>
+        <div class="focus-card-column">
+          <article class="daily-card focus-card focus-card-art">
+            <img src="assets/focus-timer-card-v2.png" alt="Magical Focus Timer with kitten and study books">
+            <div class="focus-live"><strong id="timer">25:00</strong><small>♥ Focus Time ♥</small></div>
+            <button id="focusButton">Start Focus</button>
+          </article>
+          <article class="kitty-diary-card" aria-label="Kitty — My Diary">
+            <img src="assets/kitty-my-diary.png" alt="Kitty — My Diary, my safe place to dream, feel and grow">
+          </article>
+        </div>
         <article class="daily-card plan-card plan-card-art">
           <img src="assets/todays-plan-card-v2.png" alt="Today's Plan with Curio, four study tasks and progress garden">
           <div class="plan-checks" aria-label="Today's study tasks">
