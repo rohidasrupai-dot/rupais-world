@@ -1,0 +1,1 @@
+(function(){'use strict';function build(userId,anchor){return window.RupaiRevisionPlanner.calendar(userId,anchor)}function label(date){return new Intl.DateTimeFormat(undefined,{dateStyle:'medium'}).format(new Date(date))}window.RupaiRevisionCalendar={build,label};})();
