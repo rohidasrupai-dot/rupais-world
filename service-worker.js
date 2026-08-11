@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_VERSION = 'phase15b-rc1'; // replaces phase14c-v3 after user-controlled activation
+const CACHE_VERSION = 'phase15b-music-v2';
 const SHELL_CACHE = `rupai-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rupai-runtime-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
@@ -10,11 +10,12 @@ const APP_SHELL = [
   './', './index.html', './subjects.html', './student-reader.html',
   './student-dashboard.html', './student-learning-coach.html',
   './student-memory-dashboard.html', './student-progress-dashboard.html',
-  './student-study-planner.html', './student-settings.html', './revision.html',
+  './student-study-planner.html', './student-settings.html', './revision.html', './music-corner.html',
   './offline-library.html', './offline-library.css', './offline-library.js',
   './offline-library-service.js',
   './offline.html', './offline-asset.svg', './manifest.webmanifest', './pwa-client.js', './pwa-client.css',
   './home.css', './home.js', './subjects.css', './subjects.js',
+  './music-corner-v9.css', './music-corner-v2.js',
   './student-reader.css', './student-reader-blocks.css', './student-reader-interactions.css',
   './student-dashboard.css', './student-dashboard.js', './student-reader-service.js',
   './student-reader.js', './studio/store.js', './studio/auth.js',
@@ -38,7 +39,8 @@ const APP_SHELL = [
   './student-study-planner-service.js', './student-study-planner.js', './student-study-planner.css',
   './student-settings.js', './student-settings.css',
   './assets/pwa-icon-192.png', './assets/pwa-icon-512.png',
-  './assets/curio-official-v3.png', './assets/rupais-world-official-logo-v2.png'
+  './assets/curio-official-v3.png', './assets/rupais-world-official-logo-v2.png',
+  './assets/music-corner-reference-master-v2.jpg'
 ];
 
 const REQUIRED_SHELL = ['./index.html', './student-reader.html', './offline.html', './pwa-client.js', './pwa-client.css'];
@@ -49,7 +51,7 @@ const STUDENT_PAGES = new Set([
   'student-progress-dashboard.html', 'student-study-planner.html',
   'student-settings.html', 'offline-library.html', 'revision.html', 'history.html', 'ancient-history.html',
   'medieval-history.html', 'modern-history.html', 'search.html', 'search-result.html',
-  'favorites.html'
+  'favorites.html', 'music-corner.html'
 ]);
 
 self.addEventListener('install', event => {

@@ -165,6 +165,10 @@ document.addEventListener('click', (event) => {
     window.location.href = 'revision.html';
     return;
   }
+  if (trigger?.dataset.panel === 'Music Corner') {
+    window.location.href = 'music-corner.html';
+    return;
+  }
   if (trigger) openPanel(trigger.dataset.panel);
   if (event.target.closest('[data-scroll="top"]')) window.scrollTo({ top: 0, behavior: 'smooth' });
 });
