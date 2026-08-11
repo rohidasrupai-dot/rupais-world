@@ -53,26 +53,32 @@ drawer.querySelector('.drawer-menu').innerHTML = drawerReferenceItems.map(([icon
   if (primaryReferenceRows[label]) {
     return `<button class="drawer-item primary-reference-row${active}" ${action} aria-label="${label}" style="--row-shift:${primaryReferenceRows[label]}"><img src="assets/drawer-primary-menu-reference-exact.png" alt=""></button>`;
   }
-  const referenceRows = {
-    'Revision Planner': ['drawer-revision-planner-row-v2.png', 'Revision Planner'],
-    'Maps': ['drawer-maps-row-v2.png', 'Maps'],
-    'Dictionary': ['drawer-dictionary-row-v2.png', 'Dictionary'],
-    'Videos': ['drawer-videos-row-v2.png', 'Videos'],
-    'Images': ['drawer-images-row-v2.png', 'Images'],
-    'PDF Library': ['drawer-pdf-library-row-v2.png', 'PDF Library'],
-    'Music Corner': ['drawer-music-corner-row-v2.png', 'Music Corner'],
-    'Ask Curio': ['drawer-ask-curio-row-v2.png', 'Ask Curio'],
-    'Settings': ['drawer-settings-row-v2.png', 'Settings'],
-    'Themes': ['drawer-themes-row-v2.png', 'Themes'],
-    'Notifications': ['drawer-notifications-row-v2.png', 'Notifications'],
-    'Backup & Sync': ['drawer-backup-sync-row-v2.png', 'Backup & Sync'],
-    'Feedback': ['drawer-feedback-row-v2.png', 'Feedback'],
-    'Help & Support': ['drawer-help-support-row-v2.png', 'Help & Support'],
-    "About Rupai's World": ['drawer-about-rupais-world-row-v2.png', "About Rupai's World"]
+  const secondaryReferenceRows = {
+    'Revision Planner': '-1.8%',
+    'Maps': '-14%',
+    'Dictionary': '-25.4%',
+    'Videos': '-36.2%',
+    'Images': '-47.4%',
+    'PDF Library': '-58.1%',
+    'Music Corner': '-68.5%',
+    'Ask Curio': '-79.1%',
+    'Settings': '-90%'
   };
-  if (referenceRows[label]) {
-    const [image, alt] = referenceRows[label];
-    return `<button class="drawer-item reference-logo-row" ${action} aria-label="${alt}"><img src="assets/${image}" alt="${alt}"></button>`;
+  if (secondaryReferenceRows[label]) {
+    return `<button class="drawer-item secondary-reference-row" ${action} aria-label="${label}" style="--row-shift:${secondaryReferenceRows[label]}"><img src="assets/drawer-secondary-menu-reference-exact.png" alt=""></button>`;
+  }
+  if (label === 'Themes') {
+    return `<button class="drawer-item theme-reference-row" ${action} aria-label="Themes"><img src="assets/drawer-theme-reference-exact.png" alt=""></button>`;
+  }
+  const utilityReferenceRows = {
+    'Notifications': '-3.45%',
+    'Backup & Sync': '-23.7%',
+    'Feedback': '-42.77%',
+    'Help & Support': '-61.91%',
+    "About Rupai's World": '-79.95%'
+  };
+  if (utilityReferenceRows[label]) {
+    return `<button class="drawer-item utility-reference-row" ${action} aria-label="${label}" style="--row-shift:${utilityReferenceRows[label]}"><img src="assets/drawer-utility-menu-reference-exact.png" alt=""></button>`;
   }
   return `<button class="drawer-item${active}${group ? ` ${group}` : ''}" ${action}><span>${icon}</span><b>${label}</b><i>›</i></button>`;
 }).join('') + `
