@@ -28,7 +28,7 @@
   }
   function catalog() {
     const packages = readLibrary().packages;
-    const lessons = window.RupaiStudentReader?.lessons?.() || [];
+    const lessons = window.RupaiStudentReader?.availableLessons?.() || window.RupaiStudentReader?.lessons?.() || [];
     return lessons.map(lesson => {
       const saved = packages.find(row => row.lessonId === lesson.id);
       return { id: lesson.id, title: lesson.title, subject: lesson.subject, chapter: lesson.chapter, sections: lesson.sections.length, assetCount: (lesson.blocks || []).filter(x => x.type === 'image').length, urls: lessonUrls(lesson), saved: Boolean(saved), savedAt: saved?.savedAt || null };

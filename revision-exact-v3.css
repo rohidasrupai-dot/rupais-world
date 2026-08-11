@@ -1,0 +1,21 @@
+.revision-shell{position:relative;width:min(100%,1024px)!important;max-width:1024px!important;min-height:0!important;margin:0 auto;background:#fff}
+.revision-shell>.side-nav,.revision-shell>.page-column{display:none!important}
+.reference-exact-skin{position:relative;display:block!important;width:100%;aspect-ratio:2/3;overflow:hidden;background:#fff9ef}
+.reference-exact-skin>img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+.ref-hot{position:absolute;z-index:3;margin:0;padding:0;border:0;border-radius:14px;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .16s ease,box-shadow .16s ease,filter .16s ease,background-color .16s ease;transform-style:preserve-3d}
+.ref-hot:hover{z-index:7;transform:translateY(-3px) scale(1.018);background:rgba(255,255,255,.10);box-shadow:0 9px 14px rgba(54,45,31,.25),inset 0 1px 0 rgba(255,255,255,.8);filter:brightness(1.06)}
+.ref-hot:active{transform:translateY(3px) scale(.965);background:rgba(83,126,46,.08);box-shadow:inset 0 6px 10px rgba(39,65,28,.24),0 1px 2px rgba(48,54,30,.18);filter:brightness(.94)}
+.ref-hot:focus-visible{outline:3px solid #7231a6;outline-offset:-3px;background:rgba(255,255,255,.16)}
+.side-home-ref,.side-subjects-ref,.side-notes-ref,.side-favorites-ref,.side-revision-ref,.side-bookmarks-ref,.side-curio-ref,.side-calculator-ref,.side-goals-ref,.side-progress-ref,.side-achievements-ref,.side-settings-ref,.side-help-ref{left:1.1%;width:15%;height:3.6%}
+.side-home-ref{top:13.75%}.side-subjects-ref{top:17.5%}.side-notes-ref{top:21.2%}.side-favorites-ref{top:25%}.side-revision-ref{top:29.8%}.side-bookmarks-ref{top:33.6%}.side-curio-ref{top:37.45%}.side-calculator-ref{top:41.2%}.side-goals-ref{top:45%}.side-progress-ref{top:48.7%}.side-achievements-ref{top:52.45%}.side-settings-ref{top:56.3%}.side-help-ref{top:60.05%}
+.date-card-ref{left:81.35%;top:4.15%;width:17.25%;height:5.4%;border-radius:18px}.streak-card-ref{left:81.35%;top:10.25%;width:17.25%;height:5.45%;border-radius:18px}
+.summary-card-ref{top:27.1%;height:6.15%;border-radius:19px}.pending-card-ref{left:18%;width:20.55%}.revised-card-ref{left:38.65%;width:18.45%}.goal-card-ref{left:57.2%;width:20.05%}.progress-card-ref{left:77.35%;width:21.25%}
+.today-view-ref{left:90.2%;top:34.1%;width:7.2%;height:2.5%}.today-start-ref{left:83.65%;width:9.3%;height:3.2%}.today-more-ref{left:94.2%;width:3.2%;height:3.2%}
+.today-start-ref.row-one,.today-more-ref.row-one{top:37.25%}.today-start-ref.row-two,.today-more-ref.row-two{top:41.9%}.today-start-ref.row-three,.today-more-ref.row-three{top:46.55%}.today-start-ref.row-four,.today-more-ref.row-four{top:51.2%}
+.reference-mode-hotspots{position:absolute;z-index:3;left:18.8%;top:58.45%;width:78.4%;height:7.35%;display:grid;grid-template-columns:repeat(9,1fr);gap:1%}.reference-mode-hotspots .ref-hot{position:relative;width:100%;height:100%}
+.smart-view-ref{left:49.1%;top:67.65%;width:7.8%;height:2.35%}.reference-smart-tabs{position:absolute;z-index:3;left:19.1%;top:70.2%;width:32.1%;height:2.25%;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5%}.reference-smart-tabs .ref-hot{position:relative;width:100%;height:100%}
+.smart-start-ref{left:26.15%;width:8.6%;height:3%}.smart-one{top:74.55%}.smart-two{top:79%}.smart-three{top:83.45%}.smart-four{top:87.9%}
+.calendar-prev-ref{left:83.55%;top:67.65%;width:3.3%;height:2.7%}.calendar-next-ref{left:94.6%;top:67.65%;width:3.3%;height:2.7%}.reference-calendar-days{position:absolute;z-index:3;left:60.1%;top:70.45%;width:36.6%;height:14.25%;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(6,1fr)}.reference-calendar-days .ref-hot{position:relative;width:100%;height:100%;border-radius:50%}
+.mistakes-view-ref{left:90%;top:85.7%;width:7.4%;height:2.5%}.mistakes-review-ref{left:85.25%;top:88.65%;width:11.3%;height:3.35%}.detailed-progress-ref{left:82.5%;top:92.8%;width:14.7%;height:2.4%}
+.reference-subject-hotspots{position:absolute;z-index:3;left:18.9%;top:95.1%;width:78.3%;height:3.95%;display:grid;grid-template-columns:repeat(5,1fr);gap:1.1%}.reference-subject-hotspots .ref-hot{position:relative;width:100%;height:100%}
+@media(max-width:599px){body{background:#fff}.revision-shell{box-shadow:none}}

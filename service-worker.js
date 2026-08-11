@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_VERSION = 'phase14c-v3';
+const CACHE_VERSION = 'phase15b-rc1'; // replaces phase14c-v3 after user-controlled activation
 const SHELL_CACHE = `rupai-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `rupai-runtime-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
@@ -18,6 +18,25 @@ const APP_SHELL = [
   './student-reader.css', './student-reader-blocks.css', './student-reader-interactions.css',
   './student-dashboard.css', './student-dashboard.js', './student-reader-service.js',
   './student-reader.js', './studio/store.js', './studio/auth.js',
+  './student-dashboard-service.js', './student-session-continuity.js',
+  './student-personalization-service.js', './student-discovery-service.js',
+  './student-discovery-client.js', './student-discovery.css', './student-discovery-touch.css',
+  './student-hub-integration.js', './student-hub-integration.css',
+  './memory-profile-storage.js', './memory-profile-service.js', './continue-learning.js',
+  './curio-guided-learning-service.js', './curio-guided-learning.js', './curio-guided-learning.css',
+  './curio-conversation-service.js', './curio-conversation.js', './curio-conversation.css',
+  './curio-conversation-personalization.js', './curio-personalization-adapter.js',
+  './curio-discovery-adapter.js', './curio-continuity-adapter.js',
+  './curio-learning-intelligence-service.js', './curio-learning-intelligence-client.js',
+  './curio-learning-intelligence.css', './curio-learning-coach-service.js',
+  './student-learning-coach.js', './student-learning-coach.css',
+  './student-memory-dashboard.js', './student-memory.css', './student-personalization.css',
+  './student-progress-dashboard.js', './student-progress-dashboard.css', './student-progress-insights.css',
+  './learning-analytics-service.js', './learning-insights-service.js', './learning-report-export.js',
+  './progress-estimation-service.js', './revision-planner-service.js', './revision-calendar.js',
+  './revision-reminder-service.js', './achievement-engine.js',
+  './student-study-planner-service.js', './student-study-planner.js', './student-study-planner.css',
+  './student-settings.js', './student-settings.css',
   './assets/pwa-icon-192.png', './assets/pwa-icon-512.png',
   './assets/curio-official-v3.png', './assets/rupais-world-official-logo-v2.png'
 ];

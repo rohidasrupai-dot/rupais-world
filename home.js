@@ -38,25 +38,22 @@ const drawerReferenceItems = [
 drawer.querySelector('.drawer-menu').innerHTML = drawerReferenceItems.map(([icon,label,type,value,group]) => {
   const action = type === 'scroll' ? `data-scroll="${value}"` : `data-panel="${value}"`;
   const active = label === 'Home' ? ' active' : '';
-  if (label === 'Home') {
-    return `<button class="drawer-item home-logo-row${active}" ${action} aria-label="Home"><img src="assets/drawer-home-row-v2.png" alt="Home"></button>`;
-  }
-  if (label === 'All Subjects') {
-    return `<button class="drawer-item subjects-logo-row" ${action} aria-label="All Subjects"><img src="assets/drawer-all-subjects-row-v2.png" alt="All Subjects"></button>`;
-  }
-  if (label === 'My Notes') {
-    return `<button class="drawer-item notes-logo-row" ${action} aria-label="My Notes"><img src="assets/drawer-my-notes-row-v2.png" alt="My Notes"></button>`;
-  }
-  if (label === 'Favorites') {
-    return `<button class="drawer-item favorites-logo-row" ${action} aria-label="Favorites"><img src="assets/drawer-favorites-row-v2.png" alt="Favorites"></button>`;
+  const primaryReferenceRows = {
+    'Home': '-2%',
+    'All Subjects': '-13.18%',
+    'My Notes': '-23.18%',
+    'Favorites': '-33.39%',
+    'Bookmarks': '-43.22%',
+    'Downloads (Offline)': '-53.05%',
+    'Recently Studied': '-62.51%',
+    'Study Progress': '-71.74%',
+    'Achievements': '-80.71%',
+    'Daily Goals': '-90.17%'
+  };
+  if (primaryReferenceRows[label]) {
+    return `<button class="drawer-item primary-reference-row${active}" ${action} aria-label="${label}" style="--row-shift:${primaryReferenceRows[label]}"><img src="assets/drawer-primary-menu-reference-exact.png" alt=""></button>`;
   }
   const referenceRows = {
-    'Bookmarks': ['drawer-bookmarks-row-v2.png', 'Bookmarks'],
-    'Downloads (Offline)': ['drawer-downloads-offline-row-v2.png', 'Downloads Offline'],
-    'Recently Studied': ['drawer-recently-studied-row-v2.png', 'Recently Studied'],
-    'Study Progress': ['drawer-study-progress-row-v2.png', 'Study Progress'],
-    'Achievements': ['drawer-achievements-row-v2.png', 'Achievements'],
-    'Daily Goals': ['drawer-daily-goals-row-v2.png', 'Daily Goals'],
     'Revision Planner': ['drawer-revision-planner-row-v2.png', 'Revision Planner'],
     'Maps': ['drawer-maps-row-v2.png', 'Maps'],
     'Dictionary': ['drawer-dictionary-row-v2.png', 'Dictionary'],
