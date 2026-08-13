@@ -1,0 +1,8 @@
+body{display:block!important;margin:0!important;background:#05040a!important}
+.diary-app{width:min(100%,1024px)!important;max-width:1024px!important;margin:0 auto!important;background:#08060d!important}
+.reference-only .diary-app>.diary-header,.reference-only .workspace>.diary-nav{display:none!important;width:0!important;overflow:hidden!important}
+.workspace{display:block!important;width:100%!important;grid-template-columns:1fr!important}
+.main-panel{width:100%!important;max-width:none!important;padding:0!important;margin:0!important;min-width:0!important}
+#editorView.active{display:block!important;width:100%!important;margin:0!important;padding:0!important}
+#editorView.active>:not(.reference-stage){display:none!important}
+.reference-stage{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
