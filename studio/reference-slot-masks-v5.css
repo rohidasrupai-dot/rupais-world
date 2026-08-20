@@ -1,0 +1,12 @@
+.reference-slot.changed{isolation:isolate;overflow:visible;background:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+.reference-slot.chapterLabel.changed,.reference-slot.introText.changed,.reference-slot.mainText.changed,.reference-slot.youngEarthText.changed,.reference-slot.conclusionText.changed{background-color:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+
+/* The title patch follows the old title footprint. Its upper-right notch leaves
+   the butterfly and the beginning of its dotted flight path completely clear. */
+.reference-slot.mainTitle.changed{left:27%;top:12.6%;width:47%;height:14%;display:flex;align-items:center;justify-content:center;padding:0;box-sizing:border-box;overflow:visible;background:transparent;box-shadow:none;text-align:center}
+.reference-slot.mainTitle.changed::before{content:"";position:absolute;z-index:-1;inset:-18% -5% -12% -5%;background:radial-gradient(ellipse at 46% 50%,#fffaf0 0 70%,rgba(255,250,240,.99) 79%,rgba(255,250,240,.9) 87%,rgba(255,250,240,0) 100%);clip-path:polygon(0 0,82% 0,82% 34%,100% 34%,100% 100%,0 100%);pointer-events:none}
+
+.reference-slot.highlightText.changed{background:#eee7f5;box-shadow:0 0 0 3px #eee7f5}
+.reference-slot.curiosityTitle.changed,.reference-slot.curiosityContent.changed{background:#f5e8c8;box-shadow:0 0 0 3px #f5e8c8}
+.reference-slot.bottomNote.changed{background:#f2e5cc;box-shadow:0 0 0 3px #f2e5cc}
+.reference-replacement:not([hidden]){background:#fffaf0;opacity:1}

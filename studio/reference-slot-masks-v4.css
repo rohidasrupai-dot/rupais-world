@@ -1,0 +1,11 @@
+.reference-slot.changed{isolation:isolate;overflow:visible;background:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+.reference-slot.chapterLabel.changed,.reference-slot.introText.changed,.reference-slot.mainText.changed,.reference-slot.youngEarthText.changed,.reference-slot.conclusionText.changed{background-color:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+
+/* A tight, softly feathered paper patch ends before the butterfly and flight path. */
+.reference-slot.mainTitle.changed{left:29%;top:12.1%;width:43%;height:15.3%;display:flex;align-items:center;justify-content:center;padding:0 1%;box-sizing:border-box;overflow:visible;background:radial-gradient(ellipse at 48% 46%,#fffaf0 0 68%,rgba(255,250,240,.98) 76%,rgba(255,250,240,.82) 84%,rgba(255,250,240,0) 100%);box-shadow:none;text-align:center}
+.reference-slot.mainTitle.changed::before{content:none}
+
+.reference-slot.highlightText.changed{background:#eee7f5;box-shadow:0 0 0 3px #eee7f5}
+.reference-slot.curiosityTitle.changed,.reference-slot.curiosityContent.changed{background:#f5e8c8;box-shadow:0 0 0 3px #f5e8c8}
+.reference-slot.bottomNote.changed{background:#f2e5cc;box-shadow:0 0 0 3px #f2e5cc}
+.reference-replacement:not([hidden]){background:#fffaf0;opacity:1}

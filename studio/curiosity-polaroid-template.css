@@ -1,0 +1,14 @@
+.curiosity-edit-page{position:relative;width:min(100%,760px);aspect-ratio:1230/1536;overflow:hidden;background:#fff;box-shadow:0 14px 44px #2533262f}
+.curiosity-edit-page .reference-artwork{position:absolute;inset:0;width:100%;height:100%;max-width:none!important;max-height:none!important;object-fit:cover}
+.invisible-edit-zone{position:absolute;z-index:2;margin:0;padding:0;border:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;overflow:auto;color:#243326;caret-color:#234c2b;white-space:normal}
+.invisible-edit-zone:empty:before{content:''}
+.invisible-edit-zone.mainTitle{left:14%;top:18.8%;width:60%;height:10%;font:700 4.2cqw/1.12 Georgia,serif;text-align:center}
+.invisible-edit-zone.mainContent{left:10%;top:30%;width:57%;height:39%;font:600 1.75cqw/1.6 Nunito,sans-serif}
+.invisible-edit-zone.curiosityContent{left:75.3%;top:39.9%;width:18.5%;height:9.2%;font:700 1.45cqw/1.45 Nunito,sans-serif;color:#315b2d}
+.polaroid-photo-replacement{position:absolute;z-index:2;left:66.5%;top:57.2%;width:27.2%;height:22.8%;object-fit:cover;transform:rotate(4.1deg);transform-origin:center;border-radius:.5%;clip-path:inset(0 round 1%)}
+.polaroid-photo-replacement[hidden]{display:none}
+.rich-toolbar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:5px;padding:9px;margin:0 0 10px;background:#f7f3fb;border:1px solid #e3d9ec;border-radius:11px}
+.rich-toolbar button,.rich-toolbar select,.rich-toolbar input{height:30px;border:1px solid #d6cbe0;border-radius:7px;background:#fff;color:#342641;font:800 11px Nunito;padding:0 8px}
+.rich-toolbar button{min-width:30px;cursor:pointer}.rich-toolbar input[type=color]{width:34px;padding:3px}
+.zone-picker{display:grid;gap:7px;margin-bottom:12px}.zone-picker button{border:1px solid #dfe6db;background:#fff;border-radius:9px;padding:9px;text-align:left;font:800 11px Nunito;color:#315638;cursor:pointer}.zone-picker button.active{border-color:#72a579;background:#edf6e9}
+.rich-help{font:700 10px/1.45 Nunito;color:#667267;margin:0 0 10px}

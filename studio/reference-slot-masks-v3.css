@@ -1,0 +1,12 @@
+.reference-slot.changed{isolation:isolate;overflow:visible;background:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+.reference-slot.chapterLabel.changed,.reference-slot.introText.changed,.reference-slot.mainText.changed,.reference-slot.youngEarthText.changed,.reference-slot.conclusionText.changed{background-color:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+
+/* The title uses a glyph-shaped eraser, not a rectangular patch. This keeps the
+   butterfly, dotted flight path, heart line, and paper texture visible. */
+.reference-slot.mainTitle.changed{left:27%;top:12.6%;width:47%;height:14%;display:flex;align-items:center;justify-content:center;padding:0;box-sizing:border-box;background:transparent;box-shadow:none;overflow:visible}
+.reference-slot.mainTitle.changed::before{content:"How Our\A Earth Began";white-space:pre;position:absolute;inset:-1% -2%;display:flex;align-items:center;justify-content:center;text-align:center;font:italic 700 5.5cqw/1.03 Georgia,serif;letter-spacing:-.025em;color:#fffaf0;-webkit-text-stroke:10px #fffaf0;text-shadow:0 0 3px #fffaf0,0 0 7px #fffaf0;pointer-events:none}
+
+.reference-slot.highlightText.changed{background:#eee7f5;box-shadow:0 0 0 3px #eee7f5}
+.reference-slot.curiosityTitle.changed,.reference-slot.curiosityContent.changed{background:#f5e8c8;box-shadow:0 0 0 3px #f5e8c8}
+.reference-slot.bottomNote.changed{background:#f2e5cc;box-shadow:0 0 0 3px #f2e5cc}
+.reference-replacement:not([hidden]){background:#fffaf0;opacity:1}

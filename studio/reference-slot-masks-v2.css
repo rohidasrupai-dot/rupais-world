@@ -1,0 +1,8 @@
+/* Opaque restoration patches used only after a page-copy slot is edited. */
+.reference-slot.changed{isolation:isolate;overflow:visible;background:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+.reference-slot.chapterLabel.changed,.reference-slot.mainTitle.changed,.reference-slot.introText.changed,.reference-slot.mainText.changed,.reference-slot.youngEarthText.changed,.reference-slot.conclusionText.changed{background-color:#fffaf0;box-shadow:0 0 0 4px #fffaf0}
+.reference-slot.mainTitle.changed{left:25.5%;top:12.1%;width:50%;height:14.8%;display:flex;align-items:center;justify-content:center;padding:0 1.2%;box-sizing:border-box;border-radius:42% 36% 38% 34%;background:radial-gradient(circle at 16% 22%,rgba(222,191,145,.12),transparent 24%),radial-gradient(circle at 82% 76%,rgba(236,203,164,.11),transparent 28%),#fffaf0;box-shadow:0 0 12px 10px #fffaf0}
+.reference-slot.highlightText.changed{background:#eee7f5;box-shadow:0 0 0 3px #eee7f5}
+.reference-slot.curiosityTitle.changed,.reference-slot.curiosityContent.changed{background:#f5e8c8;box-shadow:0 0 0 3px #f5e8c8}
+.reference-slot.bottomNote.changed{background:#f2e5cc;box-shadow:0 0 0 3px #f2e5cc}
+.reference-replacement:not([hidden]){background:#fffaf0;opacity:1}

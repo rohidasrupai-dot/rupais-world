@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fbfaf6">
+  <title>Template Library · Rupai's World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Kalam:wght@400;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="template-library.css"><link rel="stylesheet" href="template-library-placement.css"><link rel="stylesheet" href="template-library-placement-input.css"><script src="auth.js?v=template-library-1"></script><script>window.__studioSession=window.RupaiAuth.requireStudioAccess({returnTo:'template-library.html'});</script>
+</head>
+<body>
+<div class="library-shell">
+  <aside class="creator-sidebar">
+    <a class="wordmark" href="../index.html"><img src="../assets/curio-official-v3.png" alt=""><span><strong>Rupai's World</strong><small>♔ &nbsp;Creator Mode</small></span></a>
+    <nav><p>CREATOR TOOLS</p>
+      <a href="index.html"><i>✎</i> Teach Curio Studio</a><a class="active" href="template-library.html"><i>❀</i> Template Library</a>
+      <a href="../subjects.html"><i>▤</i> My Chapters</a><a href="visual-assets.html"><i>▧</i> Media Manager</a>
+      <a href="../diary.html"><i>▱</i> My Notes</a><a href="quiz.html"><i>?</i> Question Bank</a><a href="account.html"><i>⚙</i> Settings</a>
+    </nav>
+    <section class="curio-tip"><img src="../assets/curio-flowers-kitten-v1.png" alt="Curio and kitten"><div><strong>Curio Tip</strong><p>Create and save your favorite templates here. 💜</p></div></section>
+    <div class="mode-pill">🌿 &nbsp; You are in Creator Mode</div>
+  </aside>
+
+  <main>
+    <header class="page-header"><div><h1>Template Library <span>🌿</span></h1><p>Your beautiful templates, ready to use in any chapter. 💚</p></div>
+      <div class="header-actions"><label class="search">⌕<input id="search" type="search" placeholder="Search templates..."></label><button class="secondary" id="howTo">ⓘ &nbsp; How to Use</button><button class="primary add-template">＋ &nbsp; Add New Template &nbsp;🌿</button></div>
+    </header>
+    <section class="library-card">
+      <div class="filters" id="filters"></div>
+      <div class="workspace">
+        <aside class="template-list-panel"><header><strong id="templateCount">My Templates (0)</strong><button class="icon-button add-template" title="Add template">＋</button></header><div id="templateList"></div></aside>
+        <section class="preview-panel"><header><strong>◉ &nbsp; Preview</strong><span id="previewBadge"></span></header><div class="preview-stage" id="previewStage"></div><footer id="previewControls" hidden><button data-zoom="-">−</button><span id="zoomLabel">100%</span><button data-zoom="+">＋</button><button id="fit" title="Fit to view">⌗</button><button id="fullscreen" title="Full screen">⛶</button></footer></section>
+        <aside class="details-panel"><header><strong>Template Details &nbsp;🌿</strong></header><div id="details"></div></aside>
+      </div>
+      <footer class="library-footer"><span id="showing">Showing 0 of 0 templates</span></footer>
+    </section>
+  </main>
+</div>
+
+<dialog id="addDialog"><form id="templateForm"><button class="dialog-close" type="button" data-close>×</button><span class="eyebrow">YOUR ORIGINAL DESIGN</span><h2>Add New Template 🌿</h2><p>Save a master template you can reuse safely in any chapter.</p>
+  <div class="form-grid"><label class="wide">Template name<input name="name" required maxlength="80" placeholder="e.g. Floral Chapter Opening"></label>
+  <label>Category<select name="category"><option>Opening</option><option>Paragraph</option><option>Points</option><option>Comparison</option><option>Table</option><option>Process</option><option>Timeline</option></select></label>
+  <label>Style<input name="style" placeholder="e.g. Nature"></label><label>Light / Dark<select name="type"><option>Light</option><option>Dark</option></select></label><label>Dimension<select name="dimension"><option>2D</option><option>3D</option><option>N/A</option></select></label>
+  <label>Page size<input name="size" placeholder="e.g. Full Page, A4"></label><label class="wide">Usable areas / slots<input name="slots" placeholder="Title Area, Image Area, Curiosity Box"></label>
+  <label class="wide upload-field">Preview / design asset<input name="preview" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required><small>PNG, JPG, WebP or GIF. The original aspect ratio will be preserved.</small></label>
+  <label class="wide">Notes<textarea name="notes" rows="3" placeholder="Optional metadata or usage notes"></textarea></label></div>
+  <div class="dialog-actions"><button class="secondary" type="button" data-close>Cancel</button><button class="primary" type="submit">Save Template</button></div>
+</form></dialog>
+<dialog id="helpDialog" class="help-dialog"><button class="dialog-close" type="button" data-close-help>×</button><h2>How to use templates</h2><ol><li>Add one of your original template designs.</li><li>Select it to preview the layout and details.</li><li>Choose <b>Use This Template</b> to create a separate chapter-page copy.</li></ol><p>Your master template always stays unchanged in this library.</p></dialog>
+<dialog id="placementDialog" class="placement-dialog"><form id="placementForm"><button class="dialog-close" type="button" data-close-placement>×</button><span class="eyebrow">PLACE A SAFE COPY</span><h2>Use This Template 🌿</h2><p class="placement-intro">Choose exactly where this template page belongs. The master template will remain unchanged.</p>
+  <div class="placement-steps"><label><span><b>1</b> Subject</span><select name="subject" id="placementSubject" required></select></label><div class="placement-arrow">›</div><label><span><b>2</b> Chapter</span><input name="chapterName" id="placementChapter" list="chapterSuggestions" placeholder="Type or select a chapter" autocomplete="off" required><datalist id="chapterSuggestions"></datalist></label><div class="placement-arrow">›</div><fieldset><legend><b>3</b> Page</legend><label class="choice"><input type="radio" name="pageMode" value="existing"> Existing Page</label><label class="choice"><input type="radio" name="pageMode" value="new" checked> Create New Page</label></fieldset></div>
+  <label id="existingPageWrap" class="placement-field" hidden>Choose existing page<select name="pageId" id="placementPage"></select></label>
+  <label id="newPageWrap" class="placement-field">New page name<input name="pageTitle" id="placementTitle" placeholder="Page 01" maxlength="80"></label>
+  <div class="placement-path" id="placementPath">Select a subject and chapter</div>
+  <div class="copy-safety"><span>✓</span><p><b>Your master is protected</b><br>A separate editable copy will be created for this chapter page.</p></div>
+  <div class="dialog-actions"><button class="secondary" type="button" data-close-placement>Cancel</button><button class="primary" type="submit">Create Editable Page Copy</button></div>
+</form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script src="../subject-catalog.js"></script><script src="store.js"></script><script src="file-storage.js"></script><script src="template-library-service-collage.js"></script><script src="template-library-collage.js"></script>
+</body></html>

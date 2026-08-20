@@ -1,0 +1,8 @@
+.reference-slot.changed{isolation:isolate;overflow:visible;background:#fbf4e7;box-shadow:0 0 0 4px #fbf4e7}
+.reference-slot.chapterLabel.changed,.reference-slot.introText.changed,.reference-slot.mainText.changed,.reference-slot.youngEarthText.changed,.reference-slot.conclusionText.changed{background-color:#fbf4e7;box-shadow:0 0 0 4px #fbf4e7}
+.reference-slot.mainTitle.changed{left:27%;top:12.6%;width:47%;height:14%;display:flex;align-items:center;justify-content:center;padding:0;box-sizing:border-box;overflow:visible;background:transparent;box-shadow:none;text-align:center}
+.reference-slot.mainTitle.changed::before{content:"";position:absolute;z-index:-1;inset:-12% -4% -5% -2%;background-image:url('../assets/earth-title-clean-paper-v1.png');background-size:220% auto;background-position:56% 48%;background-repeat:no-repeat;clip-path:polygon(0 0,82% 0,82% 34%,100% 34%,100% 100%,0 100%);-webkit-mask-image:radial-gradient(ellipse at 46% 50%,#000 0 78%,rgba(0,0,0,.98) 86%,rgba(0,0,0,.72) 93%,transparent 100%);mask-image:radial-gradient(ellipse at 46% 50%,#000 0 78%,rgba(0,0,0,.98) 86%,rgba(0,0,0,.72) 93%,transparent 100%);pointer-events:none}
+.reference-slot.highlightText.changed{background:#eee7f5;box-shadow:0 0 0 3px #eee7f5}
+.reference-slot.curiosityTitle.changed,.reference-slot.curiosityContent.changed{background:#f5e8c8;box-shadow:0 0 0 3px #f5e8c8}
+.reference-slot.bottomNote.changed{background:#f2e5cc;box-shadow:0 0 0 3px #f2e5cc}
+.reference-replacement:not([hidden]){background:#fbf4e7;opacity:1}
